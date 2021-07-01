@@ -1,0 +1,87 @@
+
+function generatecode4v(name_,key,v)
+{
+    if(typeof(v) == "object")
+    {
+        if(v == null)
+        {
+            return name_+"[\""+key+"\"] = null;\r\n";
+        }
+        try {
+            return name_+"[\""+key+"\"] = new (class " + v.constructor.name + " {});\r\n";
+        } catch (error) {
+            return name_+"[\""+key+"\"] = \"----------------------------------------------------------------\";\r\n";
+        }
+        
+    }
+    if(typeof(v) == "string")
+    {
+        return name_+"[\""+key+"\"] = \""+v+"\";\r\n";
+    }
+    if(typeof(v) == "function")
+    {
+        return name_+"[\""+key+"\"] = function " + v.name + "(){debugger;};   safefunction("+ name_+"[\""+key+"\"]" +");\r\n";
+    }
+    return name_+"[\""+key+"\"] = "+v+";\r\n";
+}
+
+function generatecode4v1(name_,key,v)
+{
+    if(typeof(v) == "object")
+    {
+        if(v == null)
+        {
+            return name_+".__proto__[\""+key+"\"] = null;\r\n";
+        }
+        try {
+            return name_+".__proto__[\""+key+"\"] = new (class " + v.constructor.name + " {});\r\n";
+        } catch (error) {
+            return name_+".__proto__[\""+key+"\"] = \"----------------------------------------------------------------\";\r\n";
+        }
+        
+    }
+    if(typeof(v) == "string")
+    {
+        
+        return name_+".__proto__[\""+key+"\"] = \""+v+"\";\r\n";
+    }
+    if(typeof(v) == "function")
+    {
+        return name_+".__proto__[\""+key+"\"] = function " + v.name + "(){debugger;};   safefunction("+ name_+".__proto__[\""+key+"\"]" +");\r\n";
+    }
+    return name_+".__proto__[\""+key+"\"] = "+v+";\r\n";
+}
+
+
+
+function generate4example(example,name_)
+{
+    var code = "";
+    var protos = {}
+    if(typeof(example) == "object" && example.prototype == undefined)
+    {
+        for(let key in example.__proto__){
+            protos[key] = true;
+        }
+        for(let key in example){
+            if(protos[key] == undefined)
+            {
+                code+=  generatecode4v(name_,key,example[key]);
+            }
+        }
+        return code;
+    }
+    return ""
+}
+function generate4Prototype(example,name_)
+{
+    var code = "";
+    if(typeof(example) == "object" && example.prototype == undefined)
+    {
+        for(let key in example.__proto__){
+            code+=  generatecode4v1(name_,key,example[key]);
+        }
+        return code;
+    }
+    return ""
+}
