@@ -1,5 +1,5 @@
-var safefunction = require("../plugin/safefunction.js")
-var vmProxy = require("../plugin/InjectionProxy.js")
+var safefunction = require("../../plugin/safefunction.js")
+var vmProxy = require("../../plugin/InjectionProxy.js")
 
 function scrollRestoration() {
     debugger ;var e = new Error();

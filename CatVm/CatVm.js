@@ -21,25 +21,23 @@ function run(this_,config_)
     var PerformanceEntry = require("./browser/PerformanceEntry.js"); PerformanceEntry.setup(this_);
     var DOMTokenList = require("./browser/DOMTokenList.js"); DOMTokenList.setup(this_);
     var Intl = require("./browser/Intl.js"); Intl.setup(this_);
+    var WebGLRenderingContext = require("./browser/WebGLRenderingContext.js"); WebGLRenderingContext.setup(this_);
     
     //  EventTarget
-    var EventTarget = require("./browser/EventTarget.js"); EventTarget.setup(this_);
-    var BaseAudioContext = require("./browser/BaseAudioContext.js"); BaseAudioContext.setup(this_);
-    var OfflineAudioContext = require("./browser/OfflineAudioContext.js"); OfflineAudioContext.setup(this_);
-    var MediaStreamTrack = require("./browser/MediaStreamTrack.js"); MediaStreamTrack.setup(this_);
-    var Bluetooth = require("./browser/Bluetooth.js"); Bluetooth.setup(this_);
-    var Node = require("./browser/Node.js"); Node.setup(this_);
+    var EventTarget = require("./browser/EventTarget/EventTarget.js"); EventTarget.setup(this_);
+    var BaseAudioContext = require("./browser/EventTarget/BaseAudioContext.js"); BaseAudioContext.setup(this_);
+    var OfflineAudioContext = require("./browser/EventTarget/OfflineAudioContext.js"); OfflineAudioContext.setup(this_);
+    var MediaStreamTrack = require("./browser/EventTarget/MediaStreamTrack.js"); MediaStreamTrack.setup(this_);
+    var Bluetooth = require("./browser/EventTarget/Bluetooth.js"); Bluetooth.setup(this_);
+    var Node = require("./browser/EventTarget/Node.js"); Node.setup(this_);
 
     //  Plugin
-    var Plugin = require("./browser/Plugin.js"); Plugin.setup(this_);
-    var PluginArray = require("./browser/PluginArray.js"); PluginArray.setup(this_);
+    var Plugin = require("./browser/Plugin/Plugin.js"); Plugin.setup(this_);
+    var PluginArray = require("./browser/Plugin/PluginArray.js"); PluginArray.setup(this_);
 
     //  Storage
-    var Storage = require("./browser/Storage.js"); Storage.setup(this_);
-    var StorageManager = require("./browser/StorageManager.js"); StorageManager.setup(this_);
-
-    // WebGL2RenderingContext
-    var WebGLRenderingContext = require("./browser/WebGLRenderingContext.js"); WebGLRenderingContext.setup(this_);
+    var Storage = require("./browser/Storage/Storage.js"); Storage.setup(this_);
+    var StorageManager = require("./browser/Storage/StorageManager.js"); StorageManager.setup(this_);
     
 
     require("./browser/CanvasRenderingContext2D.js"); //这个是全局原型 不需要初始化

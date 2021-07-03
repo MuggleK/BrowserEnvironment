@@ -1,4 +1,4 @@
-var EventTarget = require("./EventTarget.js")
+var EventTarget = require("./EventTarget/EventTarget.js")
 
 var windowPropertiesConstructor  = function(){
 
