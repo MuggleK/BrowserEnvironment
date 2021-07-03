@@ -30,6 +30,7 @@ function run(this_,config_)
     var MediaStreamTrack = require("./browser/EventTarget/MediaStreamTrack.js"); MediaStreamTrack.setup(this_);
     var Bluetooth = require("./browser/EventTarget/Bluetooth.js"); Bluetooth.setup(this_);
     var Node = require("./browser/EventTarget/Node.js"); Node.setup(this_);
+    var Element = require("./browser/EventTarget/Element.js"); Element.setup(this_);
 
     //  Plugin
     var Plugin = require("./browser/Plugin/Plugin.js"); Plugin.setup(this_);
