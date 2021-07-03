@@ -24,12 +24,38 @@ function setup(this_) {
 
     var storagePrototype = new (class Storage {});
     //下面函数都需要被保护
-    storagePrototype.length = 1;
-    storagePrototype.clear = function clear() {debugger;}; safefunction(storagePrototype.clear)
-    storagePrototype.getItem = function getItem() {debugger;}; safefunction(storagePrototype.getItem)
-    storagePrototype.key = function key() {debugger;}; safefunction(storagePrototype.key)
-    storagePrototype.removeItem = function removeItem() {debugger;}; safefunction(storagePrototype.removeItem)
-    storagePrototype.setItem = function setItem() {debugger;}; safefunction(storagePrototype.setItem)
+    storagePrototype.length = 0;
+    storagePrototype.clear = function clear() {
+        debugger;
+        // this = new Storage();
+    }; safefunction(storagePrototype.clear)
+    storagePrototype.getItem = function getItem(e) {
+        debugger;
+        return this[e];
+    }; safefunction(storagePrototype.getItem)
+    storagePrototype.key = function key(e) {
+        debugger;
+        if (typeof(e) == 'number'){
+            var o = 0;
+            for (var i in this) {
+                if (o++ == e) return i
+            }
+        }
+        if (typeof(e) == 'string'){
+            if (e in this) return e
+        }
+        return undefined
+    }; safefunction(storagePrototype.key)
+    storagePrototype.removeItem = function removeItem(e) {
+        debugger;
+        delete this[e];
+        this['length'] = Object.keys(this).length - 1
+    }; safefunction(storagePrototype.removeItem)
+    storagePrototype.setItem = function setItem(e,t) {
+        debugger;
+        this[e] = t;
+        this['length'] = Object.keys(this).length - 1
+    }; safefunction(storagePrototype.setItem)
 
     Object.defineProperties(storagePrototype, {
         constructor: {
@@ -56,6 +82,56 @@ function setup(this_) {
 
     //这里容易被检测 代理
     Storage = vmProxy(Storage);
+
+    var localStorage = new Storage();
+    localStorage['length'] = Object.keys(localStorage).length;
+    // localStorage 注入到全局 
+    Object.defineProperty(global, "localStorage", {
+        configurable: true,
+        writable: true,
+        value: storageConstructor
+    });
+    Object.defineProperty(global, "localStorage", {
+        configurable: true,
+        writable: true,
+        value: localStorage
+    });
+    //注入到window 
+    Object.defineProperty(window, "localStorage", {
+        configurable: true,
+        writable: true,
+        value: storageConstructor
+    });
+    Object.defineProperty(window, "localStorage", {
+        configurable: true,
+        writable: true,
+        value: localStorage
+    });
+
+    var sessionStorage = new Storage();
+    sessionStorage['length'] = Object.keys(sessionStorage).length;
+    // sessionStorage 注入到全局 
+    Object.defineProperty(global, "sessionStorage", {
+        configurable: true,
+        writable: true,
+        value: storageConstructor
+    });
+    Object.defineProperty(global, "sessionStorage", {
+        configurable: true,
+        writable: true,
+        value: sessionStorage
+    });
+    //注入到window 
+    Object.defineProperty(window, "sessionStorage", {
+        configurable: true,
+        writable: true,
+        value: storageConstructor
+    });
+    Object.defineProperty(window, "sessionStorage", {
+        configurable: true,
+        writable: true,
+        value: sessionStorage
+    });
 
     // 把属性继续定义到 静态属性中
     for (let key in Storage.prototype) {
@@ -93,6 +169,7 @@ function setup(this_) {
         writable: true,
         value: Storage
     });
+
     
 }
 

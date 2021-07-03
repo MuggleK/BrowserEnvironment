@@ -1,11 +1,12 @@
 var safefunction = require("../plugin/safefunction.js")
 var vmProxy = require("../plugin/InjectionProxy.js")
 
+
 function scrollRestoration() {
     debugger ;var e = new Error();
     e.name = "TypeError";
     e.message = "Illegal invocation";
-    e.stack = "TypeError  = Illegal invocation \r\n \
+    e.stack = "TypeError: Illegal invocation \r\n \
   at <anonymous>:1:19";
     throw e;
 }
@@ -324,9 +325,6 @@ function setup(this_) {
     webGLRenderingContextPrototype.canvas = {};
     webGLRenderingContextPrototype.drawingBufferHeight = 150
     webGLRenderingContextPrototype.drawingBufferWidth = 300
-
-
-
     webGLRenderingContextPrototype.getExtension = function getExtension(x) {
                 if(x == "WEBGL_debug_renderer_info")
                     return {UNMASKED_RENDERER_WEBGL: 37446,
@@ -340,12 +338,145 @@ function setup(this_) {
                     return "ANGLE (Intel(R) UHD Graphics 630 Direct3D11 vs_5_0 ps_5_0)";
                 else {return '';}
             }; safefunction(webGLRenderingContextPrototype.getParameter)
-
     webGLRenderingContextPrototype.activeTexture = function activeTexture() {debugger;}; safefunction(webGLRenderingContextPrototype.activeTexture)
-    webGLRenderingContextPrototype.removeItem = function removeItem() {debugger;}; safefunction(webGLRenderingContextPrototype.removeItem)
-    webGLRenderingContextPrototype.setItem = function setItem() {debugger;}; safefunction(webGLRenderingContextPrototype.setItem)
-
-    webGLRenderingContextPrototype.Object.defineProperties(webGLRenderingContextPrototype, {
+    webGLRenderingContextPrototype.attachShader = function attachShader() {debugger;}; safefunction(webGLRenderingContextPrototype.attachShader)
+    webGLRenderingContextPrototype.bindAttribLocation = function bindAttribLocation() {debugger;}; safefunction(webGLRenderingContextPrototype.bindAttribLocation)
+    webGLRenderingContextPrototype.bindBuffer = function bindBuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.bindBuffer)
+    webGLRenderingContextPrototype.bindFramebuffer = function bindFramebuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.bindFramebuffer)
+    webGLRenderingContextPrototype.bindRenderbuffer = function bindRenderbuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.bindRenderbuffer)
+    webGLRenderingContextPrototype.bindTexture = function bindTexture() {debugger;}; safefunction(webGLRenderingContextPrototype.bindTexture)
+    webGLRenderingContextPrototype.blendColor = function blendColor() {debugger;}; safefunction(webGLRenderingContextPrototype.blendColor)
+    webGLRenderingContextPrototype.blendEquation = function blendEquation() {debugger;}; safefunction(webGLRenderingContextPrototype.blendEquation)
+    webGLRenderingContextPrototype.blendEquationSeparate = function blendEquationSeparate() {debugger;}; safefunction(webGLRenderingContextPrototype.blendEquationSeparate)
+    webGLRenderingContextPrototype.blendFunc = function blendFunc() {debugger;}; safefunction(webGLRenderingContextPrototype.blendFunc)
+    webGLRenderingContextPrototype.blendFuncSeparate = function blendFuncSeparate() {debugger;}; safefunction(webGLRenderingContextPrototype.blendFuncSeparate)
+    webGLRenderingContextPrototype.bufferData = function bufferData() {debugger;}; safefunction(webGLRenderingContextPrototype.bufferData)
+    webGLRenderingContextPrototype.bufferSubData = function bufferSubData() {debugger;}; safefunction(webGLRenderingContextPrototype.bufferSubData)
+    webGLRenderingContextPrototype.checkFramebufferStatus = function checkFramebufferStatus() {debugger;}; safefunction(webGLRenderingContextPrototype.checkFramebufferStatus)
+    webGLRenderingContextPrototype.clear = function clear() {debugger;}; safefunction(webGLRenderingContextPrototype.clear)
+    webGLRenderingContextPrototype.clearColor = function clearColor() {debugger;}; safefunction(webGLRenderingContextPrototype.clearColor)
+    webGLRenderingContextPrototype.clearDepth = function clearDepth() {debugger;}; safefunction(webGLRenderingContextPrototype.clearDepth)
+    webGLRenderingContextPrototype.clearStencil = function clearStencil() {debugger;}; safefunction(webGLRenderingContextPrototype.clearStencil)
+    webGLRenderingContextPrototype.colorMask = function colorMask() {debugger;}; safefunction(webGLRenderingContextPrototype.colorMask)
+    webGLRenderingContextPrototype.compileShader = function compileShader() {debugger;}; safefunction(webGLRenderingContextPrototype.compileShader)
+    webGLRenderingContextPrototype.compressedTexImage2D = function compressedTexImage2D() {debugger;}; safefunction(webGLRenderingContextPrototype.compressedTexImage2D)
+    webGLRenderingContextPrototype.compressedTexSubImage2D = function compressedTexSubImage2D() {debugger;}; safefunction(webGLRenderingContextPrototype.compressedTexSubImage2D)
+    webGLRenderingContextPrototype.copyTexImage2D = function copyTexImage2D() {debugger;}; safefunction(webGLRenderingContextPrototype.copyTexImage2D)
+    webGLRenderingContextPrototype.copyTexSubImage2D = function copyTexSubImage2D() {debugger;}; safefunction(webGLRenderingContextPrototype.copyTexSubImage2D)
+    webGLRenderingContextPrototype.createBuffer = function createBuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.createBuffer)
+    webGLRenderingContextPrototype.createFramebuffer = function createFramebuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.createFramebuffer)
+    webGLRenderingContextPrototype.createProgram = function createProgram() {debugger;}; safefunction(webGLRenderingContextPrototype.createProgram)
+    webGLRenderingContextPrototype.createRenderbuffer = function createRenderbuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.createRenderbuffer)
+    webGLRenderingContextPrototype.createShader = function createShader() {debugger;}; safefunction(webGLRenderingContextPrototype.createShader)
+    webGLRenderingContextPrototype.createTexture = function createTexture() {debugger;}; safefunction(webGLRenderingContextPrototype.createTexture)
+    webGLRenderingContextPrototype.cullFace = function cullFace() {debugger;}; safefunction(webGLRenderingContextPrototype.cullFace)
+    webGLRenderingContextPrototype.deleteBuffer = function deleteBuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.deleteBuffer)
+    webGLRenderingContextPrototype.deleteFramebuffer = function deleteFramebuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.deleteFramebuffer)
+    webGLRenderingContextPrototype.deleteProgram = function deleteProgram() {debugger;}; safefunction(webGLRenderingContextPrototype.deleteProgram)
+    webGLRenderingContextPrototype.deleteRenderbuffer = function deleteRenderbuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.deleteRenderbuffer)
+    webGLRenderingContextPrototype.deleteShader = function deleteShader() {debugger;}; safefunction(webGLRenderingContextPrototype.deleteShader)
+    webGLRenderingContextPrototype.deleteTexture = function deleteTexture() {debugger;}; safefunction(webGLRenderingContextPrototype.deleteTexture)
+    webGLRenderingContextPrototype.depthFunc = function depthFunc() {debugger;}; safefunction(webGLRenderingContextPrototype.depthFunc)
+    webGLRenderingContextPrototype.depthMask = function depthMask() {debugger;}; safefunction(webGLRenderingContextPrototype.depthMask)
+    webGLRenderingContextPrototype.depthRange = function depthRange() {debugger;}; safefunction(webGLRenderingContextPrototype.depthRange)
+    webGLRenderingContextPrototype.detachShader = function detachShader() {debugger;}; safefunction(webGLRenderingContextPrototype.detachShader)
+    webGLRenderingContextPrototype.disable = function disable() {debugger;}; safefunction(webGLRenderingContextPrototype.disable)
+    webGLRenderingContextPrototype.disableVertexAttribArray = function disableVertexAttribArray() {debugger;}; safefunction(webGLRenderingContextPrototype.disableVertexAttribArray)
+    webGLRenderingContextPrototype.enable = function enable() {debugger;}; safefunction(webGLRenderingContextPrototype.enable)
+    webGLRenderingContextPrototype.enableVertexAttribArray = function enableVertexAttribArray() {debugger;}; safefunction(webGLRenderingContextPrototype.enableVertexAttribArray)
+    webGLRenderingContextPrototype.finish = function finish() {debugger;}; safefunction(webGLRenderingContextPrototype.finish)
+    webGLRenderingContextPrototype.flush = function flush() {debugger;}; safefunction(webGLRenderingContextPrototype.flush)
+    webGLRenderingContextPrototype.framebufferRenderbuffer = function framebufferRenderbuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.framebufferRenderbuffer)
+    webGLRenderingContextPrototype.framebufferTexture2D = function framebufferTexture2D() {debugger;}; safefunction(webGLRenderingContextPrototype.framebufferTexture2D)
+    webGLRenderingContextPrototype.frontFace = function frontFace() {debugger;}; safefunction(webGLRenderingContextPrototype.frontFace)
+    webGLRenderingContextPrototype.generateMipmap = function generateMipmap() {debugger;}; safefunction(webGLRenderingContextPrototype.generateMipmap)
+    webGLRenderingContextPrototype.getActiveAttrib = function getActiveAttrib() {debugger;}; safefunction(webGLRenderingContextPrototype.getActiveAttrib)
+    webGLRenderingContextPrototype.getActiveUniform = function getActiveUniform() {debugger;}; safefunction(webGLRenderingContextPrototype.getActiveUniform)
+    webGLRenderingContextPrototype.getAttachedShaders = function getAttachedShaders() {debugger;}; safefunction(webGLRenderingContextPrototype.getAttachedShaders)
+    webGLRenderingContextPrototype.getAttribLocation = function getAttribLocation() {debugger;}; safefunction(webGLRenderingContextPrototype.getAttribLocation)
+    webGLRenderingContextPrototype.getBufferParameter = function getBufferParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getBufferParameter)
+    webGLRenderingContextPrototype.getContextAttributes = function getContextAttributes() {debugger;}; safefunction(webGLRenderingContextPrototype.getContextAttributes)
+    webGLRenderingContextPrototype.getError = function getError() {debugger;}; safefunction(webGLRenderingContextPrototype.getError)
+    webGLRenderingContextPrototype.getExtension = function getExtension() {debugger;}; safefunction(webGLRenderingContextPrototype.getExtension)
+    webGLRenderingContextPrototype.getFramebufferAttachmentParameter = function getFramebufferAttachmentParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getFramebufferAttachmentParameter)
+    webGLRenderingContextPrototype.getParameter = function getParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getParameter)
+    webGLRenderingContextPrototype.getProgramInfoLog = function getProgramInfoLog() {debugger;}; safefunction(webGLRenderingContextPrototype.getProgramInfoLog)
+    webGLRenderingContextPrototype.getProgramParameter = function getProgramParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getProgramParameter)
+    webGLRenderingContextPrototype.getRenderbufferParameter = function getRenderbufferParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getRenderbufferParameter)
+    webGLRenderingContextPrototype.getShaderInfoLog = function getShaderInfoLog() {debugger;}; safefunction(webGLRenderingContextPrototype.getShaderInfoLog)
+    webGLRenderingContextPrototype.getShaderParameter = function getShaderParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getShaderParameter)
+    webGLRenderingContextPrototype.getShaderPrecisionFormat = function getShaderPrecisionFormat() {debugger;}; safefunction(webGLRenderingContextPrototype.getShaderPrecisionFormat)
+    webGLRenderingContextPrototype.getShaderSource = function getShaderSource() {debugger;}; safefunction(webGLRenderingContextPrototype.getShaderSource)
+    webGLRenderingContextPrototype.getSupportedExtensions = function getSupportedExtensions() {debugger;}; safefunction(webGLRenderingContextPrototype.getSupportedExtensions)
+    webGLRenderingContextPrototype.getTexParameter = function getTexParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getTexParameter)
+    webGLRenderingContextPrototype.getUniform = function getUniform() {debugger;}; safefunction(webGLRenderingContextPrototype.getUniform)
+    webGLRenderingContextPrototype.getUniformLocation = function getUniformLocation() {debugger;}; safefunction(webGLRenderingContextPrototype.getUniformLocation)
+    webGLRenderingContextPrototype.getVertexAttrib = function getVertexAttrib() {debugger;}; safefunction(webGLRenderingContextPrototype.getVertexAttrib)
+    webGLRenderingContextPrototype.getVertexAttribOffset = function getVertexAttribOffset() {debugger;}; safefunction(webGLRenderingContextPrototype.getVertexAttribOffset)
+    webGLRenderingContextPrototype.hint = function hint() {debugger;}; safefunction(webGLRenderingContextPrototype.hint)
+    webGLRenderingContextPrototype.isBuffer = function isBuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.isBuffer)
+    webGLRenderingContextPrototype.isContextLost = function isContextLost() {debugger;}; safefunction(webGLRenderingContextPrototype.isContextLost)
+    webGLRenderingContextPrototype.isEnabled = function isEnabled() {debugger;}; safefunction(webGLRenderingContextPrototype.isEnabled)
+    webGLRenderingContextPrototype.isFramebuffer = function isFramebuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.isFramebuffer)
+    webGLRenderingContextPrototype.isProgram = function isProgram() {debugger;}; safefunction(webGLRenderingContextPrototype.isProgram)
+    webGLRenderingContextPrototype.isRenderbuffer = function isRenderbuffer() {debugger;}; safefunction(webGLRenderingContextPrototype.isRenderbuffer)
+    webGLRenderingContextPrototype.isShader = function isShader() {debugger;}; safefunction(webGLRenderingContextPrototype.isShader)
+    webGLRenderingContextPrototype.isTexture = function isTexture() {debugger;}; safefunction(webGLRenderingContextPrototype.isTexture)
+    webGLRenderingContextPrototype.lineWidth = function lineWidth() {debugger;}; safefunction(webGLRenderingContextPrototype.lineWidth)
+    webGLRenderingContextPrototype.linkProgram = function linkProgram() {debugger;}; safefunction(webGLRenderingContextPrototype.linkProgram)
+    webGLRenderingContextPrototype.pixelStorei = function pixelStorei() {debugger;}; safefunction(webGLRenderingContextPrototype.pixelStorei)
+    webGLRenderingContextPrototype.polygonOffset = function polygonOffset() {debugger;}; safefunction(webGLRenderingContextPrototype.polygonOffset)
+    webGLRenderingContextPrototype.readPixels = function readPixels() {debugger;}; safefunction(webGLRenderingContextPrototype.readPixels)
+    webGLRenderingContextPrototype.renderbufferStorage = function renderbufferStorage() {debugger;}; safefunction(webGLRenderingContextPrototype.renderbufferStorage)
+    webGLRenderingContextPrototype.sampleCoverage = function sampleCoverage() {debugger;}; safefunction(webGLRenderingContextPrototype.sampleCoverage)
+    webGLRenderingContextPrototype.scissor = function scissor() {debugger;}; safefunction(webGLRenderingContextPrototype.scissor)
+    webGLRenderingContextPrototype.shaderSource = function shaderSource() {debugger;}; safefunction(webGLRenderingContextPrototype.shaderSource)
+    webGLRenderingContextPrototype.stencilFunc = function stencilFunc() {debugger;}; safefunction(webGLRenderingContextPrototype.stencilFunc)
+    webGLRenderingContextPrototype.stencilFuncSeparate = function stencilFuncSeparate() {debugger;}; safefunction(webGLRenderingContextPrototype.stencilFuncSeparate)
+    webGLRenderingContextPrototype.stencilMask = function stencilMask() {debugger;}; safefunction(webGLRenderingContextPrototype.stencilMask)
+    webGLRenderingContextPrototype.stencilMaskSeparate = function stencilMaskSeparate() {debugger;}; safefunction(webGLRenderingContextPrototype.stencilMaskSeparate)
+    webGLRenderingContextPrototype.stencilOp = function stencilOp() {debugger;}; safefunction(webGLRenderingContextPrototype.stencilOp)
+    webGLRenderingContextPrototype.stencilOpSeparate = function stencilOpSeparate() {debugger;}; safefunction(webGLRenderingContextPrototype.stencilOpSeparate)
+    webGLRenderingContextPrototype.texImage2D = function texImage2D() {debugger;}; safefunction(webGLRenderingContextPrototype.texImage2D)
+    webGLRenderingContextPrototype.texParameterf = function texParameterf() {debugger;}; safefunction(webGLRenderingContextPrototype.texParameterf)
+    webGLRenderingContextPrototype.texParameteri = function texParameteri() {debugger;}; safefunction(webGLRenderingContextPrototype.texParameteri)
+    webGLRenderingContextPrototype.texSubImage2D = function texSubImage2D() {debugger;}; safefunction(webGLRenderingContextPrototype.texSubImage2D)
+    webGLRenderingContextPrototype.uniform1f = function uniform1f() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform1f)
+    webGLRenderingContextPrototype.uniform1fv = function uniform1fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform1fv)
+    webGLRenderingContextPrototype.uniform1i = function uniform1i() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform1i)
+    webGLRenderingContextPrototype.uniform1iv = function uniform1iv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform1iv)
+    webGLRenderingContextPrototype.uniform2f = function uniform2f() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform2f)
+    webGLRenderingContextPrototype.uniform2fv = function uniform2fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform2fv)
+    webGLRenderingContextPrototype.uniform2i = function uniform2i() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform2i)
+    webGLRenderingContextPrototype.uniform2iv = function uniform2iv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform2iv)
+    webGLRenderingContextPrototype.uniform3f = function uniform3f() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform3f)
+    webGLRenderingContextPrototype.uniform3fv = function uniform3fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform3fv)
+    webGLRenderingContextPrototype.uniform3i = function uniform3i() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform3i)
+    webGLRenderingContextPrototype.uniform3iv = function uniform3iv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform3iv)
+    webGLRenderingContextPrototype.uniform4f = function uniform4f() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform4f)
+    webGLRenderingContextPrototype.uniform4fv = function uniform4fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform4fv)
+    webGLRenderingContextPrototype.uniform4i = function uniform4i() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform4i)
+    webGLRenderingContextPrototype.uniform4iv = function uniform4iv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniform4iv)
+    webGLRenderingContextPrototype.uniformMatrix2fv = function uniformMatrix2fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniformMatrix2fv)
+    webGLRenderingContextPrototype.uniformMatrix3fv = function uniformMatrix3fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniformMatrix3fv)
+    webGLRenderingContextPrototype.uniformMatrix4fv = function uniformMatrix4fv() {debugger;}; safefunction(webGLRenderingContextPrototype.uniformMatrix4fv)
+    webGLRenderingContextPrototype.useProgram = function useProgram() {debugger;}; safefunction(webGLRenderingContextPrototype.useProgram)
+    webGLRenderingContextPrototype.validateProgram = function validateProgram() {debugger;}; safefunction(webGLRenderingContextPrototype.validateProgram)
+    webGLRenderingContextPrototype.vertexAttrib1f = function vertexAttrib1f() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib1f)
+    webGLRenderingContextPrototype.vertexAttrib1fv = function vertexAttrib1fv() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib1fv)
+    webGLRenderingContextPrototype.vertexAttrib2f = function vertexAttrib2f() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib2f)
+    webGLRenderingContextPrototype.vertexAttrib2fv = function vertexAttrib2fv() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib2fv)
+    webGLRenderingContextPrototype.vertexAttrib3f = function vertexAttrib3f() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib3f)
+    webGLRenderingContextPrototype.vertexAttrib3fv = function vertexAttrib3fv() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib3fv)
+    webGLRenderingContextPrototype.vertexAttrib4f = function vertexAttrib4f() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib4f)
+    webGLRenderingContextPrototype.vertexAttrib4fv = function vertexAttrib4fv() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttrib4fv)
+    webGLRenderingContextPrototype.vertexAttribPointer = function vertexAttribPointer() {debugger;}; safefunction(webGLRenderingContextPrototype.vertexAttribPointer)
+    webGLRenderingContextPrototype.viewport = function viewport() {debugger;}; safefunction(webGLRenderingContextPrototype.viewport)
+    webGLRenderingContextPrototype.drawArrays = function drawArrays() {debugger;}; safefunction(webGLRenderingContextPrototype.drawArrays)
+    webGLRenderingContextPrototype.drawElements = function drawElements() {debugger;}; safefunction(webGLRenderingContextPrototype.drawElements)
+    webGLRenderingContextPrototype.makeXRCompatible = function makeXRCompatible() {debugger;}; safefunction(webGLRenderingContextPrototype.makeXRCompatible)
+            
+    Object.defineProperties(webGLRenderingContextPrototype, {
         constructor: {
             value:webGLRenderingContextConstructor,
             writable: true,
@@ -353,13 +484,8 @@ function setup(this_) {
         },
         [Symbol.toStringTag]: {
             value: "WebGLRenderingContext",
-            configurable  = true
-        },
-        [Symbol.iterator]: {
-            value: function values(){},
             configurable: true
-        }
-
+        },
     });
 
     var WebGLRenderingContext = function() {}
@@ -371,38 +497,30 @@ function setup(this_) {
     //这里容易被检测 代理
     WebGLRenderingContext = vmProxy(WebGLRenderingContext);
 
-    // 把属性继续定义到 静态属性中
-    for (let key in WebGLRenderingContext.prototype) {
-        if (typeof (list_[key]) != "undefined") {
-            WebGLRenderingContext.prototype[key] = WebGLRenderingContext.prototype[key];
-            //神奇的操作
-        }
-        if (typeof (WebGLRenderingContext.prototype[key]) != "function") {
-            WebGLRenderingContext.prototype.__defineGetter__(key, scrollRestoration);
-            if (key == "scrollRestoration") {
-                WebGLRenderingContext.prototype.__defineSetter__(key, scrollRestoration);
-            }
-        }
-    }
+    ////
+    WebGLRenderingContext.prototype.__defineGetter__('canvas', scrollRestoration);
+    WebGLRenderingContext.prototype.__defineGetter__('drawingBufferHeight', scrollRestoration);
+    WebGLRenderingContext.prototype.__defineGetter__('drawingBufferWidth', scrollRestoration);
+
 
     // WebGLRenderingContext 注入到全局 
-    webGLRenderingContextPrototype.Object.defineProperty(global, "WebGLRenderingContext", {
+    Object.defineProperty(global, "WebGLRenderingContext", {
         configurable: true,
         writable: true,
         value: webGLRenderingContextConstructor
     });
-    webGLRenderingContextPrototype.Object.defineProperty(global, "WebGLRenderingContext", {
+    Object.defineProperty(global, "WebGLRenderingContext", {
         configurable: true,
         writable: true,
         value: WebGLRenderingContext
     });
     //注入到window 
-    webGLRenderingContextPrototype.Object.defineProperty(window, "WebGLRenderingContext", {
+    Object.defineProperty(window, "WebGLRenderingContext", {
         configurable: true,
         writable: true,
         value: webGLRenderingContextConstructor
     });
-    webGLRenderingContextPrototype.Object.defineProperty(window, "WebGLRenderingContext", {
+    Object.defineProperty(window, "WebGLRenderingContext", {
         configurable: true,
         writable: true,
         value: WebGLRenderingContext

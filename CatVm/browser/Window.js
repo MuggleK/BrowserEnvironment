@@ -303,25 +303,6 @@ function setup(this_)
     // window['HTMLMediaElement'] = {'prototype':{'hasOwnProperty':function (x){if(x=='mozAutoplayEnabled')return false}}}
     // window['HTMLDocument'] = {'prototype':{'hasOwnProperty':function (x){if(x=='getSelection') return false;}}}
 
-    // window.WebGLRenderingContext ={
-    //     canvas:window.canvas,
-    //     drawingBufferHeight: 150,
-    //     drawingBufferWidth: 300,
-    //     getExtension:function (x) {
-    //         if(x == "WEBGL_debug_renderer_info")
-    //             return {UNMASKED_RENDERER_WEBGL: 37446,
-    //                 UNMASKED_VENDOR_WEBGL: 37445}
-    //         else{
-    //             return {}
-    //         }
-    //     },
-    //     getParameter:function (x) {
-    //         if(x == 37446)
-    //             return "ANGLE (Intel(R) UHD Graphics 630 Direct3D11 vs_5_0 ps_5_0)";
-    //         else {return '';}
-    //     }
-    // };
-
     String.prototype.charAt.value = 2
 
     

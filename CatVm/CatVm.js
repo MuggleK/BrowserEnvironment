@@ -28,6 +28,7 @@ function run(this_,config_)
     var OfflineAudioContext = require("./browser/OfflineAudioContext.js"); OfflineAudioContext.setup(this_);
     var MediaStreamTrack = require("./browser/MediaStreamTrack.js"); MediaStreamTrack.setup(this_);
     var Bluetooth = require("./browser/Bluetooth.js"); Bluetooth.setup(this_);
+    var Node = require("./browser/Node.js"); Node.setup(this_);
 
     //  Plugin
     var Plugin = require("./browser/Plugin.js"); Plugin.setup(this_);
@@ -36,6 +37,9 @@ function run(this_,config_)
     //  Storage
     var Storage = require("./browser/Storage.js"); Storage.setup(this_);
     var StorageManager = require("./browser/StorageManager.js"); StorageManager.setup(this_);
+
+    // WebGL2RenderingContext
+    var WebGLRenderingContext = require("./browser/WebGLRenderingContext.js"); WebGLRenderingContext.setup(this_);
     
 
     require("./browser/CanvasRenderingContext2D.js"); //这个是全局原型 不需要初始化
