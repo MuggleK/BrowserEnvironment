@@ -341,7 +341,7 @@ function setup(this_) {
                 else {return '';}
             }; safefunction(webGLRenderingContextPrototype.getParameter)
 
-    webGLRenderingContextPrototype.key = function key() {debugger;}; safefunction(webGLRenderingContextPrototype.key)
+    webGLRenderingContextPrototype.activeTexture = function activeTexture() {debugger;}; safefunction(webGLRenderingContextPrototype.activeTexture)
     webGLRenderingContextPrototype.removeItem = function removeItem() {debugger;}; safefunction(webGLRenderingContextPrototype.removeItem)
     webGLRenderingContextPrototype.setItem = function setItem() {debugger;}; safefunction(webGLRenderingContextPrototype.setItem)
 
