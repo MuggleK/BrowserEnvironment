@@ -290,17 +290,7 @@ function setup(this_)
     window['console'] = global.console;
     window['Symbol'] = global.Symbol;
     window['WeakMap'] = global.WeakMap;
-    window['Element'] = {
-        'prototype':{
-            'webkitMatchesSelector':function(){}
-        }
-    }
     window['webkitRTCPeerConnection'] = new (class Object {});
-    // window['PointerEvent'] = {'prototype':{}}
-    // window.PointerEvent.prototype = {
-    //     'getCoalescedEvents' : new (class getCoalescedEvents {})
-    // }
-    // window['HTMLMediaElement'] = {'prototype':{'hasOwnProperty':function (x){if(x=='mozAutoplayEnabled')return false}}}
     // window['HTMLDocument'] = {'prototype':{'hasOwnProperty':function (x){if(x=='getSelection') return false;}}}
 
     String.prototype.charAt.value = 2

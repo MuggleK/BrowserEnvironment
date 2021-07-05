@@ -31,6 +31,8 @@ function run(this_,config_)
     var Bluetooth = require("./browser/EventTarget/Bluetooth.js"); Bluetooth.setup(this_);
     var Node = require("./browser/EventTarget/Node.js"); Node.setup(this_);
     var Element = require("./browser/EventTarget/Element.js"); Element.setup(this_);
+    var HTMLElement = require("./browser/EventTarget/HTMLElement.js"); HTMLElement.setup(this_);
+    var HTMLMediaElement = require("./browser/EventTarget/HTMLMediaElement.js"); HTMLMediaElement.setup(this_);
 
     //  Plugin
     var Plugin = require("./browser/Plugin/Plugin.js"); Plugin.setup(this_);
@@ -39,6 +41,12 @@ function run(this_,config_)
     //  Storage
     var Storage = require("./browser/Storage/Storage.js"); Storage.setup(this_);
     var StorageManager = require("./browser/Storage/StorageManager.js"); StorageManager.setup(this_);
+
+    // Event
+    var Event = require("./browser/Event/Event.js"); Event.setup(this_);
+    var UIEvent = require("./browser/Event/UIEvent.js"); UIEvent.setup(this_);
+    var MouseEvent = require("./browser/Event/MouseEvent.js"); MouseEvent.setup(this_);
+    var PointerEvent = require("./browser/Event/PointerEvent.js"); PointerEvent.setup(this_);
     
 
     require("./browser/CanvasRenderingContext2D.js"); //这个是全局原型 不需要初始化
