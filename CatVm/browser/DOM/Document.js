@@ -302,6 +302,9 @@ function setup(this_) {
     document['addEventListener'] = function (e) {
         return {}
     };
+    document['removeEventListener'] = function (e) {
+        return {}
+    };
     document['getElementById'] = function (e) {
         return {
             'parentNode':
@@ -325,10 +328,13 @@ function setup(this_) {
     document['querySelector'] = function(x){};
     document['hasFocus'] = function(){return false};
     document['documentElement'] = document;
-    document['referrer'] = "";
+    document['referrer'] = "https://www.douyin.com";
     document['prototype'] = {};
     document['hidden'] = false;
     document['wasDiscarded'] = false;
+    document['cookie'] = {
+        '': 'douyin.com'
+    };
 
 
     function scrollRestoration(){

@@ -31,11 +31,11 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] ="https://login.taobao.com/";
-    location["origin"] ="https://login.taobao.com";
+    location["href"] ="https://www.douyin.com/";
+    location["origin"] ="https://www.douyin.com";
     location["protocol"] ="https:";
-    location["host"] ="login.taobao.com";
-    location["hostname"] ="login.taobao.com";
+    location["host"] ="www.douyin.com";
+    location["hostname"] ="www.douyin.com";
     location["port"] ="";
     location["pathname"] ="/";
     location["search"] ="";

@@ -22,6 +22,10 @@ function run(this_,config_)
     var DOMTokenList = require("./browser/DOMTokenList.js"); DOMTokenList.setup(this_);
     var Intl = require("./browser/Intl.js"); Intl.setup(this_);
     var WebGLRenderingContext = require("./browser/WebGLRenderingContext.js"); WebGLRenderingContext.setup(this_);
+    var IDBFactory = require("./browser/IDBFactory.js"); IDBFactory.setup(this_);
+    var DOMException = require("./browser/DOMException.js"); DOMException.setup(this_);
+    var Request = require("./browser/Request.js"); Request.setup(this_);
+    var Headers = require("./browser/Headers.js"); Headers.setup(this_);
     
     //  EventTarget
     var EventTarget = require("./browser/EventTarget/EventTarget.js"); EventTarget.setup(this_);
@@ -33,6 +37,10 @@ function run(this_,config_)
     var Element = require("./browser/EventTarget/Element.js"); Element.setup(this_);
     var HTMLElement = require("./browser/EventTarget/HTMLElement.js"); HTMLElement.setup(this_);
     var HTMLMediaElement = require("./browser/EventTarget/HTMLMediaElement.js"); HTMLMediaElement.setup(this_);
+    var Image = require("./browser/EventTarget/Image.js"); Image.setup(this_);
+    var WebSocket = require("./browser/EventTarget/WebSocket.js"); WebSocket.setup(this_);
+    var XMLHttpRequestEventTarget = require("./browser/EventTarget/XMLHttpRequestEventTarget.js"); XMLHttpRequestEventTarget.setup(this_);
+    var XMLHttpRequest = require("./browser/EventTarget/XMLHttpRequest.js"); XMLHttpRequest.setup(this_);
 
     //  Plugin
     var Plugin = require("./browser/Plugin/Plugin.js"); Plugin.setup(this_);
@@ -50,8 +58,8 @@ function run(this_,config_)
     
 
     require("./browser/CanvasRenderingContext2D.js"); //这个是全局原型 不需要初始化
-    //加载环境 dom Element 类型列表
-    //暂时没想好先单个加载
+    // 加载环境 dom Element 类型列表
+    // 暂时没想好先单个加载
 
     require("./browser/DOM/Elements/HTMLAudioElement.js");
 

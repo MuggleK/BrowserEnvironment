@@ -58,7 +58,7 @@ function setup(this_) {
     navigator.__proto__["product"] = "Gecko";
     navigator.__proto__["userAgent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
     navigator.__proto__["language"] = "zh-CN";
-    navigator.__proto__["languages"] = new (class Array {});
+    navigator.__proto__["languages"] = ["en-US", "en", "zh", "zh-CN"];
     navigator.__proto__["onLine"] = true;
     navigator.__proto__["getBattery"] = function getBattery(){
         return new Promise(function(resolve, reject) {
