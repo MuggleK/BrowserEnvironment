@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CatVm/CatVm.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/CatVm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/DOM/Document.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/DOM/Document.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/History.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/History.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Location.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Location.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Navigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Plugin/PluginArray.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Plugin/PluginArray.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Window.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Window.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/plugin/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/plugin/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625557459987</updated>
-      <workItem from="1625557461696" duration="2473000" />
+      <workItem from="1625557461696" duration="3347000" />
     </task>
     <servers />
   </component>
