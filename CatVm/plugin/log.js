@@ -4,7 +4,7 @@ var config = require("./config.js")
 function info(tag, objectname, propertyname, value) {
     var islog = config.getConfigById("log");
     if (typeof (islog) == "boolean" && islog) {
-        // if (propertyname == 'Intl'){
+        // if (propertyname == 'performance'){
             console.table([{ tag, objectname, propertyname, value }], ["tag", "objectname", "propertyname", "value"]);
             debugger;
         // }

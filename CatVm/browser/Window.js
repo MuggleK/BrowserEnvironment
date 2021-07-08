@@ -52,8 +52,8 @@ function setup(this_)
     //生成一个window
     var Window = function Window(){}
     safefunction(Window);
-    // var window = new Window()    遇到检测node需hook调检测函数  例如：TDC检测node下的process
-    var window = global;
+    var window = new Window()   // 遇到检测node需hook调检测函数  例如：TDC检测node下的process
+    // var window = global;
 
     ////////////////////////////////////////////////////////////////////////////////
     window["window"] = window;
@@ -78,7 +78,7 @@ function setup(this_)
     window["parent"] = window;
     window["frameElement"] = null;
     window["navigator"] = new (class Navigator {});
-    window["origin"] = "https://www.douyin.com";
+    window["origin"] = 'https://login.taobao.com';
     window["external"] = new (class External {});
     window["screen"] = new (class Screen {});
     window["innerWidth"] = 1920;
@@ -294,8 +294,6 @@ function setup(this_)
     window['webkitRTCPeerConnection'] = new (class Object {});
     window['referer'] = "https://www.douyin.com/";
     // window['HTMLDocument'] = {'prototype':{'hasOwnProperty':function (x){if(x=='getSelection') return false;}}}
-
-    // String.prototype.charAt.value = 2
 
     
     //修改原型链

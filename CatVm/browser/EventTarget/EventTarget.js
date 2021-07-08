@@ -23,7 +23,7 @@ safefunction(eventTargetConstructor)
 
 var eventTargetPrototype = new (class EventTarget {});
 //下面函数都需要被保护
-eventTargetPrototype.addEventListener = function addEventListener() {debugger;}
+eventTargetPrototype.addEventListener = function addEventListener() {debugger;return {}}
 safefunction(eventTargetPrototype.addEventListener)
 
 eventTargetPrototype.dispatchEvent = function dispatchEvent() {debugger;}

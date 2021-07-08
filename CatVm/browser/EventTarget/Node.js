@@ -2,7 +2,8 @@ var safefunction = require("../../plugin/safefunction.js")
 var vmProxy = require("../../plugin/InjectionProxy.js")
 
 function scrollRestoration() {
-    debugger ;var e = new Error();
+    // debugger ;
+    var e = new Error();
     e.name = "TypeError";
     e.message = "Illegal invocation";
     e.stack = "TypeError: Illegal invocation \r\n \
@@ -73,9 +74,6 @@ function setup(this_) {
     nodePrototype.removeChild = function removeChild() {debugger;}; safefunction(nodePrototype.removeChild)
     nodePrototype.replaceChild = function replaceChild() {debugger;}; safefunction(nodePrototype.replaceChild)
     nodePrototype.isDefaultNamespace = function isDefaultNamespace() {debugger;}; safefunction(nodePrototype.isDefaultNamespace)
-    nodePrototype.isDefaultNamespace = function isDefaultNamespace() {debugger;}; safefunction(nodePrototype.isDefaultNamespace)
-    nodePrototype.isDefaultNamespace = function isDefaultNamespace() {debugger;}; safefunction(nodePrototype.isDefaultNamespace)
-
 
     Object.defineProperties(nodePrototype, {
         constructor: {

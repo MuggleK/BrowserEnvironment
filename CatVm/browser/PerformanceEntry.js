@@ -53,19 +53,19 @@ function setup(this_) {
     PerformanceEntry = vmProxy(PerformanceEntry);
 
     // 把属性继续定义到 静态属性中
-    for (let key in PerformanceEntry.prototype) {
-        if (typeof (list_[key]) != "undefined") {
-            PerformanceEntry.prototype[key] = PerformanceEntry.prototype[key];
-            //神奇的操作
-        }
-        if (typeof (PerformanceEntry.prototype[key]) == "function" & key != 'toJSON') {
-            PerformanceEntry.prototype.__defineGetter__(key, scrollRestoration);
+    // for (let key in PerformanceEntry.prototype) {
+    //     if (typeof (list_[key]) != "undefined") {
+    //         PerformanceEntry.prototype[key] = PerformanceEntry.prototype[key];
+    //         //神奇的操作
+    //     }
+    //     if (typeof (PerformanceEntry.prototype[key]) == "function" & key != 'toJSON') {
+    //         PerformanceEntry.prototype.__defineGetter__(key, scrollRestoration);
 
-            if (key == "scrollRestoration") {
-                PerformanceEntry.prototype.__defineSetter__(key, scrollRestoration);
-            }
-        }
-    }
+    //         if (key == "scrollRestoration") {
+    //             PerformanceEntry.prototype.__defineSetter__(key, scrollRestoration);
+    //         }
+    //     }
+    // }
 
     // PerformanceEntry 注入到全局 
     Object.defineProperty(global, "PerformanceEntry", {

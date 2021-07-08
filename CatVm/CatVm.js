@@ -13,7 +13,7 @@ function run(this_,config_)
     var location = require("./browser/Location.js"); location.setup(this_);
     var history = require("./browser/History.js"); history.setup(this_);
     var screen = require("./browser/Screen.js"); screen.setup(this_);
-    var document = require("./browser/DOM/Document.js"); document.setup(this_);
+    // var document = require("./browser/DOM/Document.js"); document.setup(this_);
     var EventCounts = require("./browser/EventCounts.js"); EventCounts.setup(this_);
     var MemoryInfo = require("./browser/MemoryInfo.js"); MemoryInfo.setup(this_);
     var PerformanceTiming = require("./browser/PerformanceTiming.js"); PerformanceTiming.setup(this_);
@@ -34,6 +34,7 @@ function run(this_,config_)
     var MediaStreamTrack = require("./browser/EventTarget/MediaStreamTrack.js"); MediaStreamTrack.setup(this_);
     var Bluetooth = require("./browser/EventTarget/Bluetooth.js"); Bluetooth.setup(this_);
     var Node = require("./browser/EventTarget/Node.js"); Node.setup(this_);
+    var Document = require("./browser/EventTarget/Document.js"); Document.setup(this_);
     var Element = require("./browser/EventTarget/Element.js"); Element.setup(this_);
     var HTMLElement = require("./browser/EventTarget/HTMLElement.js"); HTMLElement.setup(this_);
     var HTMLMediaElement = require("./browser/EventTarget/HTMLMediaElement.js"); HTMLMediaElement.setup(this_);

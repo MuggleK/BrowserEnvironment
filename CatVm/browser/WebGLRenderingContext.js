@@ -3,7 +3,8 @@ var vmProxy = require("../plugin/InjectionProxy.js")
 
 
 function scrollRestoration() {
-    debugger ;var e = new Error();
+    debugger ;
+    var e = new Error();
     e.name = "TypeError";
     e.message = "Illegal invocation";
     e.stack = "TypeError: Illegal invocation \r\n \
@@ -11,12 +12,6 @@ function scrollRestoration() {
     throw e;
 }
 safefunction(scrollRestoration);
-
-var list_ = {
-    "length": 0,
-    "scrollRestoration": 0,
-    "state": 0
-};
 
 function setup(this_) {
     var webGLRenderingContextConstructor = function WebGLRenderingContext() {}
@@ -397,9 +392,7 @@ function setup(this_) {
     webGLRenderingContextPrototype.getBufferParameter = function getBufferParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getBufferParameter)
     webGLRenderingContextPrototype.getContextAttributes = function getContextAttributes() {debugger;}; safefunction(webGLRenderingContextPrototype.getContextAttributes)
     webGLRenderingContextPrototype.getError = function getError() {debugger;}; safefunction(webGLRenderingContextPrototype.getError)
-    webGLRenderingContextPrototype.getExtension = function getExtension() {debugger;}; safefunction(webGLRenderingContextPrototype.getExtension)
     webGLRenderingContextPrototype.getFramebufferAttachmentParameter = function getFramebufferAttachmentParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getFramebufferAttachmentParameter)
-    webGLRenderingContextPrototype.getParameter = function getParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getParameter)
     webGLRenderingContextPrototype.getProgramInfoLog = function getProgramInfoLog() {debugger;}; safefunction(webGLRenderingContextPrototype.getProgramInfoLog)
     webGLRenderingContextPrototype.getProgramParameter = function getProgramParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getProgramParameter)
     webGLRenderingContextPrototype.getRenderbufferParameter = function getRenderbufferParameter() {debugger;}; safefunction(webGLRenderingContextPrototype.getRenderbufferParameter)
@@ -498,9 +491,14 @@ function setup(this_) {
     WebGLRenderingContext = vmProxy(WebGLRenderingContext);
 
     ////
-    WebGLRenderingContext.prototype.__defineGetter__('canvas', scrollRestoration);
-    WebGLRenderingContext.prototype.__defineGetter__('drawingBufferHeight', scrollRestoration);
-    WebGLRenderingContext.prototype.__defineGetter__('drawingBufferWidth', scrollRestoration);
+    for (let key in WebGLRenderingContext.prototype) {
+        if (typeof(WebGLRenderingContext.prototype[key]) == "number"){
+            WebGLRenderingContext[key] = WebGLRenderingContext.prototype[key];
+        }
+    }
+    // WebGLRenderingContext.prototype.__defineGetter__('canvas', scrollRestoration);
+    // WebGLRenderingContext.prototype.__defineGetter__('drawingBufferHeight', scrollRestoration);
+    // WebGLRenderingContext.prototype.__defineGetter__('drawingBufferWidth', scrollRestoration);   // 有些属性没必要一昧模仿浏览器，可能导致部分属性无法调用
 
 
     // WebGLRenderingContext 注入到全局 
