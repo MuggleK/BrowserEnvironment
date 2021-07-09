@@ -291,6 +291,10 @@ function setup(this_)
     window['console'] = global.console;
     window['Symbol'] = global.Symbol;
     window['WeakMap'] = global.WeakMap;
+    window['eval'] = function(x) {
+        debugger;
+        global.eval(x);
+    }
     window['webkitRTCPeerConnection'] = new (class Object {});
     window['referer'] = "https://www.douyin.com/";
     // window['HTMLDocument'] = {'prototype':{'hasOwnProperty':function (x){if(x=='getSelection') return false;}}}
