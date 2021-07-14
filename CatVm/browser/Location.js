@@ -31,13 +31,13 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] ="https://www.douyin.com/";
-    location["origin"] ="https://www.douyin.com";
+    location["href"] ="http://app1.nmpa.gov.cn/data_nmpa/face3/dir.html";
+    location["origin"] ="http://app1.nmpa.gov.cn";
     location["protocol"] ="https:";
-    location["host"] ="www.douyin.com";
-    location["hostname"] ="www.douyin.com";
+    location["host"] ="app1.nmpa.gov.cn";
+    location["hostname"] ="app1.nmpa.gov.cn";
     location["port"] ="";
-    location["pathname"] ="/";
+    location["pathname"] ="/data_nmpa/face3/dir.html";
     location["search"] ="";
     location["hash"] ="";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger

@@ -6,7 +6,7 @@ function info(tag, objectname, propertyname, value) {
     if (typeof (islog) == "boolean" && islog) {
         // if (propertyname == 'performance'){
             console.table([{ tag, objectname, propertyname, value }], ["tag", "objectname", "propertyname", "value"]);
-            debugger;
+            // debugger;
         // }
 
     }
