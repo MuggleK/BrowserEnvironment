@@ -2,12 +2,13 @@ var safefunction = require("../../plugin/safefunction.js")
 var vmProxy = require("../../plugin/InjectionProxy.js")
 
 function scrollRestoration() {
-    debugger ;var e = new Error();
-    e.name = "TypeError";
-    e.message = "Illegal invocation";
-    e.stack = "TypeError: Illegal invocation \r\n \
-  at <anonymous>:1:19";
-    throw e;
+//     debugger ;
+//     var e = new Error();
+//     e.name = "TypeError";
+//     e.message = "Illegal invocation";
+//     e.stack = "TypeError: Illegal invocation \r\n \
+//   at <anonymous>:1:19";
+//     throw e;
 }
 safefunction(scrollRestoration);
 

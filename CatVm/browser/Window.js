@@ -255,7 +255,15 @@ function setup(this_)
     window["speechSynthesis"] = new (class SpeechSynthesis {});
     window["onpointerrawupdate"] = null;
     window["trustedTypes"] = new (class TrustedTypePolicyFactory {});
-    window["openDatabase"] = function openDatabase(){debugger;};   safefunction(window["openDatabase"]);
+    window["openDatabase"] = function openDatabase(a,b,c,d){
+        debugger;
+        return {
+            verision: "",
+            changeVersion: function changeVersion(){},
+            readTransaction: function readTransaction(){},
+            transaction: function transaction(){}
+        }
+    };   safefunction(window["openDatabase"]);
     window["webkitRequestFileSystem"] = function webkitRequestFileSystem(){debugger;};   safefunction(window["webkitRequestFileSystem"]);
     window["webkitResolveLocalFileSystemURL"] = function webkitResolveLocalFileSystemURL(){debugger;};   safefunction(window["webkitResolveLocalFileSystemURL"]);
     window["qihoo"] = new (class Object {});

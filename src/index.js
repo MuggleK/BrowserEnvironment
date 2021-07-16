@@ -1278,9 +1278,9 @@ try {
 		var _$Db = {};
 		_$wn[_$Fw[2]](_$Db);
 		_$cQ(_$Ap, _$Fw[91], _$Mv);
-		try {
+		// try {
 			var _$wQ = _$Ap[_$Fw[52]];
-		} catch (_$ex) {}
+		// } catch (_$ex) {}
 		_$m_();
 		_$Ap._$Cx = _$D7;
 		_$Ap._$FM = _$0x;
@@ -8342,7 +8342,9 @@ try {
 							_$tN[_$Fw[260]] = _$ia;
 						}
 					}
-				} catch (_$8i) {}
+				} catch (_$8i) {
+					debugger;
+				}
 				function _$$4(_$_9) {}
 				function _$5n(_$_9) {
 					var _$7I = _$_9[_$Fw[72]][_$Fw[748]];

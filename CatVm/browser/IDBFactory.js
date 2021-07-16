@@ -27,7 +27,20 @@ function setup(this_) {
     idbFactoryPrototype.cmp = function cmp() {debugger;}; safefunction(idbFactoryPrototype.cmp)
     idbFactoryPrototype.databases = function databases() {debugger;}; safefunction(idbFactoryPrototype.databases)
     idbFactoryPrototype.deleteDatabase = function deleteDatabase(){debugger;};   safefunction(idbFactoryPrototype.deleteDatabase)
-    idbFactoryPrototype.open = function open() {debugger;};   safefunction(idbFactoryPrototype.open)
+    idbFactoryPrototype.open = function open() {
+        debugger;
+        return {
+            error: "",
+            onblocked: null,
+            onerror: null,
+            onsuccess: null,
+            onupgradeneeded: null,
+            readyState: "pending",
+            result: "",
+            source: null,
+            transaction: null,
+        }
+    };   safefunction(idbFactoryPrototype.open)
 
     Object.defineProperties(idbFactoryPrototype, {
         constructor: {
