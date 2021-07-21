@@ -33,7 +33,7 @@ function setup(this_) {
     location["ancestorOrigins"] =class DOMStringList {};
     location["href"] ="http://app1.nmpa.gov.cn/data_nmpa/face3/dir.html";
     location["origin"] ="http://app1.nmpa.gov.cn";
-    location["protocol"] ="https:";
+    location["protocol"] ="http:";
     location["host"] ="app1.nmpa.gov.cn";
     location["hostname"] ="app1.nmpa.gov.cn";
     location["port"] ="";
