@@ -38,6 +38,7 @@ function run(this_,config_)
     var Element = require("./browser/EventTarget/Element.js"); Element.setup(this_);
     var HTMLElement = require("./browser/EventTarget/HTMLElement.js"); HTMLElement.setup(this_);
     var HTMLMediaElement = require("./browser/EventTarget/HTMLMediaElement.js"); HTMLMediaElement.setup(this_);
+    var HTMLAnchorElement = require("./browser/EventTarget/HTMLAnchorElement.js"); HTMLAnchorElement.setup(this_);
     var Image = require("./browser/EventTarget/Image.js"); Image.setup(this_);
     var WebSocket = require("./browser/EventTarget/WebSocket.js"); WebSocket.setup(this_);
     var XMLHttpRequestEventTarget = require("./browser/EventTarget/XMLHttpRequestEventTarget.js"); XMLHttpRequestEventTarget.setup(this_);
