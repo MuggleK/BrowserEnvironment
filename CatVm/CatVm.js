@@ -26,6 +26,7 @@ function run(this_,config_)
     var DOMException = require("./browser/DOMException.js"); DOMException.setup(this_);
     var Request = require("./browser/Request.js"); Request.setup(this_);
     var Headers = require("./browser/Headers.js"); Headers.setup(this_);
+    var DOMParser = require("./browser/DOMParser.js"); DOMParser.setup(this_);
     
     //  EventTarget
     var EventTarget = require("./browser/EventTarget/EventTarget.js"); EventTarget.setup(this_);
@@ -43,6 +44,7 @@ function run(this_,config_)
     var WebSocket = require("./browser/EventTarget/WebSocket.js"); WebSocket.setup(this_);
     var XMLHttpRequestEventTarget = require("./browser/EventTarget/XMLHttpRequestEventTarget.js"); XMLHttpRequestEventTarget.setup(this_);
     var XMLHttpRequest = require("./browser/EventTarget/XMLHttpRequest.js"); XMLHttpRequest.setup(this_);
+    var webkitRTCPeerConnection = require("./browser/EventTarget/webkitRTCPeerConnection.js"); webkitRTCPeerConnection.setup(this_);
 
     //  Plugin
     var Plugin = require("./browser/Plugin/Plugin.js"); Plugin.setup(this_);

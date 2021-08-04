@@ -18,9 +18,9 @@ var list_ = {
 };
 
 function setup(this_) {
-    var mediaStreamTrackPrototype = function MediaStreamTrack() {}
+    var mediaStreamTrackConstructor = function MediaStreamTrack() {}
     //保护构造函数
-    safefunction(mediaStreamTrackPrototype)
+    safefunction(mediaStreamTrackConstructor)
 
     var mediaStreamTrackPrototype = new (class MediaStreamTrack {});
     //下面函数都需要被保护
@@ -44,7 +44,7 @@ function setup(this_) {
 
     Object.defineProperties(mediaStreamTrackPrototype, {
         constructor: {
-            value: mediaStreamTrackPrototype,
+            value: mediaStreamTrackConstructor,
             writable: true,
             configurable: true
         },
@@ -53,7 +53,7 @@ function setup(this_) {
             configurable: true
         }
     });
-    mediaStreamTrackPrototype.prototype = mediaStreamTrackPrototype;
+    mediaStreamTrackConstructor.prototype = mediaStreamTrackPrototype;
 
     var MediaStreamTrack = function() {}
     MediaStreamTrack.__proto__ = function EventTarget() {};
@@ -90,7 +90,7 @@ function setup(this_) {
     Object.defineProperty(global, "MediaStreamTrack", {
         configurable: true,
         writable: true,
-        value: mediaStreamTrackPrototype
+        value: mediaStreamTrackConstructor
     });
     Object.defineProperty(global, "MediaStreamTrack", {
         configurable: true,
@@ -101,7 +101,7 @@ function setup(this_) {
     Object.defineProperty(window, "MediaStreamTrack", {
         configurable: true,
         writable: true,
-        value: mediaStreamTrackPrototype
+        value: mediaStreamTrackConstructor
     });
     Object.defineProperty(window, "MediaStreamTrack", {
         configurable: true,
