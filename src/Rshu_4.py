@@ -7,6 +7,8 @@ import re
 import time
 import random
 import ctypes
+import time
+from loguru import logger
 
 
 def int_overflow(val):
@@ -885,11 +887,15 @@ def hb_server():
 
 
 if __name__ == '__main__':
+    startTime = time.time()
+
     cookie_s = 'FSSBBIl1UgzbN7N80S'
     cookie_t = 'FSSBBIl1UgzbN7N80T'
     base_url = 'http://dfjrjgj.hubei.gov.cn/zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/'
     ts_url = 'http://dfjrjgj.hubei.gov.cn/4QbVtADbnLVIc/c.FxJzG50F.3e2af61.js'
     temp_gx = HuBeiRshu(base_url,ts_url,cookie_s,cookie_t)
     cookies = temp_gx.verify()
-    print(cookies)
+    logger.success(f'base_url -> {base_url} -> {cookies}')
+    costTime = format(time.time() - startTime, '.2f')
+    logger.debug(f'Total Cost: {costTime}s')
     # app.run(port=7002, host="0.0.0.0",threaded=True,debug=True)
