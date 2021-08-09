@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rshu_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu_4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rshu_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu_5.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +55,25 @@
     <configuration name="XMLHttpRequestEventTarget.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/CatVm/browser/EventTarget/XMLHttpRequestEventTarget.js" working-dir="$PROJECT_DIR$/CatVm/browser/EventTarget">
       <method v="2" />
     </configuration>
-    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/index.js" working-dir="$PROJECT_DIR$/src">
+    <configuration name="Rshu_4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BrowserEnvironmental" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Rshu_4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Rshu_5" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -123,6 +142,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Rshu_5" />
+        <item itemvalue="Python.Rshu_4" />
         <item itemvalue="Python.Server" />
         <item itemvalue="Python.decoder" />
       </list>

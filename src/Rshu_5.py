@@ -42,7 +42,7 @@ class Rshu5:
         except:
             temp_flag = re.findall(r'(.{4}=_\$.{2}\.call\(.*?,(.*?)\))', self.js_code)[0]
         new_js = """window.new_code = %s;break""" % temp_flag[1]
-        self.js_code = self.js_code.replace(temp_flag[0], new_js)
+        self.js_code = self.js_code.replace(temp_flag[0].replace('{',''), new_js)
         try:
             """处理将$_ts置为空的情况"""
             ts_convert = re.findall("\{_\$.{2}\['\$_ts'\]=\{\};",self.js_code)[0]
@@ -55,7 +55,7 @@ class Rshu5:
             ctx = execjs.compile(self.js_code)
             new_code = ctx.call("get_newcode")
         except:
-            ctx = execjs.compile(self.js_code.encode('utf-8').decode('gbk'))
+            ctx = execjs.compile(self.js_code.encode('utf-8').decode('gbk',errors='ignore'))
             new_code = ctx.call("get_newcode")
         return new_code
 
@@ -81,10 +81,10 @@ class Rshu5:
 
 if __name__ == '__main__':
     startTime = time.time()
-    cookie_s = 'FSSBBIl1UgzbN7NO'
-    cookie_t = 'FSSBBIl1UgzbN7NP'
-    base_url = 'https://www.shhuangpu.gov.cn/zw/009002/009002002/listIndex2.html'
-    ts_url = 'https://www.shhuangpu.gov.cn/4QbVtADbnLVIc/c.FxJzG50F.d5db026.js'
+    cookie_s = 'goN9uW4i0iKzS'
+    cookie_t = 'goN9uW4i0iKzT'
+    base_url = 'http://wcjs.sbj.cnipa.gov.cn/txnT01.do'
+    ts_url = 'http://wcjs.sbj.cnipa.gov.cn/c5rxzYrjRT2h/cCdzB9ZjDFks.9887446.js'
     temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
     cookies = temp_gx.verify()
     logger.success(f'base_url -> {base_url} -> {cookies}')
