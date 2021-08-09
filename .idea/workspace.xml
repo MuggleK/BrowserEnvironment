@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="" />
+    <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rshu_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu_5.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Server">
+  <component name="RunManager" selected="Python.Rshu_5">
     <configuration name="XMLHttpRequestEventTarget.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/CatVm/browser/EventTarget/XMLHttpRequestEventTarget.js" working-dir="$PROJECT_DIR$/CatVm/browser/EventTarget">
       <method v="2" />
     </configuration>
@@ -119,8 +122,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Server" />
         <item itemvalue="Python.Rshu_5" />
+        <item itemvalue="Python.Server" />
         <item itemvalue="Python.decoder" />
       </list>
     </recent_temporary>

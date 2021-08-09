@@ -37,9 +37,18 @@ class ShangHaiRuiShu:
     def get_ts(self):
         res = self.session.get(self.ts_url)
         ts_code = "window = global;document={};" + res.text
-        temp_flag = re.findall(r'(.{4}=_\$.{2}\[_\$.{2}\[30\]\]\(.*?,(.*?)\))', self.js_code)[0]
+        try:
+            temp_flag = re.findall(r'(.{4}=_\$.{2}\[_\$.{2}\[\d{2}\]\]\(_\$.{2},(.*?)\))', self.js_code)[0]
+        except:
+            temp_flag = re.findall(r'(.{4}=_\$.{2}\.call\(.*?,(.*?)\))', self.js_code)[0]
         new_js = """window.new_code = %s;break""" % temp_flag[1]
         self.js_code = self.js_code.replace(temp_flag[0], new_js)
+        try:
+            """处理将$_ts置为空的情况"""
+            ts_convert = re.findall("\{_\$.{2}\['\$_ts'\]=\{\};",self.js_code)[0]
+            self.js_code = self.js_code.replace(ts_convert,'{return;')
+        except:
+            pass
         get_ts = """;function get_newcode(){return window.new_code;};"""
         self.js_code = ts_code + self.js_code + get_ts
         try:
@@ -68,15 +77,15 @@ class ShangHaiRuiShu:
             # print(f'状态码{res.status_code},Cookie可用')
             return self.session.headers.get('cookie')
         else:
-            print(f'状态码{res.status_code},Cookie不可用')
+            logger.debug(f'状态码{res.status_code},Cookie不可用')
 
 
 if __name__ == '__main__':
     startTime = time.time()
-    cookie_s = 'FSSBBIl1UgzbN7NS'
-    cookie_t = 'FSSBBIl1UgzbN7NT'
-    base_url = 'http://www.shmh.gov.cn/shmh/ggl-jw/index.html'
-    ts_url = 'http://www.shmh.gov.cn/4QbVtADbnLVIc/c.FxJzG50F.fcb0f2b.js'
+    cookie_s = 'FSSBBIl1UgzbN7NO'
+    cookie_t = 'FSSBBIl1UgzbN7NP'
+    base_url = 'https://www.shhuangpu.gov.cn/zw/009002/009002002/listIndex2.html'
+    ts_url = 'https://www.shhuangpu.gov.cn/4QbVtADbnLVIc/c.FxJzG50F.d5db026.js'
     temp_gx = ShangHaiRuiShu(base_url, ts_url, cookie_s, cookie_t)
     cookies = temp_gx.verify()
     logger.success(f'base_url -> {base_url} -> {cookies}')
