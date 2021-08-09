@@ -9,6 +9,7 @@ def dict2str(cookie):
         str += k + '=' + v +';'
     return str.replace('\n','').replace(' ','')[:-1]
 
+
 def get_cookie(url):
     headers = {
         'Pragma': 'no-cache',
