@@ -5,7 +5,7 @@ import time
 from loguru import logger
 
 
-class ShangHaiRuiShu:
+class Rshu5:
 
     def __init__(self, url, ts_url, cookie_s, cookie_t):
         self.cookie_name_1 = cookie_s
@@ -74,7 +74,6 @@ class ShangHaiRuiShu:
         res = self.session.get(url = self.url,headers = self.session.headers)
         res.encoding = res.apparent_encoding
         if res.status_code == 200:
-            # print(f'状态码{res.status_code},Cookie可用')
             return self.session.headers.get('cookie')
         else:
             logger.debug(f'状态码{res.status_code},Cookie不可用')
@@ -86,7 +85,7 @@ if __name__ == '__main__':
     cookie_t = 'FSSBBIl1UgzbN7NP'
     base_url = 'https://www.shhuangpu.gov.cn/zw/009002/009002002/listIndex2.html'
     ts_url = 'https://www.shhuangpu.gov.cn/4QbVtADbnLVIc/c.FxJzG50F.d5db026.js'
-    temp_gx = ShangHaiRuiShu(base_url, ts_url, cookie_s, cookie_t)
+    temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
     cookies = temp_gx.verify()
     logger.success(f'base_url -> {base_url} -> {cookies}')
     costTime = format(time.time() - startTime, '.2f')

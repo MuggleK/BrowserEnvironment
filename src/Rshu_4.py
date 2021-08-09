@@ -30,7 +30,7 @@ def right_shift(n, i):
         return n
 
 
-class HuBeiRshu:
+class Rshu4:
 
     def __init__(self, url, ts_url, cookie_s, cookie_t):
         self.encrypt_list = ["q", "r", "c", "k", "l", "m", "D", "o", "E", "x", "t", "h", "W", "J", "i", "H", "A", "p",
@@ -869,7 +869,7 @@ def hb_server():
         res['code'] = code
         res['cookie'] = None
     else:
-        temp_gx = HuBeiRshu(base_url, ts_url, cookie_s, cookie_t)
+        temp_gx = Rshu4(base_url, ts_url, cookie_s, cookie_t)
         cookies = temp_gx.verify()
         res = {
             'code' : 200,
@@ -893,7 +893,7 @@ if __name__ == '__main__':
     cookie_t = 'FSSBBIl1UgzbN7N80T'
     base_url = 'http://dfjrjgj.hubei.gov.cn/zfxxgk_GK2020/zc_GK2020/qtzdgkwj_GK2020/'
     ts_url = 'http://dfjrjgj.hubei.gov.cn/4QbVtADbnLVIc/c.FxJzG50F.3e2af61.js'
-    temp_gx = HuBeiRshu(base_url,ts_url,cookie_s,cookie_t)
+    temp_gx = Rshu4(base_url,ts_url,cookie_s,cookie_t)
     cookies = temp_gx.verify()
     logger.success(f'base_url -> {base_url} -> {cookies}')
     costTime = format(time.time() - startTime, '.2f')
