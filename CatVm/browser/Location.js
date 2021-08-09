@@ -31,13 +31,13 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] ="http://app1.nmpa.gov.cn/data_nmpa/face3/dir.html";
-    location["origin"] ="http://app1.nmpa.gov.cn";
+    location["href"] ="http://www.pudong.gov.cn/shpd/department/019010/019010004/";
+    location["origin"] ="http://www.pudong.gov.cn";
     location["protocol"] ="http:";
-    location["host"] ="app1.nmpa.gov.cn";
-    location["hostname"] ="app1.nmpa.gov.cn";
+    location["host"] ="www.pudong.gov.cn";
+    location["hostname"] ="www.pudong.gov.cn";
     location["port"] ="";
-    location["pathname"] ="/data_nmpa/face3/dir.html";
+    location["pathname"] ="/shpd/department/019010/019010004/";
     location["search"] ="";
     location["hash"] ="";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger

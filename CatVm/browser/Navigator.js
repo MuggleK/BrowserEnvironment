@@ -53,10 +53,10 @@ function setup(this_) {
     navigator.__proto__["cookieEnabled"] = true;
     navigator.__proto__["appCodeName"] = "Mozilla";
     navigator.__proto__["appName"] = "Netscape";
-    navigator.__proto__["appVersion"] = "5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
+    navigator.__proto__["appVersion"] = "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36";
     navigator.__proto__["platform"] = "Win32";
     navigator.__proto__["product"] = "Gecko";
-    navigator.__proto__["userAgent"] = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36";
+    navigator.__proto__["userAgent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36";
     navigator.__proto__["language"] = "zh-CN";
     navigator.__proto__["languages"] = ["zh-CN"];
     navigator.__proto__["onLine"] = true;

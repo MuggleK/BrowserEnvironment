@@ -5,8 +5,7 @@
 
 "use strict";
 
-const { validate } = require("schema-utils");
-const schema = require("../../schemas/plugins/container/ContainerPlugin.json");
+const createSchemaValidation = require("../util/create-schema-validation");
 const ContainerEntryDependency = require("./ContainerEntryDependency");
 const ContainerEntryModuleFactory = require("./ContainerEntryModuleFactory");
 const ContainerExposedDependency = require("./ContainerExposedDependency");
@@ -15,6 +14,15 @@ const { parseOptions } = require("./options");
 /** @typedef {import("../../declarations/plugins/container/ContainerPlugin").ContainerPluginOptions} ContainerPluginOptions */
 /** @typedef {import("../Compiler")} Compiler */
 
+const validate = createSchemaValidation(
+	require("../../schemas/plugins/container/ContainerPlugin.check.js"),
+	() => require("../../schemas/plugins/container/ContainerPlugin.json"),
+	{
+		name: "Container Plugin",
+		baseDataPath: "options"
+	}
+);
+
 const PLUGIN_NAME = "ContainerPlugin";
 
 class ContainerPlugin {
@@ -22,7 +30,7 @@ class ContainerPlugin {
 	 * @param {ContainerPluginOptions} options options
 	 */
 	constructor(options) {
-		validate(schema, options, { name: "Container Plugin" });
+		validate(options);
 
 		this._options = {
 			name: options.name,
@@ -31,6 +39,7 @@ class ContainerPlugin {
 				type: "var",
 				name: options.name
 			},
+			runtime: options.runtime,
 			filename: options.filename || undefined,
 			exposes: parseOptions(
 				options.exposes,
@@ -52,7 +61,8 @@ class ContainerPlugin {
 	 * @returns {void}
 	 */
 	apply(compiler) {
-		const { name, exposes, shareScope, filename, library } = this._options;
+		const { name, exposes, shareScope, filename, library, runtime } =
+			this._options;
 
 		compiler.options.output.enabledLibraryTypes.push(library.type);
 
@@ -65,6 +75,7 @@ class ContainerPlugin {
 				{
 					name,
 					filename,
+					runtime,
 					library
 				},
 				error => {

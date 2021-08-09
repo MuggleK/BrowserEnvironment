@@ -29,8 +29,16 @@ const HarmonyImportDependency = require("./HarmonyImportDependency");
 const idsSymbol = Symbol("HarmonyImportSpecifierDependency.ids");
 
 class HarmonyImportSpecifierDependency extends HarmonyImportDependency {
-	constructor(request, sourceOrder, ids, name, range, strictExportPresence) {
-		super(request, sourceOrder);
+	constructor(
+		request,
+		sourceOrder,
+		ids,
+		name,
+		range,
+		strictExportPresence,
+		assertions
+	) {
+		super(request, sourceOrder, assertions);
 		this.ids = ids;
 		this.name = name;
 		this.range = range;
@@ -243,12 +251,8 @@ HarmonyImportSpecifierDependency.Template = class HarmonyImportSpecifierDependen
 	 */
 	apply(dependency, source, templateContext) {
 		const dep = /** @type {HarmonyImportSpecifierDependency} */ (dependency);
-		const {
-			moduleGraph,
-			module,
-			runtime,
-			concatenationScope
-		} = templateContext;
+		const { moduleGraph, module, runtime, concatenationScope } =
+			templateContext;
 		const connection = moduleGraph.getConnection(dep);
 		// Skip rendering depending when dependency is conditional
 		if (connection && !connection.isTargetActive(runtime)) return;
@@ -287,11 +291,8 @@ HarmonyImportSpecifierDependency.Template = class HarmonyImportSpecifierDependen
 		} else {
 			super.apply(dependency, source, templateContext);
 
-			const {
-				runtimeTemplate,
-				initFragments,
-				runtimeRequirements
-			} = templateContext;
+			const { runtimeTemplate, initFragments, runtimeRequirements } =
+				templateContext;
 
 			exportExpr = runtimeTemplate.exportFromImport({
 				moduleGraph,

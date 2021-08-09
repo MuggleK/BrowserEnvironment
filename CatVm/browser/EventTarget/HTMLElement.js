@@ -36,7 +36,12 @@ function setup(this_) {
     htmlElementPrototype.offsetLeft = "offsetLeft";
     htmlElementPrototype.offsetWidth = "offsetWidth";
     htmlElementPrototype.offsetHeight = "offsetHeight";
-    htmlElementPrototype.style = "style";
+    htmlElementPrototype.style = {
+        additiveSymbols: "",
+        alignContent: "",
+        alignItems: ""
+        
+    };
     htmlElementPrototype.innerText = "innerText";
     htmlElementPrototype.outerText = "outerText";
     htmlElementPrototype.onbeforexrselect = "onbeforexrselect";
@@ -166,21 +171,21 @@ function setup(this_) {
     HTMLElement = vmProxy(HTMLElement);
 
     // 把属性继续定义到 静态属性中
-    for (let key in HTMLElement.prototype) {
-        try{
-            if (typeof(HTMLElement.prototype[key]) == "number"){
-                HTMLElement[key] = HTMLElement.prototype[key];
-            }
-            if (typeof(HTMLElement.prototype[key]) == "string") {
-                HTMLElement.prototype.__defineGetter__(key, scrollRestoration);
-                HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
-                if (key == "scrollRestoration") {
-                    HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
-                }
-            }
-        }
-        catch {}
-    }
+    // for (let key in HTMLElement.prototype) {
+    //     try{
+    //         if (typeof(HTMLElement.prototype[key]) == "number"){
+    //             HTMLElement[key] = HTMLElement.prototype[key];
+    //         }
+    //         if (typeof(HTMLElement.prototype[key]) == "string") {
+    //             HTMLElement.prototype.__defineGetter__(key, scrollRestoration);
+    //             HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
+    //             if (key == "scrollRestoration") {
+    //                 HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
+    //             }
+    //         }
+    //     }
+    //     catch {}
+    // }
 
     // HTMLElement 注入到全局 
     Object.defineProperty(global, "HTMLElement", {

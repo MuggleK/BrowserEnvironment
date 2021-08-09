@@ -306,6 +306,8 @@ const SIMPLE_PRINTERS = {
 		built ? yellow(formatFlag("built")) : undefined,
 	"module.codeGenerated": (codeGenerated, { formatFlag, yellow }) =>
 		codeGenerated ? yellow(formatFlag("code generated")) : undefined,
+	"module.buildTimeExecuted": (buildTimeExecuted, { formatFlag, green }) =>
+		buildTimeExecuted ? green(formatFlag("build time executed")) : undefined,
 	"module.cached": (cached, { formatFlag, green }) =>
 		cached ? green(formatFlag("cached")) : undefined,
 	"module.assets": (assets, { formatFlag, magenta }) =>
@@ -372,6 +374,10 @@ const SIMPLE_PRINTERS = {
 					"modules"
 			  )}`
 			: undefined,
+	"module.filteredReasons": filteredReasons =>
+		filteredReasons > 0
+			? `${filteredReasons} ${plural(filteredReasons, "reason", "reasons")}`
+			: undefined,
 	"module.filteredChildren": filteredChildren =>
 		filteredChildren > 0
 			? `${filteredChildren} ${plural(filteredChildren, "module", "modules")}`
@@ -391,6 +397,10 @@ const SIMPLE_PRINTERS = {
 	"moduleReason.active": (active, { formatFlag }) =>
 		active ? undefined : formatFlag("inactive"),
 	"moduleReason.resolvedModule": (module, { magenta }) => magenta(module),
+	"moduleReason.filteredChildren": filteredChildren =>
+		filteredChildren > 0
+			? `${filteredChildren} ${plural(filteredChildren, "reason", "reasons")}`
+			: undefined,
 
 	"module.profile.total": (value, { formatTime }) => formatTime(value),
 	"module.profile.resolving": (value, { formatTime }) =>
@@ -588,6 +598,7 @@ const ITEM_NAMES = {
 	"module.modules[]": "module",
 	"module.children[]": "module",
 	"module.reasons[]": "moduleReason",
+	"moduleReason.children[]": "moduleReason",
 	"module.issuerPath[]": "moduleIssuer",
 	"chunk.origins[]": "chunkOrigin",
 	"chunk.modules[]": "module",
@@ -719,6 +730,7 @@ const PREFERRED_ORDERS = {
 		"usedExports",
 		"optimizationBailout",
 		"reasons",
+		"filteredReasons",
 		"issuerPath",
 		"profile",
 		"modules",
@@ -732,7 +744,9 @@ const PREFERRED_ORDERS = {
 		"module",
 		"resolvedModule",
 		"loc",
-		"explanation"
+		"explanation",
+		"children",
+		"filteredChildren"
 	],
 	"module.profile": [
 		"total",
@@ -816,9 +830,8 @@ const SIMPLE_ITEMS_JOINER = {
 	"asset.chunkNames": itemsJoinCommaBracketsWithName("name"),
 	"asset.auxiliaryChunkNames": itemsJoinCommaBracketsWithName("auxiliary name"),
 	"asset.chunkIdHints": itemsJoinCommaBracketsWithName("id hint"),
-	"asset.auxiliaryChunkIdHints": itemsJoinCommaBracketsWithName(
-		"auxiliary id hint"
-	),
+	"asset.auxiliaryChunkIdHints":
+		itemsJoinCommaBracketsWithName("auxiliary id hint"),
 	"module.chunks": itemsJoinOneLine,
 	"module.issuerPath": items =>
 		items
@@ -910,11 +923,13 @@ const joinExplicitNewLine = (items, indenter) => {
 		.trim();
 };
 
-const joinError = error => (items, { red, yellow }) =>
-	`${error ? red("ERROR") : yellow("WARNING")} in ${joinExplicitNewLine(
-		items,
-		""
-	)}`;
+const joinError =
+	error =>
+	(items, { red, yellow }) =>
+		`${error ? red("ERROR") : yellow("WARNING")} in ${joinExplicitNewLine(
+			items,
+			""
+		)}`;
 
 /** @type {Record<string, (items: ({ element: string, content: string })[], context: StatsPrinterContext) => string>} */
 const SIMPLE_ELEMENT_JOINERS = {
@@ -1016,10 +1031,32 @@ const SIMPLE_ELEMENT_JOINERS = {
 	chunkGroupAsset: joinOneLine,
 	chunkGroupChildGroup: joinOneLine,
 	chunkGroupChild: joinOneLine,
+	// moduleReason: (items, { moduleReason }) => {
+	// 	let hasName = false;
+	// 	return joinOneLine(
+	// 		items.filter(item => {
+	// 			switch (item.element) {
+	// 				case "moduleId":
+	// 					if (moduleReason.moduleId === moduleReason.module && item.content)
+	// 						hasName = true;
+	// 					break;
+	// 				case "module":
+	// 					if (hasName) return false;
+	// 					break;
+	// 				case "resolvedModule":
+	// 					return (
+	// 						moduleReason.module !== moduleReason.resolvedModule &&
+	// 						item.content
+	// 					);
+	// 			}
+	// 			return true;
+	// 		})
+	// 	);
+	// },
 	moduleReason: (items, { moduleReason }) => {
 		let hasName = false;
-		return joinOneLine(
-			items.filter(item => {
+		return joinExplicitNewLine(
+			items.map(item => {
 				switch (item.element) {
 					case "moduleId":
 						if (moduleReason.moduleId === moduleReason.module && item.content)
@@ -1029,13 +1066,21 @@ const SIMPLE_ELEMENT_JOINERS = {
 						if (hasName) return false;
 						break;
 					case "resolvedModule":
-						return (
-							moduleReason.module !== moduleReason.resolvedModule &&
-							item.content
-						);
+						if (moduleReason.module === moduleReason.resolvedModule)
+							return false;
+						break;
+					case "children":
+						if (item.content) {
+							return {
+								...item,
+								content: `\n${item.content}\n`
+							};
+						}
+						break;
 				}
-				return true;
-			})
+				return item;
+			}),
+			"  "
 		);
 	},
 	"module.profile": joinInBrackets,
@@ -1128,7 +1173,8 @@ const AVAILABLE_FORMATS = {
 				format: red
 			},
 			{
-				regExp: /\b(error|failed|unexpected|invalid|not found|not supported|not available|not possible|not implemented|doesn't support|conflict|conflicting|not existing|duplicate)\b/gi,
+				regExp:
+					/\b(error|failed|unexpected|invalid|not found|not supported|not available|not possible|not implemented|doesn't support|conflict|conflicting|not existing|duplicate)\b/gi,
 				format: red
 			}
 		];

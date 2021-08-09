@@ -31,6 +31,9 @@ const joinIterableWithComma = iterable => {
 const EMPTY_MAP = new Map();
 const EMPTY_SET = new Set();
 
+/**
+ * @typedef {GenerateContext} Context
+ */
 class HarmonyExportInitFragment extends InitFragment {
 	/**
 	 * @param {string} exportsArgument the exports identifier
@@ -46,6 +49,53 @@ class HarmonyExportInitFragment extends InitFragment {
 		this.exportsArgument = exportsArgument;
 		this.exportMap = exportMap;
 		this.unusedExports = unusedExports;
+	}
+
+	/**
+	 * @param {HarmonyExportInitFragment[]} fragments all fragments to merge
+	 * @returns {HarmonyExportInitFragment} merged fragment
+	 */
+	mergeAll(fragments) {
+		let exportMap;
+		let exportMapOwned = false;
+		let unusedExports;
+		let unusedExportsOwned = false;
+
+		for (const fragment of fragments) {
+			if (fragment.exportMap.size !== 0) {
+				if (exportMap === undefined) {
+					exportMap = fragment.exportMap;
+					exportMapOwned = false;
+				} else {
+					if (!exportMapOwned) {
+						exportMap = new Map(exportMap);
+						exportMapOwned = true;
+					}
+					for (const [key, value] of fragment.exportMap) {
+						if (!exportMap.has(key)) exportMap.set(key, value);
+					}
+				}
+			}
+			if (fragment.unusedExports.size !== 0) {
+				if (unusedExports === undefined) {
+					unusedExports = fragment.unusedExports;
+					unusedExportsOwned = false;
+				} else {
+					if (!unusedExportsOwned) {
+						unusedExports = new Set(unusedExports);
+						unusedExportsOwned = true;
+					}
+					for (const value of fragment.unusedExports) {
+						unusedExports.add(value);
+					}
+				}
+			}
+		}
+		return new HarmonyExportInitFragment(
+			this.exportsArgument,
+			exportMap,
+			unusedExports
+		);
 	}
 
 	merge(other) {
@@ -79,7 +129,7 @@ class HarmonyExportInitFragment extends InitFragment {
 	}
 
 	/**
-	 * @param {GenerateContext} generateContext context for generate
+	 * @param {Context} context context
 	 * @returns {string|Source} the source code that will be included as initialization code
 	 */
 	getContent({ runtimeTemplate, runtimeRequirements }) {

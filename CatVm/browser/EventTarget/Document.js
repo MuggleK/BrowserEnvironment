@@ -304,7 +304,7 @@ function setup(this_) {
     documentPrototype.designMode = 'designMode';
     documentPrototype.dir = 'dir';
     documentPrototype.doctype = 'doctype';
-    documentPrototype.documentElement = 'documentElement';
+    // documentPrototype.documentElement = new Node();//'documentElement';
     documentPrototype.documentURI = "https://www.douyin.com/";
     documentPrototype.domain = "www.douyin.com";
     documentPrototype.embeds = 'embeds';
@@ -483,10 +483,12 @@ function setup(this_) {
     documentPrototype.getAnimations = function getAnimations() {debugger;}; safefunction(documentPrototype.getAnimations);
     documentPrototype.getElementById = function getElementById(e) {
         debugger;
-        return {
-            'parentNode':
-            {
-                'removeChild':function(){}
+        if (e != 'root-hammerhead-shadow-ui'){
+            return {
+                'parentNode':
+                {
+                    'removeChild':function(){}
+                }
             }
         }
     };; safefunction(documentPrototype.getElementById);

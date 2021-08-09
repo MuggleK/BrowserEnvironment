@@ -77,9 +77,9 @@ AMDRequireDependency.Template = class AMDRequireDependencyTemplate extends (
 		{ runtimeTemplate, moduleGraph, chunkGraph, runtimeRequirements }
 	) {
 		const dep = /** @type {AMDRequireDependency} */ (dependency);
-		const depBlock = /** @type {AsyncDependenciesBlock} */ (moduleGraph.getParentBlock(
-			dep
-		));
+		const depBlock = /** @type {AsyncDependenciesBlock} */ (
+			moduleGraph.getParentBlock(dep)
+		);
 		const promise = runtimeTemplate.blockPromise({
 			chunkGraph,
 			block: depBlock,
@@ -123,10 +123,7 @@ AMDRequireDependency.Template = class AMDRequireDependencyTemplate extends (
 
 			source.replace(dep.outerRange[0], dep.arrayRange[0] - 1, startBlock);
 
-			source.insert(
-				dep.arrayRange[0] + 0.9,
-				"var __WEBPACK_AMD_REQUIRE_ARRAY__ = "
-			);
+			source.insert(dep.arrayRange[0], "var __WEBPACK_AMD_REQUIRE_ARRAY__ = ");
 
 			source.replace(dep.arrayRange[1], dep.functionRange[0] - 1, "; (");
 
@@ -160,10 +157,7 @@ AMDRequireDependency.Template = class AMDRequireDependencyTemplate extends (
 
 			source.replace(dep.outerRange[0], dep.arrayRange[0] - 1, startBlock);
 
-			source.insert(
-				dep.arrayRange[0] + 0.9,
-				"var __WEBPACK_AMD_REQUIRE_ARRAY__ = "
-			);
+			source.insert(dep.arrayRange[0], "var __WEBPACK_AMD_REQUIRE_ARRAY__ = ");
 
 			source.replace(dep.arrayRange[1], dep.functionRange[0] - 1, "; (");
 

@@ -10,7 +10,6 @@ const ModuleDependency = require("../dependencies/ModuleDependency");
 const formatLocation = require("../formatLocation");
 const { LogType } = require("../logging/Logger");
 const AggressiveSplittingPlugin = require("../optimize/AggressiveSplittingPlugin");
-const ConcatenatedModule = require("../optimize/ConcatenatedModule");
 const SizeLimitsPlugin = require("../performance/SizeLimitsPlugin");
 const { countIterable } = require("../util/IterableHelpers");
 const {
@@ -148,6 +147,7 @@ const { makePathsRelative, parseResource } = require("../util/identifier");
  * @property {boolean=} cacheable
  * @property {boolean=} built
  * @property {boolean=} codeGenerated
+ * @property {boolean=} buildTimeExecuted
  * @property {boolean=} cached
  * @property {boolean=} optional
  * @property {boolean=} orphan
@@ -282,9 +282,9 @@ const { makePathsRelative, parseResource } = require("../util/identifier");
  * @property {string=} loc
  * @property {string|number=} chunkId
  * @property {string|number=} moduleId
- * @property {any=} moduleTrace
+ * @property {StatsModuleTraceItem[]=} moduleTrace
  * @property {any=} details
- * @property {any=} stack
+ * @property {string=} stack
  */
 
 /** @typedef {Asset & { type: string, related: PreprocessedAsset[] }} PreprocessedAsset */
@@ -1077,6 +1077,8 @@ const SIMPLE_EXTRACTORS = {
 			const { compilation, type } = context;
 			const built = compilation.builtModules.has(module);
 			const codeGenerated = compilation.codeGeneratedModules.has(module);
+			const buildTimeExecuted =
+				compilation.buildTimeExecutedModules.has(module);
 			/** @type {{[x: string]: number}} */
 			const sizes = {};
 			for (const sourceType of module.getSourceTypes()) {
@@ -1091,6 +1093,7 @@ const SIMPLE_EXTRACTORS = {
 				sizes,
 				built,
 				codeGenerated,
+				buildTimeExecuted,
 				cached: !built && !codeGenerated
 			};
 			Object.assign(object, statsModule);
@@ -1179,11 +1182,14 @@ const SIMPLE_EXTRACTORS = {
 				type,
 				compilation: { moduleGraph }
 			} = context;
-			object.reasons = factory.create(
+			const groupsReasons = factory.create(
 				`${type.slice(0, -8)}.reasons`,
 				Array.from(moduleGraph.getIncomingConnections(module)),
 				context
 			);
+			const limited = spaceLimited(groupsReasons, options.reasonsSpace);
+			object.reasons = limited.children;
+			object.filteredReasons = limited.filteredChildren;
 		},
 		usedExports: (
 			object,
@@ -1223,11 +1229,13 @@ const SIMPLE_EXTRACTORS = {
 		},
 		nestedModules: (object, module, context, options, factory) => {
 			const { type } = context;
-			if (module instanceof ConcatenatedModule) {
-				const modules = module.modules;
+			const innerModules = /** @type {Module & { modules?: Module[] }} */ (
+				module
+			).modules;
+			if (Array.isArray(innerModules)) {
 				const groupedModules = factory.create(
 					`${type.slice(0, -8)}.modules`,
-					modules,
+					innerModules,
 					context
 				);
 				const limited = spaceLimited(
@@ -1759,6 +1767,16 @@ const moduleGroup = (children, modules) => {
 	};
 };
 
+const reasonGroup = (children, reasons) => {
+	let active = false;
+	for (const reason of children) {
+		active = active || reason.active;
+	}
+	return {
+		active
+	};
+};
+
 /** @type {Record<string, (groupConfigs: GroupConfig[], context: StatsFactoryContext, options: NormalizedStatsOptions) => void>} */
 const ASSETS_GROUPERS = {
 	_: (groupConfigs, context, options) => {
@@ -2069,7 +2087,24 @@ const RESULT_GROUPERS = {
 	"compilation.modules": MODULES_GROUPERS("module"),
 	"chunk.modules": MODULES_GROUPERS("chunk"),
 	"chunk.rootModules": MODULES_GROUPERS("root-of-chunk"),
-	"module.modules": MODULES_GROUPERS("nested")
+	"module.modules": MODULES_GROUPERS("nested"),
+	"module.reasons": {
+		groupReasonsByOrigin: groupConfigs => {
+			groupConfigs.push({
+				getKeys: reason => {
+					return [reason.module];
+				},
+				createGroup: (key, children, reasons) => {
+					return {
+						type: "from origin",
+						module: key,
+						children,
+						...reasonGroup(children, reasons)
+					};
+				}
+			});
+		}
+	}
 };
 
 // remove a prefixed "!" that can be specified to reverse sort order
