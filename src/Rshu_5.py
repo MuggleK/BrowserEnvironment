@@ -15,11 +15,10 @@ class Rshu5:
             'Cache-Control': 'no-cache',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'
         }
-        with open('.././catvm.build.js','r',encoding='utf-8')as f:
+        with open('./Rshu.js','r',encoding='utf-8')as f:
             self.ev = f.read()
         self.url = url
         self.ts_url = ts_url
-        self.temp_code = ""
         self.cookie_80s = None
         self.cookie_80t = None
         self.content, self.js_code = self.get_content()
@@ -31,7 +30,6 @@ class Rshu5:
         self.cookie_80s = res.cookies.get_dict().get(self.cookie_name_1)
         content = re.findall('<meta content="(.*?)">', res.text)[0]
         js_code = re.findall(r'(\(function\(\).*\(\))</script>', res.text)[0]
-        self.temp_code = js_code
         return content, js_code
 
     def get_ts(self):
@@ -44,7 +42,7 @@ class Rshu5:
         new_js = """window.new_code = %s;break""" % temp_flag[1]
         self.js_code = self.js_code.replace(temp_flag[0].replace('{',''), new_js)
         try:
-            """处理将$_ts置为空的情况"""
+            """处理将$_ts置空的情况"""
             ts_convert = re.findall("\{_\$.{2}\['\$_ts'\]=\{\};",self.js_code)[0]
             self.js_code = self.js_code.replace(ts_convert,'{return;')
         except:
