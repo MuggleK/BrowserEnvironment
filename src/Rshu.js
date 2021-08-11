@@ -5934,23 +5934,23 @@ function setup(this_) {
     }
 
     // HtmlAnchorElement 注入到全局 
-    Object.defineProperty(__webpack_require__.g, "HtmlAnchorElement", {
+    Object.defineProperty(__webpack_require__.g, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: htmlAnchorElementConstructor
     });
-    Object.defineProperty(__webpack_require__.g, "HtmlAnchorElement", {
+    Object.defineProperty(__webpack_require__.g, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: HtmlAnchorElement
     });
     //注入到window 
-    Object.defineProperty(window, "HtmlAnchorElement", {
+    Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: htmlAnchorElementConstructor
     });
-    Object.defineProperty(window, "HtmlAnchorElement", {
+    Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: HtmlAnchorElement

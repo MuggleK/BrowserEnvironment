@@ -92,23 +92,23 @@ function setup(this_) {
     }
 
     // HtmlAnchorElement 注入到全局 
-    Object.defineProperty(global, "HtmlAnchorElement", {
+    Object.defineProperty(global, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: htmlAnchorElementConstructor
     });
-    Object.defineProperty(global, "HtmlAnchorElement", {
+    Object.defineProperty(global, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: HtmlAnchorElement
     });
     //注入到window 
-    Object.defineProperty(window, "HtmlAnchorElement", {
+    Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: htmlAnchorElementConstructor
     });
-    Object.defineProperty(window, "HtmlAnchorElement", {
+    Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
         value: HtmlAnchorElement
