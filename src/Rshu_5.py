@@ -85,6 +85,7 @@ if __name__ == '__main__':
     ts_url = 'http://wcjs.sbj.cnipa.gov.cn/c5rxzYrjRT2h/cCdzB9ZjDFks.9887446.js'
     temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
     cookies = temp_gx.verify()
-    logger.success(f'base_url -> {base_url} -> {cookies}')
-    costTime = format(time.time() - startTime, '.2f')
-    logger.debug(f'Total Cost: {costTime}s')
+    if cookies:
+        logger.success(f'base_url -> {base_url} -> {cookies}')
+        costTime = format(time.time() - startTime, '.2f')
+        logger.debug(f'Total Cost: {costTime}s')

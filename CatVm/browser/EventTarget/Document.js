@@ -499,7 +499,7 @@ function setup(this_) {
         if(x=='body'){
             return [window.document,{}]
         }
-        return {}
+        return []
     }; safefunction(documentPrototype.getElementsByTagName);
     documentPrototype.getElementsByTagNameNS = function getElementsByTagNameNS() {debugger;}; safefunction(documentPrototype.getElementsByTagNameNS);
     documentPrototype.getSelection = function getSelection() {debugger;}; safefunction(documentPrototype.getSelection);
