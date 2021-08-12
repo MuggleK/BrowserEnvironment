@@ -304,7 +304,7 @@ function setup(this_) {
     documentPrototype.designMode = 'designMode';
     documentPrototype.dir = 'dir';
     documentPrototype.doctype = 'doctype';
-    // documentPrototype.documentElement = new Node();//'documentElement';
+    documentPrototype.documentElement = new HTMLElement();//'documentElement';
     documentPrototype.documentURI = "https://www.douyin.com/";
     documentPrototype.domain = "www.douyin.com";
     documentPrototype.embeds = 'embeds';

@@ -5,6 +5,5 @@ catvm.run(this, {
 	polyfill: ["base64"]
 });
 
-document.documentElement = new HTMLElement();
 
 debugger;

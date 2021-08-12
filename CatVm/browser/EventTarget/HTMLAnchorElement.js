@@ -13,11 +13,11 @@ function scrollRestoration() {
 safefunction(scrollRestoration);
 
 function setup(this_) {
-    var htmlAnchorElementConstructor = function HtmlAnchorElement() {}
+    var htmlAnchorElementConstructor = function HTMLAnchorElement() {}
     //保护构造函数
     safefunction(htmlAnchorElementConstructor)
 
-    var htmlAnchorElementprototype = new (class HtmlAnchorElement {});
+    var htmlAnchorElementprototype = new (class HTMLAnchorElement {});
     //下面函数都需要被保护
     htmlAnchorElementprototype.charset = 'charset';
     htmlAnchorElementprototype.coords = 'coords';
@@ -56,42 +56,42 @@ function setup(this_) {
             configurable: true
         },
         [Symbol.toStringTag]: {
-            value: "HtmlAnchorElement",
+            value: "HTMLAnchorElement",
             configurable: true
         },
     });
     htmlAnchorElementConstructor.prototype = htmlAnchorElementprototype;
 
-    var HtmlAnchorElement = function() {}
-    HtmlAnchorElement.__proto__ = function HTMLElement() {};
+    var HTMLAnchorElement = function() {}
+    HTMLAnchorElement.__proto__ = function HTMLElement() {};
     //保护函数
-    safefunction(HtmlAnchorElement)
-    safefunction(HtmlAnchorElement.__proto__)
+    safefunction(HTMLAnchorElement)
+    safefunction(HTMLAnchorElement.__proto__)
 
-    HtmlAnchorElement.prototype = htmlAnchorElementprototype;
-    HtmlAnchorElement.prototype.__proto__ = new HTMLElement().__proto__;
+    HTMLAnchorElement.prototype = htmlAnchorElementprototype;
+    HTMLAnchorElement.prototype.__proto__ = new HTMLElement().__proto__;
 
     //这里容易被检测 代理
-    HtmlAnchorElement = vmProxy(HtmlAnchorElement);
+    HTMLAnchorElement = vmProxy(HTMLAnchorElement);
 
     // 把属性继续定义到 静态属性中
-    for (let key in HtmlAnchorElement.prototype) {
+    for (let key in HTMLAnchorElement.prototype) {
         try{
-            if (typeof(HtmlAnchorElement.prototype[key]) == "number"){
-                HtmlAnchorElement[key] = HtmlAnchorElement.prototype[key];
+            if (typeof(HTMLAnchorElement.prototype[key]) == "number"){
+                HTMLAnchorElement[key] = HTMLAnchorElement.prototype[key];
             }
-            if (typeof(HtmlAnchorElement.prototype[key]) == "string") {
-                HtmlAnchorElement.prototype.__defineGetter__(key, scrollRestoration);
-                HtmlAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
+            if (typeof(HTMLAnchorElement.prototype[key]) == "string") {
+                HTMLAnchorElement.prototype.__defineGetter__(key, scrollRestoration);
+                HTMLAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
                 if (key == "scrollRestoration") {
-                    HtmlAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
+                    HTMLAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
                 }
             }
         }
         catch {}
     }
 
-    // HtmlAnchorElement 注入到全局 
+    // HTMLAnchorElement 注入到全局 
     Object.defineProperty(global, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
@@ -100,7 +100,7 @@ function setup(this_) {
     Object.defineProperty(global, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
-        value: HtmlAnchorElement
+        value: HTMLAnchorElement
     });
     //注入到window 
     Object.defineProperty(window, "HTMLAnchorElement", {
@@ -111,7 +111,7 @@ function setup(this_) {
     Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
-        value: HtmlAnchorElement
+        value: HTMLAnchorElement
     });
     
 }
