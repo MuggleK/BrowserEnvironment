@@ -6,6 +6,7 @@ from loguru import logger
 
 
 def get_ip():
+    return None
     while True:
         try:
             ip = requests.get(url='http://219.151.149.149:8888/get_ips/?user_code=688688&user_key=688688').text.split('\n')[0]
@@ -34,6 +35,7 @@ class Rshu5:
         self.ts_url = ts_url
         self.cookie_80s = None
         self.cookie_80t = None
+        self.full_code = None
         self.content, self.js_code = self.get_content()
         self.new_code = self.get_ts()
         self.process_content()
@@ -74,8 +76,8 @@ class Rshu5:
         content_fun_name = re.findall(r';_\$.{2}\(_\$.{2}\(\)\);', self.new_code)[0]
         content_fun_name_ = content_fun_name.replace(content_fun_name.split('(')[1] + '()', '"' + self.content + '"')
         self.new_code = self.new_code.replace(content_fun_name,content_fun_name_)
-        full_code = self.js_code.replace('window = global;document={};',self.ev) + self.new_code + """var get_cookie = function(){return document.cookie.split(';')[0].split('=')[1];};"""
-        ctx = execjs.compile(full_code)
+        self.full_code = self.js_code.replace('window = global;document={};',self.ev) + self.new_code + """var get_cookie = function(){return document.cookie.split(';')[0].split('=')[1];};"""
+        ctx = execjs.compile(self.full_code)
         self.cookie_80t = ctx.call('get_cookie')
 
     def verify(self):
@@ -89,12 +91,21 @@ class Rshu5:
         else:
             logger.debug(f'状态码{res.status_code},Cookie不可用')
 
+    def searchVerify(self, search_url):
+        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s')};""" % search_url
+        search_ctx = execjs.compile(search_code)
+        search_url_ = search_ctx.call('get_search').replace('80:','')
+        print(search_url_)
+        search_res = self.session.post(url=search_url_, headers=self.session.headers, proxies=self.proxy)
+        print(search_res.status_code)
+        print(search_res.text)
+
 
 if __name__ == '__main__':
-    cookie_s = 'wIlwQR28aVgbS'
-    cookie_t = 'wIlwQR28aVgbT'
-    base_url = 'http://epub.cnipa.gov.cn/flzt.jsp'
-    ts_url = 'http://epub.cnipa.gov.cn/DMkKrRq2vkXD/3lyVKWvJXsxS.d5db026.js'
+    cookie_s = 'neCYtZEjo8GmS'
+    cookie_t = 'neCYtZEjo8GmT'
+    base_url = 'http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034'
+    ts_url = 'http://app1.nmpa.gov.cn/ZvbYc1RuNkYg/h2XbjSpBo3BD.a670748.js'
     while True:
         startTime = time.time()
         temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
@@ -103,3 +114,5 @@ if __name__ == '__main__':
             logger.success(f'base_url -> {base_url} -> {cookies}')
             costTime = format(time.time() - startTime, '.2f')
             logger.debug(f'Total Cost: {costTime}s')
+        temp_gx.searchVerify("search.jsp?tableId=60&bcId=152911821636644848557900526892")
+        break

@@ -31,14 +31,14 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] ="http://www.pudong.gov.cn/shpd/department/019010/019010004/";
-    location["origin"] ="http://www.pudong.gov.cn";
+    location["href"] ="http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034&CbSlDlH0=qGk6qAkVTJsVTJsVTml08EsEhchq.o_Yp5jEsQYnjc9qqJA";
+    location["origin"] ="http://app1.nmpa.gov.cn";
     location["protocol"] ="http:";
-    location["host"] ="www.pudong.gov.cn";
-    location["hostname"] ="www.pudong.gov.cn";
+    location["host"] ="app1.nmpa.gov.cn";
+    location["hostname"] ="app1.nmpa.gov.cn";
     location["port"] ="";
-    location["pathname"] ="/shpd/department/019010/019010004/";
-    location["search"] ="";
+    location["pathname"] ="/data_nmpa/face3/base.jsp";
+    location["search"] ="?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034&CbSlDlH0=qGk6qAkVTJsVTJsVTml08EsEhchq.o_Yp5jEsQYnjc9qqJA";
     location["hash"] ="";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
     location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);

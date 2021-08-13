@@ -1807,14 +1807,14 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] ="http://www.pudong.gov.cn/shpd/department/019010/019010004/";
-    location["origin"] ="http://www.pudong.gov.cn";
+    location["href"] ="http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034&CbSlDlH0=qGk6qAkVTJsVTJsVTml08EsEhchq.o_Yp5jEsQYnjc9qqJA";
+    location["origin"] ="http://app1.nmpa.gov.cn";
     location["protocol"] ="http:";
-    location["host"] ="www.pudong.gov.cn";
-    location["hostname"] ="www.pudong.gov.cn";
+    location["host"] ="app1.nmpa.gov.cn";
+    location["hostname"] ="app1.nmpa.gov.cn";
     location["port"] ="";
-    location["pathname"] ="/shpd/department/019010/019010004/";
-    location["search"] ="";
+    location["pathname"] ="/data_nmpa/face3/base.jsp";
+    location["search"] ="?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034&CbSlDlH0=qGk6qAkVTJsVTJsVTml08EsEhchq.o_Yp5jEsQYnjc9qqJA";
     location["hash"] ="";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
     location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);
@@ -4786,7 +4786,16 @@ function setup(this_) {
                 return [window.document,{}]
             }
             return {}
-        }
+        },
+        href: "http://app1.nmpa.gov.cn/data_nmpa/face3/content.jsp?tableId=167&tableName=TABLE167&tableView=%BE%B3%CD%E2%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&Id=16",
+        origin: location.origin,
+        protocol: location.protocol,
+        host: location.host,
+        hostname: location.hostname,
+        port: location.port,
+        pathname: "/data_nmpa/face3/content.jsp",
+        search: location.search,
+        hash: location.hash,
     }
     var documentConstructor = function Document() {}
     //保护构造函数
@@ -4803,8 +4812,8 @@ function setup(this_) {
     documentPrototype.applets = 'applets';
     documentPrototype.bgColor = 'bgColor';
     documentPrototype.body = {'appendChild':function(x){}};
-    documentPrototype.characterSet = 'characterSet';
-    documentPrototype.charset = 'charset';
+    documentPrototype.characterSet = 'GBK';
+    documentPrototype.charset = "GBK";
     documentPrototype.childElementCount = 1;
     documentPrototype.children = 'children';
     documentPrototype.compatMode = 'compatMode';
@@ -6360,7 +6369,7 @@ function setup(this_) {
     xmlHttpRequestPrototype.getAllResponseHeaders = function getAllResponseHeaders() {debugger;}; safefunction(xmlHttpRequestPrototype.getAllResponseHeaders)
     xmlHttpRequestPrototype.abort = function abort(){debugger;};   safefunction(xmlHttpRequestPrototype.abort)
     xmlHttpRequestPrototype.getResponseHeader = function getResponseHeader(){debugger;};   safefunction(xmlHttpRequestPrototype.getResponseHeader)
-    xmlHttpRequestPrototype.open = function open(){debugger;};   safefunction(xmlHttpRequestPrototype.open)
+    xmlHttpRequestPrototype.open = function open(){debugger;return arguments[1]};   safefunction(xmlHttpRequestPrototype.open)
     xmlHttpRequestPrototype.overrideMimeType = function overrideMimeType(){debugger;};   safefunction(xmlHttpRequestPrototype.overrideMimeType)
     xmlHttpRequestPrototype.send = function send(){debugger;};   safefunction(xmlHttpRequestPrototype.send)
     xmlHttpRequestPrototype.setRequestHeader = function setRequestHeader(){debugger;};   safefunction(xmlHttpRequestPrototype.setRequestHeader)

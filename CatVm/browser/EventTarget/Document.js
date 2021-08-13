@@ -275,7 +275,16 @@ function setup(this_) {
                 return [window.document,{}]
             }
             return {}
-        }
+        },
+        href: location.href,
+        origin: location.origin,
+        protocol: location.protocol,
+        host: location.host,
+        hostname: location.hostname,
+        port: location.port,
+        pathname: "/data_nmpa/face3/content.jsp",
+        search: location.search,
+        hash: location.hash,
     }
     var documentConstructor = function Document() {}
     //保护构造函数
@@ -292,8 +301,8 @@ function setup(this_) {
     documentPrototype.applets = 'applets';
     documentPrototype.bgColor = 'bgColor';
     documentPrototype.body = {'appendChild':function(x){}};
-    documentPrototype.characterSet = 'characterSet';
-    documentPrototype.charset = 'charset';
+    documentPrototype.characterSet = 'GBK';
+    documentPrototype.charset = 'GBK';
     documentPrototype.childElementCount = 1;
     documentPrototype.children = 'children';
     documentPrototype.compatMode = 'compatMode';

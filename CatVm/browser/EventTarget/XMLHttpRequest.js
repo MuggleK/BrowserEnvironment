@@ -38,7 +38,7 @@ function setup(this_) {
     xmlHttpRequestPrototype.getAllResponseHeaders = function getAllResponseHeaders() {debugger;}; safefunction(xmlHttpRequestPrototype.getAllResponseHeaders)
     xmlHttpRequestPrototype.abort = function abort(){debugger;};   safefunction(xmlHttpRequestPrototype.abort)
     xmlHttpRequestPrototype.getResponseHeader = function getResponseHeader(){debugger;};   safefunction(xmlHttpRequestPrototype.getResponseHeader)
-    xmlHttpRequestPrototype.open = function open(){debugger;};   safefunction(xmlHttpRequestPrototype.open)
+    xmlHttpRequestPrototype.open = function open(){debugger;return arguments[1]};   safefunction(xmlHttpRequestPrototype.open)
     xmlHttpRequestPrototype.overrideMimeType = function overrideMimeType(){debugger;};   safefunction(xmlHttpRequestPrototype.overrideMimeType)
     xmlHttpRequestPrototype.send = function send(){debugger;};   safefunction(xmlHttpRequestPrototype.send)
     xmlHttpRequestPrototype.setRequestHeader = function setRequestHeader(){debugger;};   safefunction(xmlHttpRequestPrototype.setRequestHeader)
