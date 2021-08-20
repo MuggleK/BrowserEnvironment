@@ -2,7 +2,8 @@ var safefunction = require("../../plugin/safefunction.js")
 var vmProxy = require("../../plugin/InjectionProxy.js")
 
 function scrollRestoration() {
-    // debugger ;var e = new Error();
+    debugger ;
+    var e = new Error();
     e.name = "TypeError";
     e.message = "Illegal invocation";
     e.stack = "TypeError: Illegal invocation \r\n \
@@ -38,14 +39,14 @@ function setup(this_) {
     elementPrototype.assignedSlot = 'assignedSlot';
     elementPrototype.innerHTML = 'innerHTML';
     elementPrototype.outerHTML = 'outerHTML';
-    elementPrototype.scrollTop = 'scrollTop';
-    elementPrototype.scrollLeft = 'scrollLeft';
-    elementPrototype.scrollWidth = 'scrollWidth';
-    elementPrototype.scrollHeight = 'scrollHeight';
-    elementPrototype.clientTop = 'clientTop';
-    elementPrototype.clientLeft = 'clientLeft';
-    elementPrototype.clientWidth = 'clientWidth';
-    elementPrototype.clientHeight = 'clientHeight';
+    elementPrototype.scrollTop = 0;
+    elementPrototype.scrollLeft = 0;
+    elementPrototype.scrollWidth = 0;
+    elementPrototype.scrollHeight = 0;
+    elementPrototype.clientTop = 0;
+    elementPrototype.clientLeft = 0;
+    elementPrototype.clientWidth = 0;
+    elementPrototype.clientHeight = 0;
     elementPrototype.attributeStyleMap = 'attributeStyleMap';
     elementPrototype.onbeforecopy = 'onbeforecopy';
     elementPrototype.onbeforecut = 'onbeforecut';
@@ -228,25 +229,25 @@ function setup(this_) {
     Element = vmProxy(Element);
 
     // 把属性继续定义到 静态属性中
-    for (let key in Element.prototype) {
-        if (typeof(Element.prototype[key]) == "number"){
-            Element[key] = Element.prototype[key];
-        }
-        if (typeof(Element.prototype[key]) == "string") {
-            if (key == 'tagName')
-            {
-                Element.prototype.__defineGetter__(key, scrollRestoration);
-            }
-            else{
-                Element.prototype.__defineGetter__(key, scrollRestoration);
-                Element.prototype.__defineSetter__(key, scrollRestoration);
-            }
-
-            if (key == "scrollRestoration") {
-                Element.prototype.__defineSetter__(key, scrollRestoration);
-            }
-        }
-    }
+    // for (let key in Element.prototype) {
+    //     if (typeof(Element.prototype[key]) == "number"){
+    //         Element[key] = Element.prototype[key];
+    //     }
+    //     if (typeof(Element.prototype[key]) == "string") {
+    //         if (key == 'tagName')
+    //         {
+    //             Element.prototype.__defineGetter__(key, scrollRestoration);
+    //         }
+    //         else{
+    //             Element.prototype.__defineGetter__(key, scrollRestoration);
+    //             Element.prototype.__defineSetter__(key, scrollRestoration);
+    //         }
+    //
+    //         if (key == "scrollRestoration") {
+    //             Element.prototype.__defineSetter__(key, scrollRestoration);
+    //         }
+    //     }
+    // }
 
     // Element 注入到全局 
     Object.defineProperty(global, "Element", {

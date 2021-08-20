@@ -81,8 +81,8 @@ function setup(this_)
     window["origin"] = 'https://login.taobao.com';
     window["external"] = new (class External {});
     window["screen"] = new (class Screen {});
-    window["innerWidth"] = 1920;
-    window["innerHeight"] = 916;
+    window["innerWidth"] = 300;
+    window["innerHeight"] = 37;
     window["scrollX"] = 0;
     window["pageXOffset"] = 0;
     window["scrollY"] = 0;
@@ -299,6 +299,14 @@ function setup(this_)
     window['console'] = global.console;
     window['Symbol'] = global.Symbol;
     window['WeakMap'] = global.WeakMap;
+    window['HTMLDocument'] = {
+        'prototype': {
+            'hasOwnProperty': function (x) {
+                if (x == 'getSelection')
+                    return false;
+            }
+        }
+    };
     // window['referer'] = "https://www.douyin.com/";
 
     
