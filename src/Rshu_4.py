@@ -1,5 +1,4 @@
 #-*-coding:utf-8-*-
-from flask import Flask,request
 import math
 import execjs
 import requests
@@ -844,48 +843,6 @@ class Rshu4:
             print(f'状态码{res.status_code},Cookie不可用')
 
 
-app = Flask(__name__)
-
-@app.route('/hubei', methods=['POST','GET'])    # 湖北科学技术厅
-def hb_server():
-    if request.method == 'POST':
-        data = request.form
-        cookie_s = data.get('cookie_s', None)
-        cookie_t = data.get('cookie_t', None)
-        base_url = data.get('base_url', None)
-        ts_url = data.get('ts_url', None)
-    elif request.method == 'GET':
-        cookie_s = request.args.get("cookie_s")
-        cookie_t = request.args.get("cookie_t")
-        base_url = request.args.get("base_url")
-        ts_url = request.args.get("ts_url")
-    else:
-        return '未支持的请求方式'
-    res = {}
-    if base_url is None:
-        msg = "need base_url param!"
-        code = 400
-        res['msg'] = msg
-        res['code'] = code
-        res['cookie'] = None
-    else:
-        temp_gx = Rshu4(base_url, ts_url, cookie_s, cookie_t)
-        cookies = temp_gx.verify()
-        res = {
-            'code' : 200,
-            'cookie' : cookies,
-            'msg' : 'Success'
-        }
-    if res.get('code'):
-        return res
-    else:
-        return {
-            'code' : 500,
-            'cookie' : None,
-            'msg' : 'Failed'
-        }
-
-
 if __name__ == '__main__':
     startTime = time.time()
 
@@ -898,4 +855,3 @@ if __name__ == '__main__':
     logger.success(f'base_url -> {base_url} -> {cookies}')
     costTime = format(time.time() - startTime, '.2f')
     logger.debug(f'Total Cost: {costTime}s')
-    # app.run(port=7002, host="0.0.0.0",threaded=True,debug=True)

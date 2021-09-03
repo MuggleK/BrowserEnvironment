@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/EventTarget/Element.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/EventTarget/Element.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Location.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Location.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Window.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Window.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catvm.build.js" beforeDir="false" afterPath="$PROJECT_DIR$/catvm.build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../lin_code/qcc/zhilian" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -119,6 +112,7 @@
       <workItem from="1628823043269" duration="6577000" />
       <workItem from="1629336261897" duration="948000" />
       <workItem from="1629431206641" duration="8256000" />
+      <workItem from="1630574964189" duration="15000" />
     </task>
     <servers />
   </component>
@@ -146,6 +140,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1091" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1629337012777" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1630574976672">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1630574976672" />
     <state width="1899" height="300" key="GridCell.Tab.0.bottom" timestamp="1629446764619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
