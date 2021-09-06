@@ -616,6 +616,54 @@ function setup(this_) {
     });
     
 
+    // define HTMLDocument
+    var htmlDocumentConstructor = function HTMLDocument() {}
+    //保护构造函数
+    safefunction(htmlDocumentConstructor)
+    var htmlDocument_Prototype = new Document().__proto__;
+    htmlDocumentConstructor.prototype = htmlDocument_Prototype;
+    Object.defineProperties(htmlDocument_Prototype, {
+        constructor: {
+            value: htmlDocumentConstructor,
+            writable: true,
+            configurable: true
+        },
+        [Symbol.toStringTag]: {
+            value: "HTMLDocument",
+            configurable: true
+        }
+    });
+    var HTMLDocument = function() {};
+    safefunction(HTMLDocument)
+    HTMLDocument.__proto__ = function Document(){};
+    safefunction(HTMLDocument.__proto__)
+    HTMLDocument.prototype = htmlDocument_Prototype;
+    safefunction(HTMLDocument.prototype)
+
+    // HTMLDocument 注入到全局
+    Object.defineProperty(global, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: htmlDocumentConstructor
+    });
+    Object.defineProperty(global, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: HTMLDocument
+    });
+    //注入到window
+    Object.defineProperty(window, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: htmlDocumentConstructor
+    });
+    Object.defineProperty(window, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: HTMLDocument
+    });
+
+
     // define document
     var document = function() {};
     safefunction(document)

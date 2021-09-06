@@ -275,7 +275,6 @@ function setup(this_)
     window["ntp"] = new (class Object {});
 ////////////////////////////////////////////////////////////////////////////////
     window['Reflect'] = new (class Reflect {});
-    window['isSecureContext'] = true;
     window['Touch'] = new (class Touch {});
     window['Proxy'] = global.Proxy
     window['PerformanceServerTiming'] = new (class PerformanceServerTiming {});
@@ -288,25 +287,7 @@ function setup(this_)
     window['Bluetooth'] = new (class Bluetooth {});
     window['BluetoothDevice'] = new (class BluetoothDevice {});
     window['BluetoothUUID'] = new (class BluetoothUUID {});
-    window['PerformanceEntry'] = new (class PerformanceEntry{})
-    window['Error'] = global.Error
-    window['Date'] = global.Date;
-    window['Math'] = global.Math;
-    window['parseInt'] = global.parseInt;
-    window['Promise'] = global.Promise;
-    window['Function'] = global.Function;
-    window['Object'] = global.Object;
-    window['console'] = global.console;
-    window['Symbol'] = global.Symbol;
-    window['WeakMap'] = global.WeakMap;
-    window['HTMLDocument'] = {
-        'prototype': {
-            'hasOwnProperty': function (x) {
-                if (x == 'getSelection')
-                    return false;
-            }
-        }
-    };
+    window['PerformanceEntry'] = new (class PerformanceEntry{});
     // window['referer'] = "https://www.douyin.com/";
 
     
