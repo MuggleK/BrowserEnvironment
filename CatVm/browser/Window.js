@@ -240,11 +240,73 @@ function setup(this_)
     window["scrollBy"] = function scrollBy(){debugger;};   safefunction(window["scrollBy"]);
     window["scrollTo"] = function scrollTo(){debugger;};   safefunction(window["scrollTo"]);
     window["setInterval"] = function setInterval(x,y){debugger;return 1};   safefunction(window["setInterval"]);
-    window["setTimeout"] = function setTimeout(x,y){debugger;return 1};   safefunction(window["setTimeout"]);
+    window["setTimeout"] = function setTimeout(x,y){debugger;x();return 1};   safefunction(window["setTimeout"]);
     window["stop"] = function stop(){debugger;};   safefunction(window["stop"]);
     window["webkitCancelAnimationFrame"] = function webkitCancelAnimationFrame(){debugger;};   safefunction(window["webkitCancelAnimationFrame"]);
     window["webkitRequestAnimationFrame"] = function webkitRequestAnimationFrame(){debugger;};   safefunction(window["webkitRequestAnimationFrame"]);
     window["chrome"] = new (class Object {});
+    window["chrome"]['app'] = {
+        InstallState:{
+            DISABLED: "disabled",
+            INSTALLED: "installed",
+            NOT_INSTALLED: "not_installed",
+        },
+        RunningState:{
+            CANNOT_RUN: "cannot_run",
+            READY_TO_RUN: "ready_to_run",
+            RUNNING: "running"
+        },
+        getDetails:function getDetails(xx,yy){debugger;},
+        getIsInstalled:function getIsInstalled(xx,yy){debugger;},
+        installState:function installState(xx,yy){debugger;},
+        runningState:function runningState(xx,yy){debugger;},
+        isInstalled:false
+
+    }
+    window["chrome"]['csi'] = function csi(xx,yy){debugger;}
+    window["chrome"]['loadTimes'] = function loadTimes(xx,yy){debugger;}
+    // window["chrome"]['runtime'] = {
+    //     OnInstalledReason:{
+    //         CHROME_UPDATE: "chrome_update",
+    //         INSTALL: "install",
+    //         SHARED_MODULE_UPDATE: "shared_module_update",
+    //         UPDATE: "update"
+    //     },
+    //     OnRestartRequiredReason:{
+    //         APP_UPDATE: "app_update",
+    //         OS_UPDATE: "os_update",
+    //         PERIODIC: "periodic"
+    //     },
+    //     PlatformArch:{
+    //         ARM: "arm",
+    //         ARM64: "arm64",
+    //         MIPS: "mips",
+    //         MIPS64: "mips64",
+    //         X86_32: "x86-32",
+    //         X86_64: "x86-64"
+    //     },
+    //     PlatformNaclArch:{
+    //         ARM: "arm",
+    //         MIPS: "mips",
+    //         MIPS64: "mips64",
+    //         X86_32: "x86-32",
+    //         X86_64: "x86-64"
+    //     },
+    //     PlatformOs:{
+    //         ANDROID: "android",
+    //         CROS: "cros",
+    //         LINUX: "linux",
+    //         MAC: "mac",
+    //         OPENBSD: "openbsd",
+    //         WIN: "win"
+    //     },
+    //     RequestUpdateCheckStatus:{
+    //         NO_UPDATE: "no_update",
+    //         THROTTLED: "throttled",
+    //         UPDATE_AVAILABLE: "update_available"
+    //     },
+    //     id:undefined
+    // };
     window["caches"] = new (class CacheStorage {});
     window["ondevicemotion"] = null;
     window["ondeviceorientation"] = null;
@@ -288,6 +350,7 @@ function setup(this_)
     window['BluetoothDevice'] = new (class BluetoothDevice {});
     window['BluetoothUUID'] = new (class BluetoothUUID {});
     window['PerformanceEntry'] = new (class PerformanceEntry{});
+    window['HTMLFormElement'] = new (class HTMLFormElement{});
     // window['referer'] = "https://www.douyin.com/";
 
     

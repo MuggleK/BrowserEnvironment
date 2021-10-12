@@ -5,14 +5,16 @@
 
 var catvm = __webpack_require__(1);
 catvm.run(this, {
-	proxy: true,
-	log: true,
-	polyfill: ["base64"]
+    proxy: true,
+    log: true,
+    polyfill: ["base64"]
 });
 
-document.documentElement = new HTMLElement();
-
 debugger;
+
+
+
+
 
 
 /***/ }),
@@ -48,7 +50,7 @@ function run(this_,config_)
     var Request = __webpack_require__(27); Request.setup(this_);
     var Headers = __webpack_require__(28); Headers.setup(this_);
     var DOMParser = __webpack_require__(29); DOMParser.setup(this_);
-    
+
     //  EventTarget
     var EventTarget = __webpack_require__(11); EventTarget.setup(this_);
     var BaseAudioContext = __webpack_require__(30); BaseAudioContext.setup(this_);
@@ -56,9 +58,9 @@ function run(this_,config_)
     var MediaStreamTrack = __webpack_require__(32); MediaStreamTrack.setup(this_);
     var Bluetooth = __webpack_require__(33); Bluetooth.setup(this_);
     var Node = __webpack_require__(34); Node.setup(this_);
-    var Document = __webpack_require__(35); Document.setup(this_);
-    var Element = __webpack_require__(36); Element.setup(this_);
-    var HTMLElement = __webpack_require__(37); HTMLElement.setup(this_);
+    var Element = __webpack_require__(35); Element.setup(this_);
+    var HTMLElement = __webpack_require__(36); HTMLElement.setup(this_);
+    var Document = __webpack_require__(37); Document.setup(this_);
     var HTMLMediaElement = __webpack_require__(38); HTMLMediaElement.setup(this_);
     var HTMLAnchorElement = __webpack_require__(39); HTMLAnchorElement.setup(this_);
     var Image = __webpack_require__(40); Image.setup(this_);
@@ -80,7 +82,7 @@ function run(this_,config_)
     var UIEvent = __webpack_require__(50); UIEvent.setup(this_);
     var MouseEvent = __webpack_require__(51); MouseEvent.setup(this_);
     var PointerEvent = __webpack_require__(52); PointerEvent.setup(this_);
-    
+
 
     __webpack_require__(53); //这个是全局原型 不需要初始化
     // 加载环境 dom Element 类型列表
@@ -160,7 +162,7 @@ function load()
             __webpack_require__(4)("./"+ element +".js").run();
         });
 
-    } 
+    }
 }
 module.exports = {
     load
@@ -204,7 +206,7 @@ function run(){
     !function(e) {
         var base64EncodeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
         var base64DecodeChars = new Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1);
-    
+
         function btoa(str) {
             var out, i, len;
             var c1, c2, c3;
@@ -235,7 +237,7 @@ function run(){
             }
             return out;
         }
-    
+
         function atob(str) {
             var c1, c2, c3, c4;
             var i, len, out;
@@ -269,7 +271,7 @@ function run(){
             }
             return out;
         }
-    
+
         function utf16to8(str) {
             var out, i, len, c;
             out = "";
@@ -289,7 +291,7 @@ function run(){
             }
             return out;
         }
-    
+
         function utf8to16(str) {
             var out, i, len, c;
             var char2, char3;
@@ -323,7 +325,7 @@ function run(){
             }
             return out;
         }
-    
+
         function CharToHex(str) {
             var out, i, len, c, h;
             out = "";
@@ -398,7 +400,7 @@ var vmProxy = __webpack_require__(8)
 var WindowProperties = __webpack_require__(10)
 function setup(this_)
 {
-    //定义window.Window  也就是 this.Window 或者 Window 
+    //定义window.Window  也就是 this.Window 或者 Window
     //给个假的构造函数 不允许重复创建window对象
     var windowConstructor  = function Window(){
         //模拟不允许单独创建
@@ -424,7 +426,7 @@ function setup(this_)
     //定义属性和方法
     windowPrototype.TEMPORARY = 0;
     windowPrototype.PERSISTENT = 1;
-    
+
     /*
     Object.defineProperties(windowPrototype,{
         PERSISTENT:{
@@ -472,8 +474,8 @@ function setup(this_)
     window["origin"] = 'https://login.taobao.com';
     window["external"] = new (class External {});
     window["screen"] = new (class Screen {});
-    window["innerWidth"] = 1920;
-    window["innerHeight"] = 916;
+    window["innerWidth"] = 300;
+    window["innerHeight"] = 37;
     window["scrollX"] = 0;
     window["pageXOffset"] = 0;
     window["scrollY"] = 0;
@@ -631,11 +633,73 @@ function setup(this_)
     window["scrollBy"] = function scrollBy(){debugger;};   safefunction(window["scrollBy"]);
     window["scrollTo"] = function scrollTo(){debugger;};   safefunction(window["scrollTo"]);
     window["setInterval"] = function setInterval(x,y){debugger;return 1};   safefunction(window["setInterval"]);
-    window["setTimeout"] = function setTimeout(x,y){debugger;return 1};   safefunction(window["setTimeout"]);
+    window["setTimeout"] = function setTimeout(x,y){debugger;x();return 1};   safefunction(window["setTimeout"]);
     window["stop"] = function stop(){debugger;};   safefunction(window["stop"]);
     window["webkitCancelAnimationFrame"] = function webkitCancelAnimationFrame(){debugger;};   safefunction(window["webkitCancelAnimationFrame"]);
     window["webkitRequestAnimationFrame"] = function webkitRequestAnimationFrame(){debugger;};   safefunction(window["webkitRequestAnimationFrame"]);
     window["chrome"] = new (class Object {});
+    window["chrome"]['app'] = {
+        InstallState:{
+            DISABLED: "disabled",
+            INSTALLED: "installed",
+            NOT_INSTALLED: "not_installed",
+        },
+        RunningState:{
+            CANNOT_RUN: "cannot_run",
+            READY_TO_RUN: "ready_to_run",
+            RUNNING: "running"
+        },
+        getDetails:function getDetails(xx,yy){debugger;},
+        getIsInstalled:function getIsInstalled(xx,yy){debugger;},
+        installState:function installState(xx,yy){debugger;},
+        runningState:function runningState(xx,yy){debugger;},
+        isInstalled:false
+
+    }
+    window["chrome"]['csi'] = function csi(xx,yy){debugger;}
+    window["chrome"]['loadTimes'] = function loadTimes(xx,yy){debugger;}
+    // window["chrome"]['runtime'] = {
+    //     OnInstalledReason:{
+    //         CHROME_UPDATE: "chrome_update",
+    //         INSTALL: "install",
+    //         SHARED_MODULE_UPDATE: "shared_module_update",
+    //         UPDATE: "update"
+    //     },
+    //     OnRestartRequiredReason:{
+    //         APP_UPDATE: "app_update",
+    //         OS_UPDATE: "os_update",
+    //         PERIODIC: "periodic"
+    //     },
+    //     PlatformArch:{
+    //         ARM: "arm",
+    //         ARM64: "arm64",
+    //         MIPS: "mips",
+    //         MIPS64: "mips64",
+    //         X86_32: "x86-32",
+    //         X86_64: "x86-64"
+    //     },
+    //     PlatformNaclArch:{
+    //         ARM: "arm",
+    //         MIPS: "mips",
+    //         MIPS64: "mips64",
+    //         X86_32: "x86-32",
+    //         X86_64: "x86-64"
+    //     },
+    //     PlatformOs:{
+    //         ANDROID: "android",
+    //         CROS: "cros",
+    //         LINUX: "linux",
+    //         MAC: "mac",
+    //         OPENBSD: "openbsd",
+    //         WIN: "win"
+    //     },
+    //     RequestUpdateCheckStatus:{
+    //         NO_UPDATE: "no_update",
+    //         THROTTLED: "throttled",
+    //         UPDATE_AVAILABLE: "update_available"
+    //     },
+    //     id:undefined
+    // };
     window["caches"] = new (class CacheStorage {});
     window["ondevicemotion"] = null;
     window["ondeviceorientation"] = null;
@@ -666,7 +730,6 @@ function setup(this_)
     window["ntp"] = new (class Object {});
 ////////////////////////////////////////////////////////////////////////////////
     window['Reflect'] = new (class Reflect {});
-    window['isSecureContext'] = true;
     window['Touch'] = new (class Touch {});
     window['Proxy'] = __webpack_require__.g.Proxy
     window['PerformanceServerTiming'] = new (class PerformanceServerTiming {});
@@ -679,20 +742,11 @@ function setup(this_)
     window['Bluetooth'] = new (class Bluetooth {});
     window['BluetoothDevice'] = new (class BluetoothDevice {});
     window['BluetoothUUID'] = new (class BluetoothUUID {});
-    window['PerformanceEntry'] = new (class PerformanceEntry{})
-    window['Error'] = __webpack_require__.g.Error
-    window['Date'] = __webpack_require__.g.Date;
-    window['Math'] = __webpack_require__.g.Math;
-    window['parseInt'] = __webpack_require__.g.parseInt;
-    window['Promise'] = __webpack_require__.g.Promise;
-    window['Function'] = __webpack_require__.g.Function;
-    window['Object'] = __webpack_require__.g.Object;
-    window['console'] = __webpack_require__.g.console;
-    window['Symbol'] = __webpack_require__.g.Symbol;
-    window['WeakMap'] = __webpack_require__.g.WeakMap;
+    window['PerformanceEntry'] = new (class PerformanceEntry{});
+    window['HTMLFormElement'] = new (class HTMLFormElement{});
     // window['referer'] = "https://www.douyin.com/";
 
-    
+
     //修改原型链
     window.__proto__ = windowPrototype;
     //顺便把node也改了
@@ -702,7 +756,7 @@ function setup(this_)
     window = vmProxy(window);
     window.window = window;
     window.Window = windowConstructor;
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "Window", {
         configurable: true,
         writable: true,
@@ -740,7 +794,7 @@ function VmProxy(object_)
     if(typeof (isproxy) == "boolean" && isproxy)
     {
         return new Proxy(object_, {
-            get (target, property) { 
+            get (target, property) {
             log.info("Get",target.constructor.name,property,target[property]);
             return target[property];
             },
@@ -767,8 +821,8 @@ var config = __webpack_require__(2)
 function info(tag, objectname, propertyname, value) {
     var islog = config.getConfigById("log");
     if (typeof (islog) == "boolean" && islog) {
-        // if (propertyname == 'performance'){
-            // console.table([{ tag, objectname, propertyname, value }], ["tag", "objectname", "propertyname", "value"]);
+        // if (propertyname == 'ActiveXObject'){
+//            console.table([{ tag, objectname, propertyname, value }], ["tag", "objectname", "propertyname", "value"]);
             // debugger;
         // }
 
@@ -908,7 +962,7 @@ function setup(this_) {
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    // EventTarget 注入到全局 
+    // EventTarget 注入到全局
     Object.defineProperty(__webpack_require__.g, "EventTarget", {
         configurable: true,
         writable: true,
@@ -919,7 +973,7 @@ function setup(this_) {
         writable: true,
         value: EventTarget
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "EventTarget", {
         configurable: true,
         writable: true,
@@ -1481,7 +1535,7 @@ function setup(this_) {
         }
     }
 
-    // Performance 注入到全局 
+    // Performance 注入到全局
     Object.defineProperty(__webpack_require__.g, "Performance", {
         configurable: true,
         writable: true,
@@ -1492,7 +1546,7 @@ function setup(this_) {
         writable: true,
         value: performance
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Performance", {
         configurable: true,
         writable: true,
@@ -1532,7 +1586,7 @@ function setup(this_) {
 
 
     var navigatorConstructor  = function Navigator(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(navigatorConstructor);
@@ -1556,7 +1610,7 @@ function setup(this_) {
     safefunction(Navigator);
     var navigator = new Navigator();
     navigator.__proto__ = navigatorPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     navigator.__proto__["vendorSub"] = "";
     navigator.__proto__["productSub"] = "20030107";
@@ -1579,7 +1633,7 @@ function setup(this_) {
     navigator.__proto__["product"] = "Gecko";
     navigator.__proto__["userAgent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36";
     navigator.__proto__["language"] = "zh-CN";
-    navigator.__proto__["languages"] = ["zh-CN"];
+    navigator.__proto__["languages"] = ['zh-CN'];
     navigator.__proto__["onLine"] = true;
     navigator.__proto__["getBattery"] = function getBattery(){
         return new Promise(function(resolve, reject) {
@@ -1651,7 +1705,7 @@ function setup(this_) {
         navigator[key] = navigator.__proto__[key]; //神奇的操作
         if(typeof(navigator.__proto__[key]) != "function")
         {
-            navigator.__proto__.__defineGetter__(key, function() {debugger; 
+            navigator.__proto__.__defineGetter__(key, function() {debugger;
                 var e = new Error();
                 e.name = "TypeError";
                 e.message = "Illegal invocation";
@@ -1661,14 +1715,14 @@ function setup(this_) {
             });
         }
     }
-  
+
     ////////////////////////////////////////////////////////////////////////////////
 
     navigator = vmProxy(navigator);
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "Navigator", {
         configurable: true,
         writable: true,
@@ -1679,7 +1733,7 @@ function setup(this_) {
         writable: true,
         value: navigator
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Navigator", {
         configurable: true,
         writable: true,
@@ -1696,7 +1750,7 @@ function setup(this_) {
         value: navigator
     });
 
-    
+
 }
 
 module.exports = {
@@ -1717,7 +1771,7 @@ var safefunction = __webpack_require__(6)
 var vmProxy = __webpack_require__(8)
 
 var userActivationConstructor  = function UserActivation(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
 safefunction(userActivationConstructor);
@@ -1757,7 +1811,7 @@ module.exports = {
         ////////////////////////////////////////////////////////////////////////////////
         userActivation.__proto__["hasBeenActive"] = true;
         userActivation.__proto__["isActive"] = true;
-    
+
         for(let key in userActivation.__proto__){
             userActivation[key] = userActivation.__proto__[key]; //神奇的操作
             if(typeof(userActivation.__proto__[key]) != "function")
@@ -1781,7 +1835,7 @@ var safefunction = __webpack_require__(6)
 function setup(this_) {
 
     var locationConstructor  = function Location(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(locationConstructor);
@@ -1807,15 +1861,15 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] ="http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034&CbSlDlH0=qGk6qAkVTJsVTJsVTml08EsEhchq.o_Yp5jEsQYnjc9qqJA";
-    location["origin"] ="http://app1.nmpa.gov.cn";
-    location["protocol"] ="http:";
-    location["host"] ="app1.nmpa.gov.cn";
-    location["hostname"] ="app1.nmpa.gov.cn";
-    location["port"] ="";
-    location["pathname"] ="/data_nmpa/face3/base.jsp";
-    location["search"] ="?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034&CbSlDlH0=qGk6qAkVTJsVTJsVTml08EsEhchq.o_Yp5jEsQYnjc9qqJA";
-    location["hash"] ="";
+    location["href"] = "http://app1.nmpa.gov.cn/data_nmpa/face3/dir.html?type=yp&CbSlDlH0=qGcUcqqHkaZHkaZHkZAUk_KqYPuF1kstCdXcSt2s5cqqqqZ";
+    location["origin"] = "http://app1.nmpa.gov.cn";
+    location["protocol"] = "http:";
+    location["host"] = "app1.nmpa.gov.cn";
+    location["hostname"] = "app1.nmpa.gov.cn";
+    location["port"] = "";
+    location["pathname"] = "/data_nmpa/face3/base.jsp";
+    location["search"] = "?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034";
+    location["hash"] = "";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
     location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);
     location["replace"] =function replace(){debugger;}; safefunction(location["replace"]);
@@ -1845,7 +1899,7 @@ function setup(this_) {
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
      Object.defineProperty(__webpack_require__.g, "Location", {
         configurable: true,
         writable: true,
@@ -1856,7 +1910,7 @@ function setup(this_) {
         writable: true,
         value: location
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Location", {
         configurable: true,
         writable: true,
@@ -1886,7 +1940,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var historyConstructor  = function History(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(historyConstructor);
@@ -1910,7 +1964,7 @@ function setup(this_) {
     safefunction(History);
     var history = new History();
     history.__proto__ = historyPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     history.__proto__["length"] = 1;
     history.__proto__["scrollRestoration"] = "auto";
@@ -1920,16 +1974,16 @@ function setup(this_) {
     history.__proto__["go"] = function go(){debugger;};   safefunction(history.__proto__["go"]);
     history.__proto__["pushState"] = function pushState(){debugger;};   safefunction(history.__proto__["pushState"]);
     history.__proto__["replaceState"] = function replaceState(){debugger;};   safefunction(history.__proto__["replaceState"]);
-    
+
     function scrollRestoration(){
-        debugger; 
+        debugger;
         var e = new Error();
         e.name = "TypeError";
         e.message = "Illegal invocation";
         e.stack = "TypeError: Illegal invocation \r\n \
         at <anonymous>:1:19";
         throw e;
-    }  safefunction(scrollRestoration); 
+    }  safefunction(scrollRestoration);
 
     var list_ = {"length":0,"scrollRestoration":0,"state":0};
      ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
@@ -1950,13 +2004,13 @@ function setup(this_) {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    
+
     //这里容易被检测 代理
     history = vmProxy(history);
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "History", {
         configurable: true,
         writable: true,
@@ -1967,7 +2021,7 @@ function setup(this_) {
         writable: true,
         value: history
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "History", {
         configurable: true,
         writable: true,
@@ -1998,7 +2052,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var screenConstructor  = function Screen(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(screenConstructor);
@@ -2042,7 +2096,7 @@ function setup(this_) {
     ////////////////////////////////////////////////////////////////////////////////
     screen = vmProxy(screen);
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "screen", {
         configurable: true,
         writable: true,
@@ -2053,7 +2107,7 @@ function setup(this_) {
         writable: true,
         value: screenConstructor
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "screen", {
         configurable: true,
         writable: true,
@@ -2082,7 +2136,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var eventCountsConstructor  = function EventCounts(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(eventCountsConstructor);
@@ -2106,7 +2160,7 @@ function setup(this_) {
     safefunction(EventCounts);
     var eventCounts = new EventCounts();
     eventCounts.__proto__ = eventCountsPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     eventCounts.__proto__["size"] = 36;
     eventCounts.__proto__["entries"] = function entries(){debugger;};   safefunction(eventCounts.__proto__["entries"]);
@@ -2115,16 +2169,16 @@ function setup(this_) {
     eventCounts.__proto__["has"] = function has(){debugger;};   safefunction(eventCounts.__proto__["has"]);
     eventCounts.__proto__["keys"] = function keys(){debugger;};   safefunction(eventCounts.__proto__["keys"]);
     eventCounts.__proto__["values"] = function values(){debugger;};   safefunction(eventCounts.__proto__["values"]);
-    
+
     function scrollRestoration(){
-        debugger; 
+        debugger;
         var e = new Error();
         e.name = "TypeError";
         e.message = "Illegal invocation";
         e.stack = "TypeError: Illegal invocation \r\n \
         at <anonymous>:1:19";
         throw e;
-    }  safefunction(scrollRestoration); 
+    }  safefunction(scrollRestoration);
 
     var list_ = {"length":0,"scrollRestoration":0,"state":0};
      ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
@@ -2134,7 +2188,7 @@ function setup(this_) {
             eventCounts[key] = eventCounts.__proto__[key]; //神奇的操作
         }
         if(typeof(eventCounts.__proto__[key]) != "function")
-        {   
+        {
             eventCounts[key] = eventCounts.__proto__[key];
             eventCounts.__proto__.__defineGetter__(key, scrollRestoration);
 
@@ -2146,13 +2200,13 @@ function setup(this_) {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    
+
     //这里容易被检测 代理
     eventCounts = vmProxy(eventCounts);
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "EventCounts", {
         configurable: true,
         writable: true,
@@ -2163,7 +2217,7 @@ function setup(this_) {
         writable: true,
         value: eventCounts
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "EventCounts", {
         configurable: true,
         writable: true,
@@ -2193,7 +2247,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var memoryInfoConstructor  = function MemoryInfo(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(memoryInfoConstructor);
@@ -2217,21 +2271,21 @@ function setup(this_) {
     safefunction(MemoryInfo);
     var memoryInfo = new MemoryInfo();
     memoryInfo.__proto__ = memoryInfoPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     memoryInfo.__proto__["jsHeapSizeLimit"] = 4294705152;
     memoryInfo.__proto__["totalJSHeapSize"] = 17568265;
     memoryInfo.__proto__["usedJSHeapSize"] = 14733161;
-    
+
     function scrollRestoration(){
-        debugger; 
+        debugger;
         var e = new Error();
         e.name = "TypeError";
         e.message = "Illegal invocation";
         e.stack = "TypeError: Illegal invocation \r\n \
         at <anonymous>:1:19";
         throw e;
-    }  safefunction(scrollRestoration); 
+    }  safefunction(scrollRestoration);
 
     var list_ = {"length":0,"scrollRestoration":0,"state":0};
      ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
@@ -2241,7 +2295,7 @@ function setup(this_) {
             memoryInfo[key] = memoryInfo.__proto__[key]; //神奇的操作
         }
         if(typeof(memoryInfo.__proto__[key]) != "function")
-        {   
+        {
             memoryInfo[key] = memoryInfo.__proto__[key];
             memoryInfo.__proto__.__defineGetter__(key, scrollRestoration);
 
@@ -2253,13 +2307,13 @@ function setup(this_) {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    
+
     //这里容易被检测 代理
     memoryInfo = vmProxy(memoryInfo);
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "meMemoryInfo", {
         configurable: true,
         writable: true,
@@ -2270,7 +2324,7 @@ function setup(this_) {
         writable: true,
         value: memoryInfo
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "meMemoryInfo", {
         configurable: true,
         writable: true,
@@ -2300,7 +2354,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var timingConstructor  = function PerformanceTiming(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(timingConstructor);
@@ -2324,7 +2378,7 @@ function setup(this_) {
     safefunction(PerformanceTiming);
     var timing = new PerformanceTiming();
     timing.__proto__ = timingPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     var timestamp = new Date().getTime();
     timing.__proto__["connectEnd"] = timestamp;
@@ -2349,16 +2403,16 @@ function setup(this_) {
     timing.__proto__["unloadEventEnd"] = timestamp + 54;
     timing.__proto__["unloadEventStart"] = timestamp + 15;
 
-    
+
     function scrollRestoration(){
-        debugger; 
+        debugger;
         var e = new Error();
         e.name = "TypeError";
         e.message = "Illegal invocation";
         e.stack = "TypeError: Illegal invocation \r\n \
         at <anonymous>:1:19";
         throw e;
-    }  safefunction(scrollRestoration); 
+    }  safefunction(scrollRestoration);
 
     var list_ = {"length":0,"scrollRestoration":0,"state":0};
      ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
@@ -2368,7 +2422,7 @@ function setup(this_) {
             timing[key] = timing.__proto__[key]; //神奇的操作
         }
         if(typeof(timing.__proto__[key]) != "function")
-        {   
+        {
             timing[key] = timing.__proto__[key];
             timing.__proto__.__defineGetter__(key, scrollRestoration);
 
@@ -2380,13 +2434,13 @@ function setup(this_) {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    
+
     //这里容易被检测 代理
     timing = vmProxy(timing);
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "PerformanceTiming", {
         configurable: true,
         writable: true,
@@ -2397,7 +2451,7 @@ function setup(this_) {
         writable: true,
         value: timing
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "PerformanceTiming", {
         configurable: true,
         writable: true,
@@ -2427,7 +2481,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var navigationConstructor  = function PerformanceNavigation(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(navigationConstructor);
@@ -2451,7 +2505,7 @@ function setup(this_) {
     safefunction(PerformanceNavigation);
     var navigation = new PerformanceNavigation();
     navigation.__proto__ = navigationPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     navigation["redirectCount"] = 0;
     navigation["type"] = 1;
@@ -2461,16 +2515,16 @@ function setup(this_) {
     navigation.__proto__["TYPE_RESERVED"] = 255;
     navigation.__proto__["toJSON"] = function toJSON(){debugger;};   safefunction(navigation.__proto__["toJSON"]);
 
-    
+
     function scrollRestoration(){
-        debugger; 
+        debugger;
         var e = new Error();
         e.name = "TypeError";
         e.message = "Illegal invocation";
         e.stack = "TypeError: Illegal invocation \r\n \
         at <anonymous>:1:19";
         throw e;
-    }  safefunction(scrollRestoration); 
+    }  safefunction(scrollRestoration);
 
     var list_ = {"length":0,"scrollRestoration":0,"state":0};
      ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
@@ -2486,13 +2540,13 @@ function setup(this_) {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
-    
+
     //这里容易被检测 代理
     navigation = vmProxy(navigation);
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "PerformanceNavigation", {
         configurable: true,
         writable: true,
@@ -2503,7 +2557,7 @@ function setup(this_) {
         writable: true,
         value: navigation
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "PerformanceNavigation", {
         configurable: true,
         writable: true,
@@ -2597,7 +2651,7 @@ function setup(this_) {
     //     }
     // }
 
-    // PerformanceEntry 注入到全局 
+    // PerformanceEntry 注入到全局
     Object.defineProperty(__webpack_require__.g, "PerformanceEntry", {
         configurable: true,
         writable: true,
@@ -2608,7 +2662,7 @@ function setup(this_) {
         writable: true,
         value: PerformanceEntry
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "PerformanceEntry", {
         configurable: true,
         writable: true,
@@ -2619,7 +2673,7 @@ function setup(this_) {
         writable: true,
         value: PerformanceEntry
     });
-    
+
 }
 
 module.exports = {
@@ -2715,7 +2769,7 @@ function setup(this_) {
         }
     }
 
-    // DOMTokenList 注入到全局 
+    // DOMTokenList 注入到全局
     Object.defineProperty(__webpack_require__.g, "DOMTokenList", {
         configurable: true,
         writable: true,
@@ -2726,7 +2780,7 @@ function setup(this_) {
         writable: true,
         value: DOMTokenList
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "DOMTokenList", {
         configurable: true,
         writable: true,
@@ -2737,7 +2791,7 @@ function setup(this_) {
         writable: true,
         value: DOMTokenList
     });
-    
+
 }
 
 module.exports = {
@@ -2775,13 +2829,13 @@ function setup(this_) {
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "Intl", {
         configurable: true,
         writable: true,
         value: Intl
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Intl", {
         configurable: true,
         writable: true,
@@ -3271,7 +3325,7 @@ function setup(this_) {
     webGLRenderingContextPrototype.drawArrays = function drawArrays() {debugger;}; safefunction(webGLRenderingContextPrototype.drawArrays)
     webGLRenderingContextPrototype.drawElements = function drawElements() {debugger;}; safefunction(webGLRenderingContextPrototype.drawElements)
     webGLRenderingContextPrototype.makeXRCompatible = function makeXRCompatible() {debugger;}; safefunction(webGLRenderingContextPrototype.makeXRCompatible)
-            
+
     Object.defineProperties(webGLRenderingContextPrototype, {
         constructor: {
             value:webGLRenderingContextConstructor,
@@ -3304,7 +3358,7 @@ function setup(this_) {
     // WebGLRenderingContext.prototype.__defineGetter__('drawingBufferWidth', scrollRestoration);   // 有些属性没必要一昧模仿浏览器，可能导致部分属性无法调用
 
 
-    // WebGLRenderingContext 注入到全局 
+    // WebGLRenderingContext 注入到全局
     Object.defineProperty(__webpack_require__.g, "WebGLRenderingContext", {
         configurable: true,
         writable: true,
@@ -3315,7 +3369,7 @@ function setup(this_) {
         writable: true,
         value: WebGLRenderingContext
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "WebGLRenderingContext", {
         configurable: true,
         writable: true,
@@ -3326,7 +3380,7 @@ function setup(this_) {
         writable: true,
         value: WebGLRenderingContext
     });
-    
+
 }
 
 module.exports = {
@@ -3400,7 +3454,7 @@ function setup(this_) {
     //这里容易被检测 代理
     IDBFactory = vmProxy(IDBFactory);
 
-    // IDBFactory 注入到全局 
+    // IDBFactory 注入到全局
     Object.defineProperty(__webpack_require__.g, "IDBFactory", {
         configurable: true,
         writable: true,
@@ -3411,7 +3465,7 @@ function setup(this_) {
         writable: true,
         value: IDBFactory
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "IDBFactory", {
         configurable: true,
         writable: true,
@@ -3425,19 +3479,19 @@ function setup(this_) {
 
     var indexedDB = new IDBFactory();
 
-    // indexedDB 注入到全局 
+    // indexedDB 注入到全局
     Object.defineProperty(__webpack_require__.g, "indexedDB", {
         configurable: true,
         writable: true,
         value: indexedDB
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "indexedDB", {
         configurable: true,
         writable: true,
         value: indexedDB
     });
-    
+
 }
 
 module.exports = {
@@ -3537,7 +3591,7 @@ function setup(this_) {
         }
     }
 
-    // DOMException 注入到全局 
+    // DOMException 注入到全局
     Object.defineProperty(__webpack_require__.g, "DOMException", {
         configurable: true,
         writable: true,
@@ -3548,7 +3602,7 @@ function setup(this_) {
         writable: true,
         value: DOMException
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "DOMException", {
         configurable: true,
         writable: true,
@@ -3559,7 +3613,7 @@ function setup(this_) {
         writable: true,
         value: DOMException
     });
-    
+
 }
 
 module.exports = {
@@ -3653,7 +3707,7 @@ function setup(this_) {
         }
     }
 
-    // Request 注入到全局 
+    // Request 注入到全局
     Object.defineProperty(__webpack_require__.g, "Request", {
         configurable: true,
         writable: true,
@@ -3664,7 +3718,7 @@ function setup(this_) {
         writable: true,
         value: Request
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Request", {
         configurable: true,
         writable: true,
@@ -3675,7 +3729,7 @@ function setup(this_) {
         writable: true,
         value: Request
     });
-    
+
 }
 
 module.exports = {
@@ -3760,7 +3814,7 @@ function setup(this_) {
         }
     }
 
-    // Headers 注入到全局 
+    // Headers 注入到全局
     Object.defineProperty(__webpack_require__.g, "Headers", {
         configurable: true,
         writable: true,
@@ -3771,7 +3825,7 @@ function setup(this_) {
         writable: true,
         value: Headers
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Headers", {
         configurable: true,
         writable: true,
@@ -3782,7 +3836,7 @@ function setup(this_) {
         writable: true,
         value: Headers
     });
-    
+
 }
 
 module.exports = {
@@ -3798,7 +3852,7 @@ var safefunction = __webpack_require__(6)
 
 function setup(this_) {
     var domParser  = function DOMParser(){
-        //这里容易被检测 
+        //这里容易被检测
         throw new TypeError("Illegal constructor");
     }
     safefunction(domParser);
@@ -3822,19 +3876,19 @@ function setup(this_) {
     safefunction(DOMParser);
     var eventCounts = new DOMParser();
     eventCounts.__proto__ = domParserPrototype;
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     eventCounts.__proto__["parseFromString"] = function entries(){debugger;};   safefunction(eventCounts.__proto__["parseFromString"]);
 
     function scrollRestoration(){
-        debugger; 
+        debugger;
         var e = new Error();
         e.name = "TypeError";
         e.message = "Illegal invocation";
         e.stack = "TypeError: Illegal invocation \r\n \
         at <anonymous>:1:19";
         throw e;
-    }  safefunction(scrollRestoration); 
+    }  safefunction(scrollRestoration);
 
     var list_ = {"length":0,"scrollRestoration":0,"state":0};
      ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
@@ -3844,7 +3898,7 @@ function setup(this_) {
             eventCounts[key] = eventCounts.__proto__[key]; //神奇的操作
         }
         if(typeof(eventCounts.__proto__[key]) != "function")
-        {   
+        {
             eventCounts[key] = eventCounts.__proto__[key];
             eventCounts.__proto__.__defineGetter__(key, scrollRestoration);
 
@@ -3859,13 +3913,13 @@ function setup(this_) {
 
     //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
-    //注入到全局 
+    //注入到全局
     Object.defineProperty(__webpack_require__.g, "DOMParser", {
         configurable: true,
         writable: true,
         value: domParser
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "DOMParser", {
         configurable: true,
         writable: true,
@@ -3984,7 +4038,7 @@ function setup(this_) {
         }
     }
 
-    // BaseAudioContext 注入到全局 
+    // BaseAudioContext 注入到全局
     Object.defineProperty(__webpack_require__.g, "BaseAudioContext", {
         configurable: true,
         writable: true,
@@ -3995,7 +4049,7 @@ function setup(this_) {
         writable: true,
         value: BaseAudioContext
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "BaseAudioContext", {
         configurable: true,
         writable: true,
@@ -4006,7 +4060,7 @@ function setup(this_) {
         writable: true,
         value: BaseAudioContext
     });
-    
+
 }
 
 module.exports = {
@@ -4055,7 +4109,7 @@ function setup(this_) {
     offlineAudioContextPrototype.resume = function resume() {debugger;}; safefunction(offlineAudioContextPrototype.resume)
     offlineAudioContextPrototype.startRendering = function startRendering(){debugger;};   safefunction(offlineAudioContextPrototype.startRendering)
     offlineAudioContextPrototype.suspend = function suspend() {debugger;};   safefunction(offlineAudioContextPrototype.suspend)
-    
+
 
     Object.defineProperties(offlineAudioContextPrototype, {
         constructor: {
@@ -4100,7 +4154,7 @@ function setup(this_) {
         }
     }
 
-    // OfflineAudioContext 注入到全局 
+    // OfflineAudioContext 注入到全局
     Object.defineProperty(__webpack_require__.g, "OfflineAudioContext", {
         configurable: true,
         writable: true,
@@ -4111,7 +4165,7 @@ function setup(this_) {
         writable: true,
         value: OfflineAudioContext
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "OfflineAudioContext", {
         configurable: true,
         writable: true,
@@ -4122,7 +4176,7 @@ function setup(this_) {
         writable: true,
         value: OfflineAudioContext
     });
-    
+
 }
 
 module.exports = {
@@ -4221,7 +4275,7 @@ function setup(this_) {
         }
     }
 
-    // MediaStreamTrack 注入到全局 
+    // MediaStreamTrack 注入到全局
     Object.defineProperty(__webpack_require__.g, "MediaStreamTrack", {
         configurable: true,
         writable: true,
@@ -4232,7 +4286,7 @@ function setup(this_) {
         writable: true,
         value: MediaStreamTrack
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "MediaStreamTrack", {
         configurable: true,
         writable: true,
@@ -4243,7 +4297,7 @@ function setup(this_) {
         writable: true,
         value: MediaStreamTrack
     });
-    
+
 }
 
 module.exports = {
@@ -4323,7 +4377,7 @@ function setup(this_) {
         }
     }
 
-    // Bluetooth 注入到全局 
+    // Bluetooth 注入到全局
     Object.defineProperty(__webpack_require__.g, "Bluetooth", {
         configurable: true,
         writable: true,
@@ -4334,7 +4388,7 @@ function setup(this_) {
         writable: true,
         value: Bluetooth
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Bluetooth", {
         configurable: true,
         writable: true,
@@ -4345,7 +4399,7 @@ function setup(this_) {
         writable: true,
         value: Bluetooth
     });
-    
+
 }
 
 module.exports = {
@@ -4476,7 +4530,7 @@ function setup(this_) {
         }
     }
 
-    // Node 注入到全局 
+    // Node 注入到全局
     Object.defineProperty(__webpack_require__.g, "Node", {
         configurable: true,
         writable: true,
@@ -4487,7 +4541,7 @@ function setup(this_) {
         writable: true,
         value: Node
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Node", {
         configurable: true,
         writable: true,
@@ -4498,7 +4552,7 @@ function setup(this_) {
         writable: true,
         value: Node
     });
-    
+
 }
 
 module.exports = {
@@ -4507,6 +4561,512 @@ module.exports = {
 
 /***/ }),
 /* 35 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var safefunction = __webpack_require__(6)
+var vmProxy = __webpack_require__(8)
+
+function scrollRestoration() {
+    debugger ;
+    var e = new Error();
+    e.name = "TypeError";
+    e.message = "Illegal invocation";
+    e.stack = "TypeError: Illegal invocation \r\n \
+  at <anonymous>:1:19";
+    throw e;
+}
+safefunction(scrollRestoration);
+
+var list_ = {
+    "length": 0,
+    "scrollRestoration": 0,
+    "state": 0
+};
+
+function setup(this_) {
+    var elementConstructor = function Element() {}
+    //保护构造函数
+    safefunction(elementConstructor)
+
+    var elementPrototype = new (class Element {});
+    //下面函数都需要被保护
+    elementPrototype.namespaceURI = "http://www.w3.org/1999/xhtml";
+    elementPrototype.prefix = 'prefix';
+    elementPrototype.localName = 'localName';
+    elementPrototype.tagName = 'tagName';
+    elementPrototype.id = 'id';
+    elementPrototype.className = 'className';
+    elementPrototype.classList = 'classList';
+    elementPrototype.slot = 'slot';
+    elementPrototype.attributes = 'attributes';
+    elementPrototype.shadowRoot = 'shadowRoot';
+    elementPrototype.part = 'part';
+    elementPrototype.assignedSlot = 'assignedSlot';
+    elementPrototype.innerHTML = 'innerHTML';
+    elementPrototype.outerHTML = 'outerHTML';
+    elementPrototype.scrollTop = 0;
+    elementPrototype.scrollLeft = 0;
+    elementPrototype.scrollWidth = 0;
+    elementPrototype.scrollHeight = 0;
+    elementPrototype.clientTop = 0;
+    elementPrototype.clientLeft = 0;
+    elementPrototype.clientWidth = 0;
+    elementPrototype.clientHeight = 0;
+    elementPrototype.attributeStyleMap = 'attributeStyleMap';
+    elementPrototype.onbeforecopy = 'onbeforecopy';
+    elementPrototype.onbeforecut = 'onbeforecut';
+    elementPrototype.onbeforepaste = 'onbeforepaste';
+    elementPrototype.onsearch = 'onsearch';
+    elementPrototype.elementTiming = 'elementTiming';
+    elementPrototype.onfullscreenchange = 'onfullscreenchange';
+    elementPrototype.onfullscreenerror = 'onfullscreenerror';
+    elementPrototype.onwebkitfullscreenchange = 'onwebkitfullscreenchange';
+    elementPrototype.onwebkitfullscreenerror = 'onwebkitfullscreenerror';
+    elementPrototype.children = 'children';
+    elementPrototype.firstElementChild = 'firstElementChild';
+    elementPrototype.lastElementChild = 'lastElementChild';
+    elementPrototype.childElementCount = 'childElementCount';
+    elementPrototype.previousElementSibling = 'previousElementSibling';
+    elementPrototype.nextElementSibling = 'nextElementSibling';
+    elementPrototype.ariaAtomic = 'ariaAtomic';
+    elementPrototype.ariaAutoComplete = 'ariaAutoComplete';
+    elementPrototype.ariaBusy = 'ariaBusy';
+    elementPrototype.ariaChecked = 'ariaChecked';
+    elementPrototype.ariaColCount = 'ariaColCount';
+    elementPrototype.ariaColIndex = 'ariaColIndex';
+    elementPrototype.ariaColSpan = 'ariaColSpan';
+    elementPrototype.ariaCurrent = 'ariaCurrent';
+    elementPrototype.ariaDescription = 'ariaDescription';
+    elementPrototype.ariaDisabled = 'ariaDisabled';
+    elementPrototype.ariaExpanded = 'ariaExpanded';
+    elementPrototype.ariaHasPopup = 'ariaHasPopup';
+    elementPrototype.ariaHidden = 'ariaHidden';
+    elementPrototype.ariaKeyShortcuts = 'ariaKeyShortcuts';
+    elementPrototype.ariaLabel = 'ariaLabel';
+    elementPrototype.ariaLevel = 'ariaLevel';
+    elementPrototype.ariaLive = 'ariaLive';
+    elementPrototype.ariaModal = 'ariaModal';
+    elementPrototype.ariaMultiLine = 'ariaMultiLine';
+    elementPrototype.ariaMultiSelectable = 'ariaMultiSelectable';
+    elementPrototype.ariaOrientation = 'ariaOrientation';
+    elementPrototype.ariaPlaceholder = 'ariaPlaceholder';
+    elementPrototype.ariaPosInSet = 'ariaPosInSet';
+    elementPrototype.ariaPressed = 'ariaPressed';
+    elementPrototype.ariaReadOnly = 'ariaReadOnly';
+    elementPrototype.ariaRelevant = 'ariaRelevant';
+    elementPrototype.ariaRequired = 'ariaRequired';
+    elementPrototype.ariaRoleDescription = 'ariaRoleDescription';
+    elementPrototype.ariaRowCount = 'ariaRowCount';
+    elementPrototype.ariaRowIndex = 'ariaRowIndex';
+    elementPrototype.ariaRowSpan = 'ariaRowSpan';
+    elementPrototype.ariaSelected = 'ariaSelected';
+    elementPrototype.ariaSetSize = 'ariaSetSize';
+    elementPrototype.ariaSort = 'ariaSort';
+    elementPrototype.ariaValueMax = 'ariaValueMax';
+    elementPrototype.ariaValueMin = 'ariaValueMin';
+    elementPrototype.ariaValueNow = 'ariaValueNow';
+    elementPrototype.ariaValueText = 'ariaValueText';
+    elementPrototype.nodeType = 'nodeType';
+    elementPrototype.nodeName = 'nodeName';
+    elementPrototype.baseURI = 'baseURI';
+    elementPrototype.isConnected = 'isConnected';
+    elementPrototype.ownerDocument = 'ownerDocument';
+    elementPrototype.parentNode = 'parentNode';
+    elementPrototype.parentElement = 'parentElement';
+    elementPrototype.childNodes = 'childNodes';
+    elementPrototype.firstChild = 'firstChild';
+    elementPrototype.lastChild = 'lastChild';
+    elementPrototype.previousSibling = 'previousSibling';
+    elementPrototype.nextSibling = 'nextSibling';
+    elementPrototype.nodeValue = 'nodeValue';
+    elementPrototype.textContent = 'textContent';
+
+
+    elementPrototype.after = function after() {debugger;}; safefunction(elementPrototype.after);
+    elementPrototype.animate = function animate() {debugger;}; safefunction(elementPrototype.animate);
+    elementPrototype.append = function append() {debugger;}; safefunction(elementPrototype.append);
+    elementPrototype.attachShadow = function attachShadow() {debugger;}; safefunction(elementPrototype.attachShadow);
+    elementPrototype.before = function before() {debugger;}; safefunction(elementPrototype.before);
+    elementPrototype.closest = function closest() {debugger;}; safefunction(elementPrototype.closest);
+    elementPrototype.computedStyleMap = function computedStyleMap() {debugger;}; safefunction(elementPrototype.computedStyleMap);
+    elementPrototype.getAttribute = function getAttribute() {debugger;}; safefunction(elementPrototype.getAttribute);
+    elementPrototype.getAttributeNS = function getAttributeNS() {debugger;}; safefunction(elementPrototype.getAttributeNS);
+    elementPrototype.getAttributeNames = function getAttributeNames() {debugger;}; safefunction(elementPrototype.getAttributeNames);
+    elementPrototype.getAttributeNode = function getAttributeNode() {debugger;}; safefunction(elementPrototype.getAttributeNode);
+    elementPrototype.getAttributeNodeNS = function getAttributeNodeNS() {debugger;}; safefunction(elementPrototype.getAttributeNodeNS);
+    elementPrototype.getBoundingClientRect = function getBoundingClientRect() {debugger;}; safefunction(elementPrototype.getBoundingClientRect);
+    elementPrototype.getClientRects = function getClientRects() {debugger;}; safefunction(elementPrototype.getClientRects);
+    elementPrototype.getElementsByClassName = function getElementsByClassName() {debugger;}; safefunction(elementPrototype.getElementsByClassName);
+    elementPrototype.getElementsByTagName = function getElementsByTagName() {debugger;}; safefunction(elementPrototype.getElementsByTagName);
+    elementPrototype.getElementsByTagNameNS = function getElementsByTagNameNS() {debugger;}; safefunction(elementPrototype.getElementsByTagNameNS);
+    elementPrototype.hasAttribute = function hasAttribute() {debugger;}; safefunction(elementPrototype.hasAttribute);
+    elementPrototype.hasAttributeNS = function hasAttributeNS() {debugger;}; safefunction(elementPrototype.hasAttributeNS);
+    elementPrototype.hasAttributes = function hasAttributes() {debugger;}; safefunction(elementPrototype.hasAttributes);
+    elementPrototype.hasPointerCapture = function hasPointerCapture() {debugger;}; safefunction(elementPrototype.hasPointerCapture);
+    elementPrototype.insertAdjacentElement = function insertAdjacentElement() {debugger;}; safefunction(elementPrototype.insertAdjacentElement);
+    elementPrototype.insertAdjacentHTML = function insertAdjacentHTML() {debugger;}; safefunction(elementPrototype.insertAdjacentHTML);
+    elementPrototype.insertAdjacentText = function insertAdjacentText() {debugger;}; safefunction(elementPrototype.insertAdjacentText);
+    elementPrototype.matches = function matches() {debugger;}; safefunction(elementPrototype.matches);
+    elementPrototype.prepend = function prepend() {debugger;}; safefunction(elementPrototype.prepend);
+    elementPrototype.querySelector = function querySelector() {debugger;}; safefunction(elementPrototype.querySelector);
+    elementPrototype.querySelectorAll = function querySelectorAll() {debugger;}; safefunction(elementPrototype.querySelectorAll);
+    elementPrototype.releasePointerCapture = function releasePointerCapture() {debugger;}; safefunction(elementPrototype.releasePointerCapture);
+    elementPrototype.remove = function remove() {debugger;}; safefunction(elementPrototype.remove);
+    elementPrototype.removeAttribute = function removeAttribute() {debugger;}; safefunction(elementPrototype.removeAttribute);
+    elementPrototype.removeAttributeNS = function removeAttributeNS() {debugger;}; safefunction(elementPrototype.removeAttributeNS);
+    elementPrototype.removeAttributeNode = function removeAttributeNode() {debugger;}; safefunction(elementPrototype.removeAttributeNode);
+    elementPrototype.replaceChildren = function replaceChildren() {debugger;}; safefunction(elementPrototype.replaceChildren);
+    elementPrototype.replaceWith = function replaceWith() {debugger;}; safefunction(elementPrototype.replaceWith);
+    elementPrototype.requestFullscreen = function requestFullscreen() {debugger;}; safefunction(elementPrototype.requestFullscreen);
+    elementPrototype.requestPointerLock = function requestPointerLock() {debugger;}; safefunction(elementPrototype.requestPointerLock);
+    elementPrototype.scroll = function scroll() {debugger;}; safefunction(elementPrototype.scroll);
+    elementPrototype.scrollBy = function scrollBy() {debugger;}; safefunction(elementPrototype.scrollBy);
+    elementPrototype.scrollIntoView = function scrollIntoView() {debugger;}; safefunction(elementPrototype.scrollIntoView);
+    elementPrototype.scrollIntoViewIfNeeded = function scrollIntoViewIfNeeded() {debugger;}; safefunction(elementPrototype.scrollIntoViewIfNeeded);
+    elementPrototype.scrollTo = function scrollTo() {debugger;}; safefunction(elementPrototype.scrollTo);
+    elementPrototype.setAttribute = function setAttribute() {debugger;}; safefunction(elementPrototype.setAttribute);
+    elementPrototype.setAttributeNS = function setAttributeNS() {debugger;}; safefunction(elementPrototype.setAttributeNS);
+    elementPrototype.setAttributeNode = function setAttributeNode() {debugger;}; safefunction(elementPrototype.setAttributeNode);
+    elementPrototype.setAttributeNodeNS = function setAttributeNodeNS() {debugger;}; safefunction(elementPrototype.setAttributeNodeNS);
+    elementPrototype.setPointerCapture = function setPointerCapture() {debugger;}; safefunction(elementPrototype.setPointerCapture);
+    elementPrototype.toggleAttribute = function toggleAttribute() {debugger;}; safefunction(elementPrototype.toggleAttribute);
+    elementPrototype.webkitMatchesSelector = function webkitMatchesSelector() {debugger;}; safefunction(elementPrototype.webkitMatchesSelector);
+    elementPrototype.webkitRequestFullScreen = function webkitRequestFullScreen() {debugger;}; safefunction(elementPrototype.webkitRequestFullScreen);
+    elementPrototype.webkitRequestFullscreen = function webkitRequestFullscreen() {debugger;}; safefunction(elementPrototype.webkitRequestFullscreen);
+    elementPrototype.getInnerHTML = function getInnerHTML() {debugger;}; safefunction(elementPrototype.getInnerHTML);
+    elementPrototype.getAnimations = function getAnimations() {debugger;}; safefunction(elementPrototype.getAnimations);
+    elementPrototype.appendChild = function appendChild() {debugger;}; safefunction(elementPrototype.appendChild);
+    elementPrototype.cloneNode = function cloneNode() {debugger;}; safefunction(elementPrototype.cloneNode);
+    elementPrototype.compareDocumentPosition = function compareDocumentPosition() {debugger;}; safefunction(elementPrototype.compareDocumentPosition);
+    elementPrototype.contains = function contains() {debugger;}; safefunction(elementPrototype.contains);
+    elementPrototype.getRootNode = function getRootNode() {debugger;}; safefunction(elementPrototype.getRootNode);
+    elementPrototype.hasChildNodes = function hasChildNodes() {debugger;}; safefunction(elementPrototype.hasChildNodes);
+    elementPrototype.insertBefore = function insertBefore() {debugger;}; safefunction(elementPrototype.insertBefore);
+    elementPrototype.isDefaultNamespace = function isDefaultNamespace() {debugger;}; safefunction(elementPrototype.isDefaultNamespace);
+    elementPrototype.isEqualNode = function isEqualNode() {debugger;}; safefunction(elementPrototype.isEqualNode);
+    elementPrototype.isSameNode = function isSameNode() {debugger;}; safefunction(elementPrototype.isSameNode);
+    elementPrototype.lookupNamespaceURI = function lookupNamespaceURI() {debugger;}; safefunction(elementPrototype.lookupNamespaceURI);
+    elementPrototype.lookupPrefix = function lookupPrefix() {debugger;}; safefunction(elementPrototype.lookupPrefix);
+    elementPrototype.normalize = function normalize() {debugger;}; safefunction(elementPrototype.normalize);
+    elementPrototype.removeChild = function removeChild() {debugger;}; safefunction(elementPrototype.removeChild);
+    elementPrototype.replaceChild = function replaceChild() {debugger;}; safefunction(elementPrototype.replaceChild);
+    elementPrototype.dispatchEvent = function dispatchEvent() {debugger;}; safefunction(elementPrototype.dispatchEvent);
+    elementPrototype.removeEventListener = function removeEventListener() {debugger;}; safefunction(elementPrototype.removeEventListener);
+
+
+
+    Object.defineProperties(elementPrototype, {
+        constructor: {
+            value: elementConstructor,
+            writable: true,
+            configurable: true
+        },
+        [Symbol.toStringTag]: {
+            value: "Element",
+            configurable: true
+        },
+        [Symbol.unscopables]: {
+            value:{
+                after: true,
+                append: true,
+                before: true,
+                prepend: true,
+                remove: true,
+                replaceChildren: true,
+                replaceWith: true,
+                slot: true
+            },
+            configurable: true
+        }
+    });
+    elementConstructor.prototype = elementPrototype;
+
+    var Element = function() {}
+    Element.__proto__ = function Node() {};
+    //保护函数
+    safefunction(Element)
+    safefunction(Element.__proto__)
+
+    Element.prototype = elementPrototype;
+    Element.prototype.__proto__ = new Node().__proto__;
+
+    //这里容易被检测 代理
+    Element = vmProxy(Element);
+
+    // 把属性继续定义到 静态属性中
+    // for (let key in Element.prototype) {
+    //     if (typeof(Element.prototype[key]) == "number"){
+    //         Element[key] = Element.prototype[key];
+    //     }
+    //     if (typeof(Element.prototype[key]) == "string") {
+    //         if (key == 'tagName')
+    //         {
+    //             Element.prototype.__defineGetter__(key, scrollRestoration);
+    //         }
+    //         else{
+    //             Element.prototype.__defineGetter__(key, scrollRestoration);
+    //             Element.prototype.__defineSetter__(key, scrollRestoration);
+    //         }
+    //
+    //         if (key == "scrollRestoration") {
+    //             Element.prototype.__defineSetter__(key, scrollRestoration);
+    //         }
+    //     }
+    // }
+
+    // Element 注入到全局
+    Object.defineProperty(__webpack_require__.g, "Element", {
+        configurable: true,
+        writable: true,
+        value: elementConstructor
+    });
+    Object.defineProperty(__webpack_require__.g, "Element", {
+        configurable: true,
+        writable: true,
+        value: Element
+    });
+    //注入到window
+    Object.defineProperty(window, "Element", {
+        configurable: true,
+        writable: true,
+        value: elementConstructor
+    });
+    Object.defineProperty(window, "Element", {
+        configurable: true,
+        writable: true,
+        value: Element
+    });
+
+}
+
+module.exports = {
+    setup
+};
+
+/***/ }),
+/* 36 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var safefunction = __webpack_require__(6)
+var vmProxy = __webpack_require__(8)
+
+function scrollRestoration() {
+    // debugger ;
+    var e = new Error();
+    e.name = "TypeError";
+    e.message = "Illegal invocation";
+    e.stack = "TypeError: Illegal invocation \r\n \
+  at <anonymous>:1:19";
+    throw e;
+}
+safefunction(scrollRestoration);
+
+function setup(this_) {
+    var htmlElementConstructor = function HTMLElement() {}
+    //保护构造函数
+    safefunction(htmlElementConstructor)
+
+    var htmlElementPrototype = new (class HTMLElement {});
+    //下面函数都需要被保护
+    htmlElementPrototype.title = "title";
+    htmlElementPrototype.lang = "lang";
+    htmlElementPrototype.translate = "translate";
+    htmlElementPrototype.dir = "dir";
+    htmlElementPrototype.hidden = "hidden";
+    htmlElementPrototype.accessKey = "accessKey";
+    htmlElementPrototype.draggable = "draggable";
+    htmlElementPrototype.spellcheck = "spellcheck";
+    htmlElementPrototype.autocapitalize = "autocapitalize";
+    htmlElementPrototype.contentEditable = "contentEditable";
+    htmlElementPrototype.isContentEditable = "isContentEditable";
+    htmlElementPrototype.inputMode = "inputMode";
+    htmlElementPrototype.offsetParent = "offsetParent";
+    htmlElementPrototype.offsetTop = "offsetTop";
+    htmlElementPrototype.offsetLeft = "offsetLeft";
+    htmlElementPrototype.offsetWidth = "offsetWidth";
+    htmlElementPrototype.offsetHeight = "offsetHeight";
+    htmlElementPrototype.style = {
+        additiveSymbols: "",
+        alignContent: "",
+        alignItems: ""
+
+    };
+    htmlElementPrototype.innerText = "innerText";
+    htmlElementPrototype.outerText = "outerText";
+    htmlElementPrototype.onbeforexrselect = "onbeforexrselect";
+    htmlElementPrototype.onabort = "onabort";
+    htmlElementPrototype.onblur = "onblur";
+    htmlElementPrototype.oncancel = "oncancel";
+    htmlElementPrototype.oncanplay = "oncanplay";
+    htmlElementPrototype.oncanplaythrough = "oncanplaythrough";
+    htmlElementPrototype.onchange = "onchange";
+    htmlElementPrototype.onclick = "onclick";
+    htmlElementPrototype.onclose = "onclose";
+    htmlElementPrototype.oncontextmenu = "oncontextmenu";
+    htmlElementPrototype.oncuechange = "oncuechange";
+    htmlElementPrototype.ondblclick = "ondblclick";
+    htmlElementPrototype.ondrag = "ondrag";
+    htmlElementPrototype.ondragend = "ondragend";
+    htmlElementPrototype.ondragenter = "ondragenter";
+    htmlElementPrototype.ondragleave = "ondragleave";
+    htmlElementPrototype.ondragover = "ondragover";
+    htmlElementPrototype.ondragstart = "ondragstart";
+    htmlElementPrototype.ondrop = "ondrop";
+    htmlElementPrototype.ondurationchange = "ondurationchange";
+    htmlElementPrototype.onemptied = "onemptied";
+    htmlElementPrototype.onended = "onended";
+    htmlElementPrototype.onerror = "onerror";
+    htmlElementPrototype.onfocus = "onfocus";
+    htmlElementPrototype.onformdata = "onformdata";
+    htmlElementPrototype.oninput = "oninput";
+    htmlElementPrototype.oninvalid = "oninvalid";
+    htmlElementPrototype.onkeydown = "onkeydown";
+    htmlElementPrototype.onkeypress = "onkeypress";
+    htmlElementPrototype.onkeyup = "onkeyup";
+    htmlElementPrototype.onload = "onload";
+    htmlElementPrototype.onloadeddata = "onloadeddata";
+    htmlElementPrototype.onloadedmetadata = "onloadedmetadata";
+    htmlElementPrototype.onloadstart = "onloadstart";
+    htmlElementPrototype.onmousedown = "onmousedown";
+    htmlElementPrototype.onmousemove = "onmousemove";
+    htmlElementPrototype.onmouseout = "onmouseout";
+    htmlElementPrototype.onmouseover = "onmouseover";
+    htmlElementPrototype.onmouseup = "onmouseup";
+    htmlElementPrototype.onmousewheel = "onmousewheel";
+    htmlElementPrototype.onpause = "onpause";
+    htmlElementPrototype.onplay = "onplay";
+    htmlElementPrototype.onplaying = "onplaying";
+    htmlElementPrototype.onprogress = "onprogress";
+    htmlElementPrototype.onratechange = "onratechange";
+    htmlElementPrototype.onreset = "onreset";
+    htmlElementPrototype.onresize = "onresize";
+    htmlElementPrototype.onscroll = "onscroll";
+    htmlElementPrototype.onseeked = "onseeked";
+    htmlElementPrototype.onseeking = "onseeking";
+    htmlElementPrototype.onselect = "onselect";
+    htmlElementPrototype.onstalled = "onstalled";
+    htmlElementPrototype.onsubmit = "onsubmit";
+    htmlElementPrototype.onsuspend = "onsuspend";
+    htmlElementPrototype.ontimeupdate = "ontimeupdate";
+    htmlElementPrototype.ontoggle = "ontoggle";
+    htmlElementPrototype.onvolumechange = "onvolumechange";
+    htmlElementPrototype.onwaiting = "onwaiting";
+    htmlElementPrototype.onwebkitanimationend = "onwebkitanimationend";
+    htmlElementPrototype.onwebkitanimationiteration = "onwebkitanimationiteration";
+    htmlElementPrototype.onwebkitanimationstart = "onwebkitanimationstart";
+    htmlElementPrototype.onwebkittransitionend = "onwebkittransitionend";
+    htmlElementPrototype.onwheel = "onwheel";
+    htmlElementPrototype.onauxclick = "onauxclick";
+    htmlElementPrototype.ongotpointercapture = "ongotpointercapture";
+    htmlElementPrototype.onlostpointercapture = "onlostpointercapture";
+    htmlElementPrototype.onpointerdown = "onpointerdown";
+    htmlElementPrototype.onpointermove = "onpointermove";
+    htmlElementPrototype.onpointerup = "onpointerup";
+    htmlElementPrototype.onpointercancel = "onpointercancel";
+    htmlElementPrototype.onpointerover = "onpointerover";
+    htmlElementPrototype.onpointerout = "onpointerout";
+    htmlElementPrototype.onpointerenter = "onpointerenter";
+    htmlElementPrototype.onpointerleave = "onpointerleave";
+    htmlElementPrototype.onselectstart = "onselectstart";
+    htmlElementPrototype.onselectionchange = "onselectionchange";
+    htmlElementPrototype.onanimationend = "onanimationend";
+    htmlElementPrototype.onanimationiteration = "onanimationiteration";
+    htmlElementPrototype.onanimationstart = "onanimationstart";
+    htmlElementPrototype.ontransitionrun = "ontransitionrun";
+    htmlElementPrototype.ontransitionstart = "ontransitionstart";
+    htmlElementPrototype.ontransitionend = "ontransitionend";
+    htmlElementPrototype.ontransitioncancel = "ontransitioncancel";
+    htmlElementPrototype.oncopy = "oncopy";
+    htmlElementPrototype.oncut = "oncut";
+    htmlElementPrototype.onpaste = "onpaste";
+    htmlElementPrototype.dataset = "dataset";
+    htmlElementPrototype.nonce = "nonce";
+    htmlElementPrototype.autofocus = "autofocus";
+    htmlElementPrototype.tabIndex = "tabIndex";
+    htmlElementPrototype.onpointerrawupdate = "onpointerrawupdate";
+    htmlElementPrototype.enterKeyHint = "enterKeyHint";
+
+    htmlElementPrototype.onmouseenter = function onmouseenter() {debugger;}; safefunction(htmlElementPrototype.onmouseenter);
+    htmlElementPrototype.onmouseleave = function onmouseleave() {debugger;}; safefunction(htmlElementPrototype.onmouseleave);
+    htmlElementPrototype.attachInternals = function attachInternals() {debugger;}; safefunction(htmlElementPrototype.attachInternals);
+    htmlElementPrototype.blur = function blur() {debugger;}; safefunction(htmlElementPrototype.blur);
+    htmlElementPrototype.click = function click() {debugger;}; safefunction(htmlElementPrototype.click);
+    htmlElementPrototype.focus = function focus() {debugger;}; safefunction(htmlElementPrototype.focus);
+
+
+    Object.defineProperties(htmlElementPrototype, {
+        constructor: {
+            value: htmlElementConstructor,
+            writable: true,
+            configurable: true
+        },
+        [Symbol.toStringTag]: {
+            value: "HTMLElement",
+            configurable: true
+        },
+    });
+    htmlElementConstructor.prototype = htmlElementPrototype;
+
+    var HTMLElement = function() {}
+    HTMLElement.__proto__ = function Element() {};
+    //保护函数
+    safefunction(HTMLElement)
+    safefunction(HTMLElement.__proto__)
+
+    HTMLElement.prototype = htmlElementPrototype;
+    HTMLElement.prototype.__proto__ = new Element().__proto__;
+
+    //这里容易被检测 代理
+    HTMLElement = vmProxy(HTMLElement);
+
+    // 把属性继续定义到 静态属性中
+    // for (let key in HTMLElement.prototype) {
+    //     try{
+    //         if (typeof(HTMLElement.prototype[key]) == "number"){
+    //             HTMLElement[key] = HTMLElement.prototype[key];
+    //         }
+    //         if (typeof(HTMLElement.prototype[key]) == "string") {
+    //             HTMLElement.prototype.__defineGetter__(key, scrollRestoration);
+    //             HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
+    //             if (key == "scrollRestoration") {
+    //                 HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
+    //             }
+    //         }
+    //     }
+    //     catch {}
+    // }
+
+    // HTMLElement 注入到全局
+    Object.defineProperty(__webpack_require__.g, "HTMLElement", {
+        configurable: true,
+        writable: true,
+        value: htmlElementConstructor
+    });
+    Object.defineProperty(__webpack_require__.g, "HTMLElement", {
+        configurable: true,
+        writable: true,
+        value: HTMLElement
+    });
+    //注入到window
+    Object.defineProperty(window, "HTMLElement", {
+        configurable: true,
+        writable: true,
+        value: htmlElementConstructor
+    });
+    Object.defineProperty(window, "HTMLElement", {
+        configurable: true,
+        writable: true,
+        value: HTMLElement
+    });
+
+}
+
+module.exports = {
+    setup
+};
+
+/***/ }),
+/* 37 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var safefunction = __webpack_require__(6)
@@ -4689,7 +5249,7 @@ function setup(this_) {
         alignSelf: "",
         alignmentBaseline: "",
         all: "",
-    
+
         tabIndex: -1,
         tagName: "CANVAS",
         textContent: "",
@@ -4787,7 +5347,7 @@ function setup(this_) {
             }
             return {}
         },
-        href: "http://app1.nmpa.gov.cn/data_nmpa/face3/content.jsp?tableId=167&tableName=TABLE167&tableView=%BE%B3%CD%E2%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&Id=16",
+        href: location.href,
         origin: location.origin,
         protocol: location.protocol,
         host: location.host,
@@ -4813,7 +5373,7 @@ function setup(this_) {
     documentPrototype.bgColor = 'bgColor';
     documentPrototype.body = {'appendChild':function(x){}};
     documentPrototype.characterSet = 'GBK';
-    documentPrototype.charset = "GBK";
+    documentPrototype.charset = 'GBK';
     documentPrototype.childElementCount = 1;
     documentPrototype.children = 'children';
     documentPrototype.compatMode = 'compatMode';
@@ -4824,7 +5384,7 @@ function setup(this_) {
     documentPrototype.designMode = 'designMode';
     documentPrototype.dir = 'dir';
     documentPrototype.doctype = 'doctype';
-    // documentPrototype.documentElement = new Node();//'documentElement';
+    documentPrototype.documentElement = new HTMLElement();//'documentElement';
     documentPrototype.documentURI = "https://www.douyin.com/";
     documentPrototype.domain = "www.douyin.com";
     documentPrototype.embeds = 'embeds';
@@ -5019,7 +5579,7 @@ function setup(this_) {
         if(x=='body'){
             return [window.document,{}]
         }
-        return {}
+        return []
     }; safefunction(documentPrototype.getElementsByTagName);
     documentPrototype.getElementsByTagNameNS = function getElementsByTagNameNS() {debugger;}; safefunction(documentPrototype.getElementsByTagNameNS);
     documentPrototype.getSelection = function getSelection() {debugger;}; safefunction(documentPrototype.getSelection);
@@ -5103,7 +5663,7 @@ function setup(this_) {
     // }
     Document.prototype.__defineSetter__('xmlVersion', scrollRestoration);
 
-    // Document 注入到全局 
+    // Document 注入到全局
     Object.defineProperty(__webpack_require__.g, "Document", {
         configurable: true,
         writable: true,
@@ -5114,7 +5674,7 @@ function setup(this_) {
         writable: true,
         value: Document
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "Document", {
         configurable: true,
         writable: true,
@@ -5125,7 +5685,55 @@ function setup(this_) {
         writable: true,
         value: Document
     });
-    
+
+
+    // define HTMLDocument
+    var htmlDocumentConstructor = function HTMLDocument() {}
+    //保护构造函数
+    safefunction(htmlDocumentConstructor)
+    var htmlDocument_Prototype = new Document().__proto__;
+    htmlDocumentConstructor.prototype = htmlDocument_Prototype;
+    Object.defineProperties(htmlDocument_Prototype, {
+        constructor: {
+            value: htmlDocumentConstructor,
+            writable: true,
+            configurable: true
+        },
+        [Symbol.toStringTag]: {
+            value: "HTMLDocument",
+            configurable: true
+        }
+    });
+    var HTMLDocument = function() {};
+    safefunction(HTMLDocument)
+    HTMLDocument.__proto__ = function Document(){};
+    safefunction(HTMLDocument.__proto__)
+    HTMLDocument.prototype = htmlDocument_Prototype;
+    safefunction(HTMLDocument.prototype)
+
+    // HTMLDocument 注入到全局
+    Object.defineProperty(__webpack_require__.g, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: htmlDocumentConstructor
+    });
+    Object.defineProperty(__webpack_require__.g, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: HTMLDocument
+    });
+    //注入到window
+    Object.defineProperty(window, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: htmlDocumentConstructor
+    });
+    Object.defineProperty(window, "HTMLDocument", {
+        configurable: true,
+        writable: true,
+        value: HTMLDocument
+    });
+
 
     // define document
     var document = function() {};
@@ -5160,7 +5768,7 @@ function setup(this_) {
 
     // document = VmProxy(document)
 
-    // document 注入到全局 
+    // document 注入到全局
     Object.defineProperty(__webpack_require__.g, "document", {
         configurable: true,
         writable: true,
@@ -5171,7 +5779,7 @@ function setup(this_) {
         writable: true,
         value: document
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "document", {
         configurable: true,
         writable: true,
@@ -5183,511 +5791,6 @@ function setup(this_) {
         value: document
     });
 
-}
-
-module.exports = {
-    setup
-};
-
-/***/ }),
-/* 36 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var safefunction = __webpack_require__(6)
-var vmProxy = __webpack_require__(8)
-
-function scrollRestoration() {
-    // debugger ;var e = new Error();
-    e.name = "TypeError";
-    e.message = "Illegal invocation";
-    e.stack = "TypeError: Illegal invocation \r\n \
-  at <anonymous>:1:19";
-    throw e;
-}
-safefunction(scrollRestoration);
-
-var list_ = {
-    "length": 0,
-    "scrollRestoration": 0,
-    "state": 0
-};
-
-function setup(this_) {
-    var elementConstructor = function Element() {}
-    //保护构造函数
-    safefunction(elementConstructor)
-
-    var elementPrototype = new (class Element {});
-    //下面函数都需要被保护
-    elementPrototype.namespaceURI = "http://www.w3.org/1999/xhtml";
-    elementPrototype.prefix = 'prefix';
-    elementPrototype.localName = 'localName';
-    elementPrototype.tagName = 'tagName';
-    elementPrototype.id = 'id';
-    elementPrototype.className = 'className';
-    elementPrototype.classList = 'classList';
-    elementPrototype.slot = 'slot';
-    elementPrototype.attributes = 'attributes';
-    elementPrototype.shadowRoot = 'shadowRoot';
-    elementPrototype.part = 'part';
-    elementPrototype.assignedSlot = 'assignedSlot';
-    elementPrototype.innerHTML = 'innerHTML';
-    elementPrototype.outerHTML = 'outerHTML';
-    elementPrototype.scrollTop = 'scrollTop';
-    elementPrototype.scrollLeft = 'scrollLeft';
-    elementPrototype.scrollWidth = 'scrollWidth';
-    elementPrototype.scrollHeight = 'scrollHeight';
-    elementPrototype.clientTop = 'clientTop';
-    elementPrototype.clientLeft = 'clientLeft';
-    elementPrototype.clientWidth = 'clientWidth';
-    elementPrototype.clientHeight = 'clientHeight';
-    elementPrototype.attributeStyleMap = 'attributeStyleMap';
-    elementPrototype.onbeforecopy = 'onbeforecopy';
-    elementPrototype.onbeforecut = 'onbeforecut';
-    elementPrototype.onbeforepaste = 'onbeforepaste';
-    elementPrototype.onsearch = 'onsearch';
-    elementPrototype.elementTiming = 'elementTiming';
-    elementPrototype.onfullscreenchange = 'onfullscreenchange';
-    elementPrototype.onfullscreenerror = 'onfullscreenerror';
-    elementPrototype.onwebkitfullscreenchange = 'onwebkitfullscreenchange';
-    elementPrototype.onwebkitfullscreenerror = 'onwebkitfullscreenerror';
-    elementPrototype.children = 'children';
-    elementPrototype.firstElementChild = 'firstElementChild';
-    elementPrototype.lastElementChild = 'lastElementChild';
-    elementPrototype.childElementCount = 'childElementCount';
-    elementPrototype.previousElementSibling = 'previousElementSibling';
-    elementPrototype.nextElementSibling = 'nextElementSibling';
-    elementPrototype.ariaAtomic = 'ariaAtomic';
-    elementPrototype.ariaAutoComplete = 'ariaAutoComplete';
-    elementPrototype.ariaBusy = 'ariaBusy';
-    elementPrototype.ariaChecked = 'ariaChecked';
-    elementPrototype.ariaColCount = 'ariaColCount';
-    elementPrototype.ariaColIndex = 'ariaColIndex';
-    elementPrototype.ariaColSpan = 'ariaColSpan';
-    elementPrototype.ariaCurrent = 'ariaCurrent';
-    elementPrototype.ariaDescription = 'ariaDescription';
-    elementPrototype.ariaDisabled = 'ariaDisabled';
-    elementPrototype.ariaExpanded = 'ariaExpanded';
-    elementPrototype.ariaHasPopup = 'ariaHasPopup';
-    elementPrototype.ariaHidden = 'ariaHidden';
-    elementPrototype.ariaKeyShortcuts = 'ariaKeyShortcuts';
-    elementPrototype.ariaLabel = 'ariaLabel';
-    elementPrototype.ariaLevel = 'ariaLevel';
-    elementPrototype.ariaLive = 'ariaLive';
-    elementPrototype.ariaModal = 'ariaModal';
-    elementPrototype.ariaMultiLine = 'ariaMultiLine';
-    elementPrototype.ariaMultiSelectable = 'ariaMultiSelectable';
-    elementPrototype.ariaOrientation = 'ariaOrientation';
-    elementPrototype.ariaPlaceholder = 'ariaPlaceholder';
-    elementPrototype.ariaPosInSet = 'ariaPosInSet';
-    elementPrototype.ariaPressed = 'ariaPressed';
-    elementPrototype.ariaReadOnly = 'ariaReadOnly';
-    elementPrototype.ariaRelevant = 'ariaRelevant';
-    elementPrototype.ariaRequired = 'ariaRequired';
-    elementPrototype.ariaRoleDescription = 'ariaRoleDescription';
-    elementPrototype.ariaRowCount = 'ariaRowCount';
-    elementPrototype.ariaRowIndex = 'ariaRowIndex';
-    elementPrototype.ariaRowSpan = 'ariaRowSpan';
-    elementPrototype.ariaSelected = 'ariaSelected';
-    elementPrototype.ariaSetSize = 'ariaSetSize';
-    elementPrototype.ariaSort = 'ariaSort';
-    elementPrototype.ariaValueMax = 'ariaValueMax';
-    elementPrototype.ariaValueMin = 'ariaValueMin';
-    elementPrototype.ariaValueNow = 'ariaValueNow';
-    elementPrototype.ariaValueText = 'ariaValueText';
-    elementPrototype.nodeType = 'nodeType';
-    elementPrototype.nodeName = 'nodeName';
-    elementPrototype.baseURI = 'baseURI';
-    elementPrototype.isConnected = 'isConnected';
-    elementPrototype.ownerDocument = 'ownerDocument';
-    elementPrototype.parentNode = 'parentNode';
-    elementPrototype.parentElement = 'parentElement';
-    elementPrototype.childNodes = 'childNodes';
-    elementPrototype.firstChild = 'firstChild';
-    elementPrototype.lastChild = 'lastChild';
-    elementPrototype.previousSibling = 'previousSibling';
-    elementPrototype.nextSibling = 'nextSibling';
-    elementPrototype.nodeValue = 'nodeValue';
-    elementPrototype.textContent = 'textContent';
-
-
-    elementPrototype.after = function after() {debugger;}; safefunction(elementPrototype.after);
-    elementPrototype.animate = function animate() {debugger;}; safefunction(elementPrototype.animate);
-    elementPrototype.append = function append() {debugger;}; safefunction(elementPrototype.append);
-    elementPrototype.attachShadow = function attachShadow() {debugger;}; safefunction(elementPrototype.attachShadow);
-    elementPrototype.before = function before() {debugger;}; safefunction(elementPrototype.before);
-    elementPrototype.closest = function closest() {debugger;}; safefunction(elementPrototype.closest);
-    elementPrototype.computedStyleMap = function computedStyleMap() {debugger;}; safefunction(elementPrototype.computedStyleMap);
-    elementPrototype.getAttribute = function getAttribute() {debugger;}; safefunction(elementPrototype.getAttribute);
-    elementPrototype.getAttributeNS = function getAttributeNS() {debugger;}; safefunction(elementPrototype.getAttributeNS);
-    elementPrototype.getAttributeNames = function getAttributeNames() {debugger;}; safefunction(elementPrototype.getAttributeNames);
-    elementPrototype.getAttributeNode = function getAttributeNode() {debugger;}; safefunction(elementPrototype.getAttributeNode);
-    elementPrototype.getAttributeNodeNS = function getAttributeNodeNS() {debugger;}; safefunction(elementPrototype.getAttributeNodeNS);
-    elementPrototype.getBoundingClientRect = function getBoundingClientRect() {debugger;}; safefunction(elementPrototype.getBoundingClientRect);
-    elementPrototype.getClientRects = function getClientRects() {debugger;}; safefunction(elementPrototype.getClientRects);
-    elementPrototype.getElementsByClassName = function getElementsByClassName() {debugger;}; safefunction(elementPrototype.getElementsByClassName);
-    elementPrototype.getElementsByTagName = function getElementsByTagName() {debugger;}; safefunction(elementPrototype.getElementsByTagName);
-    elementPrototype.getElementsByTagNameNS = function getElementsByTagNameNS() {debugger;}; safefunction(elementPrototype.getElementsByTagNameNS);
-    elementPrototype.hasAttribute = function hasAttribute() {debugger;}; safefunction(elementPrototype.hasAttribute);
-    elementPrototype.hasAttributeNS = function hasAttributeNS() {debugger;}; safefunction(elementPrototype.hasAttributeNS);
-    elementPrototype.hasAttributes = function hasAttributes() {debugger;}; safefunction(elementPrototype.hasAttributes);
-    elementPrototype.hasPointerCapture = function hasPointerCapture() {debugger;}; safefunction(elementPrototype.hasPointerCapture);
-    elementPrototype.insertAdjacentElement = function insertAdjacentElement() {debugger;}; safefunction(elementPrototype.insertAdjacentElement);
-    elementPrototype.insertAdjacentHTML = function insertAdjacentHTML() {debugger;}; safefunction(elementPrototype.insertAdjacentHTML);
-    elementPrototype.insertAdjacentText = function insertAdjacentText() {debugger;}; safefunction(elementPrototype.insertAdjacentText);
-    elementPrototype.matches = function matches() {debugger;}; safefunction(elementPrototype.matches);
-    elementPrototype.prepend = function prepend() {debugger;}; safefunction(elementPrototype.prepend);
-    elementPrototype.querySelector = function querySelector() {debugger;}; safefunction(elementPrototype.querySelector);
-    elementPrototype.querySelectorAll = function querySelectorAll() {debugger;}; safefunction(elementPrototype.querySelectorAll);
-    elementPrototype.releasePointerCapture = function releasePointerCapture() {debugger;}; safefunction(elementPrototype.releasePointerCapture);
-    elementPrototype.remove = function remove() {debugger;}; safefunction(elementPrototype.remove);
-    elementPrototype.removeAttribute = function removeAttribute() {debugger;}; safefunction(elementPrototype.removeAttribute);
-    elementPrototype.removeAttributeNS = function removeAttributeNS() {debugger;}; safefunction(elementPrototype.removeAttributeNS);
-    elementPrototype.removeAttributeNode = function removeAttributeNode() {debugger;}; safefunction(elementPrototype.removeAttributeNode);
-    elementPrototype.replaceChildren = function replaceChildren() {debugger;}; safefunction(elementPrototype.replaceChildren);
-    elementPrototype.replaceWith = function replaceWith() {debugger;}; safefunction(elementPrototype.replaceWith);
-    elementPrototype.requestFullscreen = function requestFullscreen() {debugger;}; safefunction(elementPrototype.requestFullscreen);
-    elementPrototype.requestPointerLock = function requestPointerLock() {debugger;}; safefunction(elementPrototype.requestPointerLock);
-    elementPrototype.scroll = function scroll() {debugger;}; safefunction(elementPrototype.scroll);
-    elementPrototype.scrollBy = function scrollBy() {debugger;}; safefunction(elementPrototype.scrollBy);
-    elementPrototype.scrollIntoView = function scrollIntoView() {debugger;}; safefunction(elementPrototype.scrollIntoView);
-    elementPrototype.scrollIntoViewIfNeeded = function scrollIntoViewIfNeeded() {debugger;}; safefunction(elementPrototype.scrollIntoViewIfNeeded);
-    elementPrototype.scrollTo = function scrollTo() {debugger;}; safefunction(elementPrototype.scrollTo);
-    elementPrototype.setAttribute = function setAttribute() {debugger;}; safefunction(elementPrototype.setAttribute);
-    elementPrototype.setAttributeNS = function setAttributeNS() {debugger;}; safefunction(elementPrototype.setAttributeNS);
-    elementPrototype.setAttributeNode = function setAttributeNode() {debugger;}; safefunction(elementPrototype.setAttributeNode);
-    elementPrototype.setAttributeNodeNS = function setAttributeNodeNS() {debugger;}; safefunction(elementPrototype.setAttributeNodeNS);
-    elementPrototype.setPointerCapture = function setPointerCapture() {debugger;}; safefunction(elementPrototype.setPointerCapture);
-    elementPrototype.toggleAttribute = function toggleAttribute() {debugger;}; safefunction(elementPrototype.toggleAttribute);
-    elementPrototype.webkitMatchesSelector = function webkitMatchesSelector() {debugger;}; safefunction(elementPrototype.webkitMatchesSelector);
-    elementPrototype.webkitRequestFullScreen = function webkitRequestFullScreen() {debugger;}; safefunction(elementPrototype.webkitRequestFullScreen);
-    elementPrototype.webkitRequestFullscreen = function webkitRequestFullscreen() {debugger;}; safefunction(elementPrototype.webkitRequestFullscreen);
-    elementPrototype.getInnerHTML = function getInnerHTML() {debugger;}; safefunction(elementPrototype.getInnerHTML);
-    elementPrototype.getAnimations = function getAnimations() {debugger;}; safefunction(elementPrototype.getAnimations);
-    elementPrototype.appendChild = function appendChild() {debugger;}; safefunction(elementPrototype.appendChild);
-    elementPrototype.cloneNode = function cloneNode() {debugger;}; safefunction(elementPrototype.cloneNode);
-    elementPrototype.compareDocumentPosition = function compareDocumentPosition() {debugger;}; safefunction(elementPrototype.compareDocumentPosition);
-    elementPrototype.contains = function contains() {debugger;}; safefunction(elementPrototype.contains);
-    elementPrototype.getRootNode = function getRootNode() {debugger;}; safefunction(elementPrototype.getRootNode);
-    elementPrototype.hasChildNodes = function hasChildNodes() {debugger;}; safefunction(elementPrototype.hasChildNodes);
-    elementPrototype.insertBefore = function insertBefore() {debugger;}; safefunction(elementPrototype.insertBefore);
-    elementPrototype.isDefaultNamespace = function isDefaultNamespace() {debugger;}; safefunction(elementPrototype.isDefaultNamespace);
-    elementPrototype.isEqualNode = function isEqualNode() {debugger;}; safefunction(elementPrototype.isEqualNode);
-    elementPrototype.isSameNode = function isSameNode() {debugger;}; safefunction(elementPrototype.isSameNode);
-    elementPrototype.lookupNamespaceURI = function lookupNamespaceURI() {debugger;}; safefunction(elementPrototype.lookupNamespaceURI);
-    elementPrototype.lookupPrefix = function lookupPrefix() {debugger;}; safefunction(elementPrototype.lookupPrefix);
-    elementPrototype.normalize = function normalize() {debugger;}; safefunction(elementPrototype.normalize);
-    elementPrototype.removeChild = function removeChild() {debugger;}; safefunction(elementPrototype.removeChild);
-    elementPrototype.replaceChild = function replaceChild() {debugger;}; safefunction(elementPrototype.replaceChild);
-    elementPrototype.dispatchEvent = function dispatchEvent() {debugger;}; safefunction(elementPrototype.dispatchEvent);
-    elementPrototype.removeEventListener = function removeEventListener() {debugger;}; safefunction(elementPrototype.removeEventListener);
-
-    
-    
-    Object.defineProperties(elementPrototype, {
-        constructor: {
-            value: elementConstructor,
-            writable: true,
-            configurable: true
-        },
-        [Symbol.toStringTag]: {
-            value: "Element",
-            configurable: true
-        },
-        [Symbol.unscopables]: {
-            value:{
-                after: true,
-                append: true,
-                before: true,
-                prepend: true,
-                remove: true,
-                replaceChildren: true,
-                replaceWith: true,
-                slot: true
-            },
-            configurable: true
-        }
-    });
-    elementConstructor.prototype = elementPrototype;
-
-    var Element = function() {}
-    Element.__proto__ = function Node() {};
-    //保护函数
-    safefunction(Element)
-    safefunction(Element.__proto__)
-
-    Element.prototype = elementPrototype;
-    Element.prototype.__proto__ = new Node().__proto__;
-
-    //这里容易被检测 代理
-    Element = vmProxy(Element);
-
-    // 把属性继续定义到 静态属性中
-    for (let key in Element.prototype) {
-        if (typeof(Element.prototype[key]) == "number"){
-            Element[key] = Element.prototype[key];
-        }
-        if (typeof(Element.prototype[key]) == "string") {
-            if (key == 'tagName')
-            {
-                Element.prototype.__defineGetter__(key, scrollRestoration);
-            }
-            else{
-                Element.prototype.__defineGetter__(key, scrollRestoration);
-                Element.prototype.__defineSetter__(key, scrollRestoration);
-            }
-
-            if (key == "scrollRestoration") {
-                Element.prototype.__defineSetter__(key, scrollRestoration);
-            }
-        }
-    }
-
-    // Element 注入到全局 
-    Object.defineProperty(__webpack_require__.g, "Element", {
-        configurable: true,
-        writable: true,
-        value: elementConstructor
-    });
-    Object.defineProperty(__webpack_require__.g, "Element", {
-        configurable: true,
-        writable: true,
-        value: Element
-    });
-    //注入到window 
-    Object.defineProperty(window, "Element", {
-        configurable: true,
-        writable: true,
-        value: elementConstructor
-    });
-    Object.defineProperty(window, "Element", {
-        configurable: true,
-        writable: true,
-        value: Element
-    });
-    
-}
-
-module.exports = {
-    setup
-};
-
-/***/ }),
-/* 37 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var safefunction = __webpack_require__(6)
-var vmProxy = __webpack_require__(8)
-
-function scrollRestoration() {
-    // debugger ;
-    var e = new Error();
-    e.name = "TypeError";
-    e.message = "Illegal invocation";
-    e.stack = "TypeError: Illegal invocation \r\n \
-  at <anonymous>:1:19";
-    throw e;
-}
-safefunction(scrollRestoration);
-
-function setup(this_) {
-    var htmlElementConstructor = function HTMLElement() {}
-    //保护构造函数
-    safefunction(htmlElementConstructor)
-
-    var htmlElementPrototype = new (class HTMLElement {});
-    //下面函数都需要被保护
-    htmlElementPrototype.title = "title";
-    htmlElementPrototype.lang = "lang";
-    htmlElementPrototype.translate = "translate";
-    htmlElementPrototype.dir = "dir";
-    htmlElementPrototype.hidden = "hidden";
-    htmlElementPrototype.accessKey = "accessKey";
-    htmlElementPrototype.draggable = "draggable";
-    htmlElementPrototype.spellcheck = "spellcheck";
-    htmlElementPrototype.autocapitalize = "autocapitalize";
-    htmlElementPrototype.contentEditable = "contentEditable";
-    htmlElementPrototype.isContentEditable = "isContentEditable";
-    htmlElementPrototype.inputMode = "inputMode";
-    htmlElementPrototype.offsetParent = "offsetParent";
-    htmlElementPrototype.offsetTop = "offsetTop";
-    htmlElementPrototype.offsetLeft = "offsetLeft";
-    htmlElementPrototype.offsetWidth = "offsetWidth";
-    htmlElementPrototype.offsetHeight = "offsetHeight";
-    htmlElementPrototype.style = {
-        additiveSymbols: "",
-        alignContent: "",
-        alignItems: ""
-        
-    };
-    htmlElementPrototype.innerText = "innerText";
-    htmlElementPrototype.outerText = "outerText";
-    htmlElementPrototype.onbeforexrselect = "onbeforexrselect";
-    htmlElementPrototype.onabort = "onabort";
-    htmlElementPrototype.onblur = "onblur";
-    htmlElementPrototype.oncancel = "oncancel";
-    htmlElementPrototype.oncanplay = "oncanplay";
-    htmlElementPrototype.oncanplaythrough = "oncanplaythrough";
-    htmlElementPrototype.onchange = "onchange";
-    htmlElementPrototype.onclick = "onclick";
-    htmlElementPrototype.onclose = "onclose";
-    htmlElementPrototype.oncontextmenu = "oncontextmenu";
-    htmlElementPrototype.oncuechange = "oncuechange";
-    htmlElementPrototype.ondblclick = "ondblclick";
-    htmlElementPrototype.ondrag = "ondrag";
-    htmlElementPrototype.ondragend = "ondragend";
-    htmlElementPrototype.ondragenter = "ondragenter";
-    htmlElementPrototype.ondragleave = "ondragleave";
-    htmlElementPrototype.ondragover = "ondragover";
-    htmlElementPrototype.ondragstart = "ondragstart";
-    htmlElementPrototype.ondrop = "ondrop";
-    htmlElementPrototype.ondurationchange = "ondurationchange";
-    htmlElementPrototype.onemptied = "onemptied";
-    htmlElementPrototype.onended = "onended";
-    htmlElementPrototype.onerror = "onerror";
-    htmlElementPrototype.onfocus = "onfocus";
-    htmlElementPrototype.onformdata = "onformdata";
-    htmlElementPrototype.oninput = "oninput";
-    htmlElementPrototype.oninvalid = "oninvalid";
-    htmlElementPrototype.onkeydown = "onkeydown";
-    htmlElementPrototype.onkeypress = "onkeypress";
-    htmlElementPrototype.onkeyup = "onkeyup";
-    htmlElementPrototype.onload = "onload";
-    htmlElementPrototype.onloadeddata = "onloadeddata";
-    htmlElementPrototype.onloadedmetadata = "onloadedmetadata";
-    htmlElementPrototype.onloadstart = "onloadstart";
-    htmlElementPrototype.onmousedown = "onmousedown";
-    htmlElementPrototype.onmousemove = "onmousemove";
-    htmlElementPrototype.onmouseout = "onmouseout";
-    htmlElementPrototype.onmouseover = "onmouseover";
-    htmlElementPrototype.onmouseup = "onmouseup";
-    htmlElementPrototype.onmousewheel = "onmousewheel";
-    htmlElementPrototype.onpause = "onpause";
-    htmlElementPrototype.onplay = "onplay";
-    htmlElementPrototype.onplaying = "onplaying";
-    htmlElementPrototype.onprogress = "onprogress";
-    htmlElementPrototype.onratechange = "onratechange";
-    htmlElementPrototype.onreset = "onreset";
-    htmlElementPrototype.onresize = "onresize";
-    htmlElementPrototype.onscroll = "onscroll";
-    htmlElementPrototype.onseeked = "onseeked";
-    htmlElementPrototype.onseeking = "onseeking";
-    htmlElementPrototype.onselect = "onselect";
-    htmlElementPrototype.onstalled = "onstalled";
-    htmlElementPrototype.onsubmit = "onsubmit";
-    htmlElementPrototype.onsuspend = "onsuspend";
-    htmlElementPrototype.ontimeupdate = "ontimeupdate";
-    htmlElementPrototype.ontoggle = "ontoggle";
-    htmlElementPrototype.onvolumechange = "onvolumechange";
-    htmlElementPrototype.onwaiting = "onwaiting";
-    htmlElementPrototype.onwebkitanimationend = "onwebkitanimationend";
-    htmlElementPrototype.onwebkitanimationiteration = "onwebkitanimationiteration";
-    htmlElementPrototype.onwebkitanimationstart = "onwebkitanimationstart";
-    htmlElementPrototype.onwebkittransitionend = "onwebkittransitionend";
-    htmlElementPrototype.onwheel = "onwheel";
-    htmlElementPrototype.onauxclick = "onauxclick";
-    htmlElementPrototype.ongotpointercapture = "ongotpointercapture";
-    htmlElementPrototype.onlostpointercapture = "onlostpointercapture";
-    htmlElementPrototype.onpointerdown = "onpointerdown";
-    htmlElementPrototype.onpointermove = "onpointermove";
-    htmlElementPrototype.onpointerup = "onpointerup";
-    htmlElementPrototype.onpointercancel = "onpointercancel";
-    htmlElementPrototype.onpointerover = "onpointerover";
-    htmlElementPrototype.onpointerout = "onpointerout";
-    htmlElementPrototype.onpointerenter = "onpointerenter";
-    htmlElementPrototype.onpointerleave = "onpointerleave";
-    htmlElementPrototype.onselectstart = "onselectstart";
-    htmlElementPrototype.onselectionchange = "onselectionchange";
-    htmlElementPrototype.onanimationend = "onanimationend";
-    htmlElementPrototype.onanimationiteration = "onanimationiteration";
-    htmlElementPrototype.onanimationstart = "onanimationstart";
-    htmlElementPrototype.ontransitionrun = "ontransitionrun";
-    htmlElementPrototype.ontransitionstart = "ontransitionstart";
-    htmlElementPrototype.ontransitionend = "ontransitionend";
-    htmlElementPrototype.ontransitioncancel = "ontransitioncancel";
-    htmlElementPrototype.oncopy = "oncopy";
-    htmlElementPrototype.oncut = "oncut";
-    htmlElementPrototype.onpaste = "onpaste";
-    htmlElementPrototype.dataset = "dataset";
-    htmlElementPrototype.nonce = "nonce";
-    htmlElementPrototype.autofocus = "autofocus";
-    htmlElementPrototype.tabIndex = "tabIndex";
-    htmlElementPrototype.onpointerrawupdate = "onpointerrawupdate";
-    htmlElementPrototype.enterKeyHint = "enterKeyHint";
-
-    htmlElementPrototype.onmouseenter = function onmouseenter() {debugger;}; safefunction(htmlElementPrototype.onmouseenter);
-    htmlElementPrototype.onmouseleave = function onmouseleave() {debugger;}; safefunction(htmlElementPrototype.onmouseleave);
-    htmlElementPrototype.attachInternals = function attachInternals() {debugger;}; safefunction(htmlElementPrototype.attachInternals);
-    htmlElementPrototype.blur = function blur() {debugger;}; safefunction(htmlElementPrototype.blur);
-    htmlElementPrototype.click = function click() {debugger;}; safefunction(htmlElementPrototype.click);
-    htmlElementPrototype.focus = function focus() {debugger;}; safefunction(htmlElementPrototype.focus);
-    
-    
-    Object.defineProperties(htmlElementPrototype, {
-        constructor: {
-            value: htmlElementConstructor,
-            writable: true,
-            configurable: true
-        },
-        [Symbol.toStringTag]: {
-            value: "HTMLElement",
-            configurable: true
-        },
-    });
-    htmlElementConstructor.prototype = htmlElementPrototype;
-
-    var HTMLElement = function() {}
-    HTMLElement.__proto__ = function Element() {};
-    //保护函数
-    safefunction(HTMLElement)
-    safefunction(HTMLElement.__proto__)
-
-    HTMLElement.prototype = htmlElementPrototype;
-    HTMLElement.prototype.__proto__ = new Element().__proto__;
-
-    //这里容易被检测 代理
-    HTMLElement = vmProxy(HTMLElement);
-
-    // 把属性继续定义到 静态属性中
-    // for (let key in HTMLElement.prototype) {
-    //     try{
-    //         if (typeof(HTMLElement.prototype[key]) == "number"){
-    //             HTMLElement[key] = HTMLElement.prototype[key];
-    //         }
-    //         if (typeof(HTMLElement.prototype[key]) == "string") {
-    //             HTMLElement.prototype.__defineGetter__(key, scrollRestoration);
-    //             HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
-    //             if (key == "scrollRestoration") {
-    //                 HTMLElement.prototype.__defineSetter__(key, scrollRestoration);
-    //             }
-    //         }
-    //     }
-    //     catch {}
-    // }
-
-    // HTMLElement 注入到全局 
-    Object.defineProperty(__webpack_require__.g, "HTMLElement", {
-        configurable: true,
-        writable: true,
-        value: htmlElementConstructor
-    });
-    Object.defineProperty(__webpack_require__.g, "HTMLElement", {
-        configurable: true,
-        writable: true,
-        value: HTMLElement
-    });
-    //注入到window 
-    Object.defineProperty(window, "HTMLElement", {
-        configurable: true,
-        writable: true,
-        value: htmlElementConstructor
-    });
-    Object.defineProperty(window, "HTMLElement", {
-        configurable: true,
-        writable: true,
-        value: HTMLElement
-    });
-    
 }
 
 module.exports = {
@@ -5772,8 +5875,8 @@ function setup(this_) {
     htmlMediaElementprototype.play = function play() {debugger;}; safefunction(htmlMediaElementprototype.play);
     htmlMediaElementprototype.setSinkId = function setSinkId() {debugger;}; safefunction(htmlMediaElementprototype.setSinkId);
     htmlMediaElementprototype.setMediaKeys = function setMediaKeys() {debugger;}; safefunction(htmlMediaElementprototype.setMediaKeys);
-    
-    
+
+
     Object.defineProperties(htmlMediaElementprototype, {
         constructor: {
             value: htmlMediaElementConstructor,
@@ -5816,7 +5919,7 @@ function setup(this_) {
         catch {}
     }
 
-    // HTMLMediaElement 注入到全局 
+    // HTMLMediaElement 注入到全局
     Object.defineProperty(__webpack_require__.g, "HTMLMediaElement", {
         configurable: true,
         writable: true,
@@ -5827,7 +5930,7 @@ function setup(this_) {
         writable: true,
         value: HTMLMediaElement
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "HTMLMediaElement", {
         configurable: true,
         writable: true,
@@ -5838,7 +5941,7 @@ function setup(this_) {
         writable: true,
         value: HTMLMediaElement
     });
-    
+
 }
 
 module.exports = {
@@ -5864,11 +5967,11 @@ function scrollRestoration() {
 safefunction(scrollRestoration);
 
 function setup(this_) {
-    var htmlAnchorElementConstructor = function HtmlAnchorElement() {}
+    var htmlAnchorElementConstructor = function HTMLAnchorElement() {}
     //保护构造函数
     safefunction(htmlAnchorElementConstructor)
 
-    var htmlAnchorElementprototype = new (class HtmlAnchorElement {});
+    var htmlAnchorElementprototype = new (class HTMLAnchorElement {});
     //下面函数都需要被保护
     htmlAnchorElementprototype.charset = 'charset';
     htmlAnchorElementprototype.coords = 'coords';
@@ -5898,8 +6001,8 @@ function setup(this_) {
     htmlAnchorElementprototype.username = 'username';
 
     htmlAnchorElementprototype.toString = function toString() {debugger;}; safefunction(htmlAnchorElementprototype.toString);
-    
-    
+
+
     Object.defineProperties(htmlAnchorElementprototype, {
         constructor: {
             value: htmlAnchorElementConstructor,
@@ -5907,42 +6010,42 @@ function setup(this_) {
             configurable: true
         },
         [Symbol.toStringTag]: {
-            value: "HtmlAnchorElement",
+            value: "HTMLAnchorElement",
             configurable: true
         },
     });
     htmlAnchorElementConstructor.prototype = htmlAnchorElementprototype;
 
-    var HtmlAnchorElement = function() {}
-    HtmlAnchorElement.__proto__ = function HTMLElement() {};
+    var HTMLAnchorElement = function() {}
+    HTMLAnchorElement.__proto__ = function HTMLElement() {};
     //保护函数
-    safefunction(HtmlAnchorElement)
-    safefunction(HtmlAnchorElement.__proto__)
+    safefunction(HTMLAnchorElement)
+    safefunction(HTMLAnchorElement.__proto__)
 
-    HtmlAnchorElement.prototype = htmlAnchorElementprototype;
-    HtmlAnchorElement.prototype.__proto__ = new HTMLElement().__proto__;
+    HTMLAnchorElement.prototype = htmlAnchorElementprototype;
+    HTMLAnchorElement.prototype.__proto__ = new HTMLElement().__proto__;
 
     //这里容易被检测 代理
-    HtmlAnchorElement = vmProxy(HtmlAnchorElement);
+    HTMLAnchorElement = vmProxy(HTMLAnchorElement);
 
     // 把属性继续定义到 静态属性中
-    for (let key in HtmlAnchorElement.prototype) {
+    for (let key in HTMLAnchorElement.prototype) {
         try{
-            if (typeof(HtmlAnchorElement.prototype[key]) == "number"){
-                HtmlAnchorElement[key] = HtmlAnchorElement.prototype[key];
+            if (typeof(HTMLAnchorElement.prototype[key]) == "number"){
+                HTMLAnchorElement[key] = HTMLAnchorElement.prototype[key];
             }
-            if (typeof(HtmlAnchorElement.prototype[key]) == "string") {
-                HtmlAnchorElement.prototype.__defineGetter__(key, scrollRestoration);
-                HtmlAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
+            if (typeof(HTMLAnchorElement.prototype[key]) == "string") {
+                HTMLAnchorElement.prototype.__defineGetter__(key, scrollRestoration);
+                HTMLAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
                 if (key == "scrollRestoration") {
-                    HtmlAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
+                    HTMLAnchorElement.prototype.__defineSetter__(key, scrollRestoration);
                 }
             }
         }
         catch {}
     }
 
-    // HtmlAnchorElement 注入到全局 
+    // HTMLAnchorElement 注入到全局
     Object.defineProperty(__webpack_require__.g, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
@@ -5951,9 +6054,9 @@ function setup(this_) {
     Object.defineProperty(__webpack_require__.g, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
-        value: HtmlAnchorElement
+        value: HTMLAnchorElement
     });
-    //注入到window 
+    //注入到window
     Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
@@ -5962,7 +6065,7 @@ function setup(this_) {
     Object.defineProperty(window, "HTMLAnchorElement", {
         configurable: true,
         writable: true,
-        value: HtmlAnchorElement
+        value: HTMLAnchorElement
     });
     
 }

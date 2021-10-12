@@ -102,10 +102,10 @@ class Rshu5:
 
 
 if __name__ == '__main__':
-    cookie_s = 'neCYtZEjo8GmS'
-    cookie_t = 'neCYtZEjo8GmT'
-    base_url = 'http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034'
-    ts_url = 'http://app1.nmpa.gov.cn/ZvbYc1RuNkYg/h2XbjSpBo3BD.a670748.js'
+    cookie_s = 'DLjfPow8PDr4S'
+    cookie_t = 'DLjfPow8PDr4T'
+    base_url = 'http://pss-system.cnipa.gov.cn/sipopublicsearch/portal/uiIndex.shtml'
+    ts_url = 'http://pss-system.cnipa.gov.cn/aHL4R4Ymqy9a/dw6QS0gQCF9o.5780574.js'
     while True:
         startTime = time.time()
         temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
@@ -114,5 +114,5 @@ if __name__ == '__main__':
             logger.success(f'base_url -> {base_url} -> {cookies}')
             costTime = format(time.time() - startTime, '.2f')
             logger.debug(f'Total Cost: {costTime}s')
-        temp_gx.searchVerify("search.jsp?tableId=60&bcId=152911821636644848557900526892")
+        # temp_gx.searchVerify("search.jsp?tableId=60&bcId=152911821636644848557900526892")
         break
