@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rshu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rshu_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu_5.py" afterDir="false" />
     </list>

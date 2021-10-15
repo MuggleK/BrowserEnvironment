@@ -92,22 +92,23 @@ class Rshu5:
             logger.debug(f'状态码{res.status_code},Cookie不可用')
 
     def searchVerify(self, search_url):
-        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s')};""" % search_url
+        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s',true)};""" % search_url
         search_ctx = execjs.compile(search_code)
         search_url_ = search_ctx.call('get_search').replace(':80', '')
         print(search_url_)
-        search_res = self.session.post(url=search_url_, headers=self.session.headers, proxies=self.proxy)
+        print(self.session.headers)
+        search_res = self.session.post(url=search_url_, headers=self.session.headers, proxies=self.proxy, allow_redirects=False)
         print(search_res.status_code)
         print(search_res.text)
 
 
 if __name__ == '__main__':
     """
-    后缀环境修改：location & document.charset & document.characterSet
+    后缀环境修改：location & document.charset & document.characterSet & canvas下的href等参数（针对接口不一致的情况）
     """
     cookie_s = 'neCYtZEjo8GmS'
     cookie_t = 'neCYtZEjo8GmT'
-    base_url = 'http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604'
+    base_url = 'http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604&CbSlDlH0=qGqfrar_8vN_8vN_8znJaicGXEndBsmcSmo2rRKAUtgqqoL'
     ts_url = 'http://app1.nmpa.gov.cn/ZvbYc1RuNkYg/h2XbjSpBo3BD.a670748.js'
     while True:
         startTime = time.time()
@@ -117,5 +118,5 @@ if __name__ == '__main__':
             logger.success(f'base_url -> {base_url} -> {cookies}')
             costTime = format(time.time() - startTime, '.2f')
             logger.debug(f'Total Cost: {costTime}s')
-        temp_gx.searchVerify("content.jsp?tableId=25&tableName=TABLE25&tableView=国产药品&Id=109228")
+            temp_gx.searchVerify("search.jsp?tableId=25&bcId=152904713761213296322795806604")
         break
