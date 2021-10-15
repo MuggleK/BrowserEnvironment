@@ -1861,14 +1861,14 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] = "http://sthj.chengdu.gov.cn/cdhbj/c110809/list_1.shtml";
-    location["origin"] = "http://sthj.chengdu.gov.cn";
+    location["href"] = "http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604&CbSlDlH0=qAcrcGq_iOL_iOL_iznJac_5yopkSbwxDbdVktp.leLqqkL";
+    location["origin"] = "http://app1.nmpa.gov.cn";
     location["protocol"] = "http:";
-    location["host"] = "sthj.chengdu.gov.cn";
-    location["hostname"] = "sthj.chengdu.gov.cn";
+    location["host"] = "app1.nmpa.gov.cn";
+    location["hostname"] = "app1.nmpa.gov.cn";
     location["port"] = "";
-    location["pathname"] = "/cdhbj/c110809/list_1.shtml";
-    location["search"] = "";
+    location["pathname"] = "/data_nmpa/face3/base.jsp";
+    location["search"] = '?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604&CbSlDlH0=qAcrcGq_iOL_iOL_iznJac_5yopkSbwxDbdVktp.leLqqkL';
     location["hash"] = "";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
     location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);
@@ -5353,7 +5353,7 @@ function setup(this_) {
         host: location.host,
         hostname: location.hostname,
         port: location.port,
-        pathname: "/es-search/search/07147a7d8dec42389444f412c0c92a5e",
+        pathname: location.pathname,
         search: location.search,
         hash: location.hash,
     }
@@ -5372,8 +5372,8 @@ function setup(this_) {
     documentPrototype.applets = 'applets';
     documentPrototype.bgColor = 'bgColor';
     documentPrototype.body = {'appendChild':function(x){}};
-    documentPrototype.characterSet = 'UTF-8';
-    documentPrototype.charset = 'UTF-8';
+    documentPrototype.characterSet = 'GBK';
+    documentPrototype.charset = 'GBK';
     documentPrototype.childElementCount = 1;
     documentPrototype.children = 'children';
     documentPrototype.compatMode = 'compatMode';

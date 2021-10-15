@@ -92,7 +92,7 @@ class Rshu5:
             logger.debug(f'状态码{res.status_code},Cookie不可用')
 
     def searchVerify(self, search_url):
-        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s',true)};""" % search_url
+        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s')};""" % search_url
         search_ctx = execjs.compile(search_code)
         search_url_ = search_ctx.call('get_search').replace(':80', '')
         print(search_url_)
@@ -102,10 +102,10 @@ class Rshu5:
 
 
 if __name__ == '__main__':
-    cookie_s = 'azSsQE5NvspcS'
-    cookie_t = 'azSsQE5NvspcT'
-    base_url = 'http://sthj.chengdu.gov.cn/cdhbj/c110809/list_1.shtml'
-    ts_url = 'http://sthj.chengdu.gov.cn/4pUrbNyi8V8b/0fTdgdleQDPV.b795048.js'
+    cookie_s = 'neCYtZEjo8GmS'
+    cookie_t = 'neCYtZEjo8GmT'
+    base_url = 'http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604'
+    ts_url = 'http://app1.nmpa.gov.cn/ZvbYc1RuNkYg/h2XbjSpBo3BD.a670748.js'
     while True:
         startTime = time.time()
         temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
@@ -114,5 +114,5 @@ if __name__ == '__main__':
             logger.success(f'base_url -> {base_url} -> {cookies}')
             costTime = format(time.time() - startTime, '.2f')
             logger.debug(f'Total Cost: {costTime}s')
-        temp_gx.searchVerify("/es-search/search/07147a7d8dec42389444f412c0c92a5e?_template=zhaofa/sthjj_list.ejs&_isAgg=1&_pageSize=15&page=2")
+        temp_gx.searchVerify("content.jsp?tableId=25&tableName=TABLE25&tableView=国产药品&Id=109228")
         break
