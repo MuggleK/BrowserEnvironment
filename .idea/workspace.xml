@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c3308efe-06f4-4149-b455-bea71085178a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Location.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Location.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Navigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/browser/Window.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/browser/Window.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatVm/plugin/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/CatVm/plugin/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catvm.build.js" beforeDir="false" afterPath="$PROJECT_DIR$/catvm.build.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rshu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rshu_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rshu_5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +40,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Node.js.index.js">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.Rshu_5">
     <configuration name="Window.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/CatVm/browser/Window.js" working-dir="$PROJECT_DIR$/CatVm/browser">
       <method v="2" />
     </configuration>
@@ -115,8 +122,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Rshu_5" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -147,12 +159,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1302" y="296" key="#xdebugger.evaluate" timestamp="1634022933871">

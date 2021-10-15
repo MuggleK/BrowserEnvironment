@@ -92,9 +92,9 @@ class Rshu5:
             logger.debug(f'状态码{res.status_code},Cookie不可用')
 
     def searchVerify(self, search_url):
-        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s')};""" % search_url
+        search_code = self.full_code + """var get_search = function(){return XMLHttpRequest.prototype.open('GET','%s',true)};""" % search_url
         search_ctx = execjs.compile(search_code)
-        search_url_ = search_ctx.call('get_search').replace('80:','')
+        search_url_ = search_ctx.call('get_search').replace(':80', '')
         print(search_url_)
         search_res = self.session.post(url=search_url_, headers=self.session.headers, proxies=self.proxy)
         print(search_res.status_code)
@@ -102,10 +102,10 @@ class Rshu5:
 
 
 if __name__ == '__main__':
-    cookie_s = 'DLjfPow8PDr4S'
-    cookie_t = 'DLjfPow8PDr4T'
-    base_url = 'http://pss-system.cnipa.gov.cn/sipopublicsearch/portal/uiIndex.shtml'
-    ts_url = 'http://pss-system.cnipa.gov.cn/aHL4R4Ymqy9a/dw6QS0gQCF9o.5780574.js'
+    cookie_s = 'azSsQE5NvspcS'
+    cookie_t = 'azSsQE5NvspcT'
+    base_url = 'http://sthj.chengdu.gov.cn/cdhbj/c110809/list_1.shtml'
+    ts_url = 'http://sthj.chengdu.gov.cn/4pUrbNyi8V8b/0fTdgdleQDPV.b795048.js'
     while True:
         startTime = time.time()
         temp_gx = Rshu5(base_url, ts_url, cookie_s, cookie_t)
@@ -114,5 +114,5 @@ if __name__ == '__main__':
             logger.success(f'base_url -> {base_url} -> {cookies}')
             costTime = format(time.time() - startTime, '.2f')
             logger.debug(f'Total Cost: {costTime}s')
-        # temp_gx.searchVerify("search.jsp?tableId=60&bcId=152911821636644848557900526892")
+        temp_gx.searchVerify("/es-search/search/07147a7d8dec42389444f412c0c92a5e?_template=zhaofa/sthjj_list.ejs&_isAgg=1&_pageSize=15&page=2")
         break

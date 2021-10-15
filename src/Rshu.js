@@ -1861,14 +1861,14 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] = "http://app1.nmpa.gov.cn/data_nmpa/face3/dir.html?type=yp&CbSlDlH0=qGcUcqqHkaZHkaZHkZAUk_KqYPuF1kstCdXcSt2s5cqqqqZ";
-    location["origin"] = "http://app1.nmpa.gov.cn";
+    location["href"] = "http://sthj.chengdu.gov.cn/cdhbj/c110809/list_1.shtml";
+    location["origin"] = "http://sthj.chengdu.gov.cn";
     location["protocol"] = "http:";
-    location["host"] = "app1.nmpa.gov.cn";
-    location["hostname"] = "app1.nmpa.gov.cn";
+    location["host"] = "sthj.chengdu.gov.cn";
+    location["hostname"] = "sthj.chengdu.gov.cn";
     location["port"] = "";
-    location["pathname"] = "/data_nmpa/face3/base.jsp";
-    location["search"] = "?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034";
+    location["pathname"] = "/cdhbj/c110809/list_1.shtml";
+    location["search"] = "";
     location["hash"] = "";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
     location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);
@@ -5353,7 +5353,7 @@ function setup(this_) {
         host: location.host,
         hostname: location.hostname,
         port: location.port,
-        pathname: "/data_nmpa/face3/content.jsp",
+        pathname: "/es-search/search/07147a7d8dec42389444f412c0c92a5e",
         search: location.search,
         hash: location.hash,
     }
@@ -5372,8 +5372,8 @@ function setup(this_) {
     documentPrototype.applets = 'applets';
     documentPrototype.bgColor = 'bgColor';
     documentPrototype.body = {'appendChild':function(x){}};
-    documentPrototype.characterSet = 'GBK';
-    documentPrototype.charset = 'GBK';
+    documentPrototype.characterSet = 'UTF-8';
+    documentPrototype.charset = 'UTF-8';
     documentPrototype.childElementCount = 1;
     documentPrototype.children = 'children';
     documentPrototype.compatMode = 'compatMode';
