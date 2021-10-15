@@ -102,6 +102,9 @@ class Rshu5:
 
 
 if __name__ == '__main__':
+    """
+    后缀环境修改：location & document.charset & document.characterSet
+    """
     cookie_s = 'neCYtZEjo8GmS'
     cookie_t = 'neCYtZEjo8GmT'
     base_url = 'http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604'
