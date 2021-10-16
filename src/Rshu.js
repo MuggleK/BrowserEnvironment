@@ -5347,15 +5347,15 @@ function setup(this_) {
             }
             return {}
         },
-        href: "http://app1.nmpa.gov.cn/data_nmpa/face3/search.jsp?tableId=25&bcId=152904713761213296322795806604",
-        origin: "http://app1.nmpa.gov.cn",
-        protocol: 'http:',
-        host: 'app1.nmpa.gov.cn',
-        hostname: 'app1.nmpa.gov.cn',
-        port: "",
+        href: location.href,
+        origin: location.origin,
+        protocol: location.protocol,
+        host: location.host,
+        hostname: location.hostname,
+        port: location.port,
         pathname: '/data_nmpa/face3/search.jsp',
-        search: '?tableId=25&bcId=152904713761213296322795806604',
-        hash: '',
+        search: location.search,
+        hash: location.hash,
     }
     var documentConstructor = function Document() {}
     //保护构造函数
