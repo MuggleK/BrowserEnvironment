@@ -744,6 +744,23 @@ function setup(this_)
     window['BluetoothUUID'] = new (class BluetoothUUID {});
     window['PerformanceEntry'] = new (class PerformanceEntry{});
     window['HTMLFormElement'] = new (class HTMLFormElement{});
+    window['HTMLFormElement'].prototype = {
+        checkValidity: function checkValidity(xx,yy){
+            debugger;
+        },
+        reportValidity: function reportValidity(xx,yy){
+            debugger;
+        },
+        requestSubmit: function requestSubmit(xx,yy){
+            debugger;
+        },
+        reset: function reset(xx,yy){
+            debugger;
+        },
+        submit: function submit(xx,yy){
+            debugger;
+        }
+    }
     // window['referer'] = "https://www.douyin.com/";
 
 
