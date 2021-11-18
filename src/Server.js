@@ -40,19 +40,18 @@ function getCookie(ht, ck, link) {
 
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
- 
+var d_count = 0
 app.post('/rshu', urlencodedParser, function(request, response){
     ht = request.body['html']
     ck = request.body['cookie_s']
     link = request.body['link']
     cookies = getCookie(ht, ck, link)
+    console.warn(d_count + 1, '次调用', {'Income Data': {'cookie_name': ck, 'request_url': link}, 'Out Cookies:': cookies})
     response.send(cookies)
+    d_count++
 });
 
 var server = app.listen(7012, function(){
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log("address: %s, port: %d", host, port);
 });
 
 

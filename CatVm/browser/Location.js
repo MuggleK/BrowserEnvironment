@@ -31,14 +31,14 @@ function setup(this_) {
     var location = new Location();
     ////////////////////////////////////////////////////////////////////////////////
     location["ancestorOrigins"] =class DOMStringList {};
-    location["href"] = "http://app1.nmpa.gov.cn/data_nmpa/face3/dir.html?type=yp&CbSlDlH0=qGcUcqqHkaZHkaZHkZAUk_KqYPuF1kstCdXcSt2s5cqqqqZ";
-    location["origin"] = "http://app1.nmpa.gov.cn";
-    location["protocol"] = "http:";
-    location["host"] = "app1.nmpa.gov.cn";
-    location["hostname"] = "app1.nmpa.gov.cn";
+    location["href"] = "https://www.urumqi-air.com/";
+    location["origin"] = "https://www.urumqi-air.com";
+    location["protocol"] = "https:";
+    location["host"] = "www.urumqi-air.com";
+    location["hostname"] = "www.urumqi-air.com";
     location["port"] = "";
-    location["pathname"] = "/data_nmpa/face3/base.jsp";
-    location["search"] = "?tableId=63&tableName=TABLE63&title=%BE%B3%C4%DA%C9%FA%B2%FA%D2%A9%C6%B7%B1%B8%B0%B8%D0%C5%CF%A2%B9%AB%CA%BE&bcId=152904798868514040213090136034";
+    location["pathname"] = "/";
+    location["search"] = "";
     location["hash"] = "";
     location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
     location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);

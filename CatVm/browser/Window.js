@@ -351,6 +351,10 @@ function setup(this_)
     window['BluetoothUUID'] = new (class BluetoothUUID {});
     window['PerformanceEntry'] = new (class PerformanceEntry{});
     window['HTMLFormElement'] = new (class HTMLFormElement{});
+    window['HTMLFormElement']['prototype'] = {
+        'submit': function (xx){debugger;}
+    }
+
     // window['referer'] = "https://www.douyin.com/";
 
     

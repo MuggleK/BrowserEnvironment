@@ -508,6 +508,9 @@ function setup(this_) {
         if(x=='body'){
             return [window.document,{}]
         }
+        if(x == 'head'){
+            return [{appendChild:function (xx){return window.document}}]
+        }
         return []
     }; safefunction(documentPrototype.getElementsByTagName);
     documentPrototype.getElementsByTagNameNS = function getElementsByTagNameNS() {debugger;}; safefunction(documentPrototype.getElementsByTagNameNS);

@@ -24,16 +24,18 @@ def get_cookie(url):
         'link': r.url
     }
     cookie_full = requests.post('http://127.0.0.1:7012/rshu', data=data).text
-    headers['cookie'] = cookie_full
+    headers['cookie'] = ';'.join([cookie_full] + [i for i in cookie_s.split(';') if i.split('=')[0].endswith('S')])
 
     rs = session.get(url=url, headers=headers)
     if rs.status_code == 200:
-        logger.success(f'当前url -> {url} -> {cookie_full}')
+        logger.success(f'当前url -> {url} -> {headers["cookie"]}')
         rs.encoding = rs.apparent_encoding
         return rs.text
 
+
 if __name__ == '__main__':
     startTime = time.time()
-    res = get_cookie('http://www.pudong.gov.cn/shpd/department/019010/019010004/')
-    costTime = format(time.time() - startTime, '.2f')
-    logger.debug(f'Total Cost: {costTime}s')
+    res = get_cookie('http://app1.nmpa.gov.cn/data_nmpa/face3/base.jsp?tableId=25&tableName=TABLE25&title=%B9%FA%B2%FA%D2%A9%C6%B7&bcId=152904713761213296322795806604')
+    if res:
+        costTime = format(time.time() - startTime, '.2f')
+        logger.debug(f'Total Cost: {costTime}s')
