@@ -1,14 +1,11 @@
 {
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
     
         {
             "type": "node",
             "request": "launch",
-            "name": "启动程序",
+            "name": "run",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -17,7 +14,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "浏览器无环境",
+            "name": "without environment",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -27,12 +24,12 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "浏览器无环境 生产环境",
+            "name": "without environment for production",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "runtimeExecutable": "node-inspect",
-            "program": "${workspaceFolder}\\catvm.build.js"
+            "program": "${workspaceFolder}\\node_env.js"
         }
     ]
 }

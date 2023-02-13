@@ -1,4 +1,4 @@
-var catvm = require("../catvm/CatVm.js");
+var catvm = require("../vm/vm.js");
 catvm.run(this, {
     proxy: true,
     log: true,
@@ -6,7 +6,3 @@ catvm.run(this, {
 });
 
 debugger;
-
-
-
-
