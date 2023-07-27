@@ -178,8 +178,3 @@ Object.defineProperty(window, "HTMLElement", {
     writable: true,
     value: htmlElementConstructor
 });
-Object.defineProperty(window, "HTMLElement", {
-    configurable: true,
-    writable: true,
-    value: HTMLElement
-});

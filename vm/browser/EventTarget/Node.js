@@ -103,8 +103,3 @@ Object.defineProperty(window, "Node", {
     writable: true,
     value: nodeConstructor
 });
-Object.defineProperty(window, "Node", {
-    configurable: true,
-    writable: true,
-    value: Node
-});

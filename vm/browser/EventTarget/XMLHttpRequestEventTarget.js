@@ -60,8 +60,3 @@ Object.defineProperty(window, "XMLHttpRequestEventTarget", {
     writable: true,
     value: xmlHttpRequestEventTargetConstructor
 });
-Object.defineProperty(window, "XMLHttpRequestEventTarget", {
-    configurable: true,
-    writable: true,
-    value: XMLHttpRequestEventTarget
-});

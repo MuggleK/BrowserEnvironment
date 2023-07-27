@@ -63,8 +63,3 @@ Object.defineProperty(window, "PointerEvent", {
     writable: true,
     value: pointerEventConstructor
 });
-Object.defineProperty(window, "PointerEvent", {
-    configurable: true,
-    writable: true,
-    value: PointerEvent
-});

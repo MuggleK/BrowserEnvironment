@@ -72,11 +72,6 @@ Object.defineProperty(window, "localStorage", {
     writable: true,
     value: storageConstructor
 });
-Object.defineProperty(window, "localStorage", {
-    configurable: true,
-    writable: true,
-    value: localStorage
-});
 
 var sessionStorage = new Storage();
 sessionStorage['length'] = Object.keys(sessionStorage).length;
@@ -86,11 +81,6 @@ Object.defineProperty(window, "sessionStorage", {
     configurable: true,
     writable: true,
     value: storageConstructor
-});
-Object.defineProperty(window, "sessionStorage", {
-    configurable: true,
-    writable: true,
-    value: sessionStorage
 });
 
 // 把属性继续定义到 静态属性中
@@ -112,9 +102,4 @@ Object.defineProperty(window, "Storage", {
     configurable: true,
     writable: true,
     value: storageConstructor
-});
-Object.defineProperty(window, "Storage", {
-    configurable: true,
-    writable: true,
-    value: Storage
 });

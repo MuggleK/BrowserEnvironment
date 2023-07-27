@@ -73,8 +73,3 @@ Object.defineProperty(window, "DOMException", {
     writable: true,
     value: domExceptionConstructor
 });
-Object.defineProperty(window, "DOMException", {
-    configurable: true,
-    writable: true,
-    value: DOMException
-});

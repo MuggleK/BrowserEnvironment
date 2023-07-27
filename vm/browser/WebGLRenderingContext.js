@@ -683,8 +683,3 @@ Object.defineProperty(window, "WebGLRenderingContext", {
     writable: true,
     value: webGLRenderingContextConstructor
 });
-Object.defineProperty(window, "WebGLRenderingContext", {
-    configurable: true,
-    writable: true,
-    value: WebGLRenderingContext
-});

@@ -69,8 +69,3 @@ Object.defineProperty(window, "DOMTokenList", {
     writable: true,
     value: domTokenListConstructor
 });
-Object.defineProperty(window, "DOMTokenList", {
-    configurable: true,
-    writable: true,
-    value: DOMTokenList
-});

@@ -4,6 +4,18 @@
 };safefunction(navigatorConstructor);
 var navigatorPrototype =  {};
 
+navigatorConstructor.prototype = navigatorPrototype;
+var Navigator = function Navigator() {};    safefunction(Navigator);
+var navigator = new Navigator();
+navigator.__proto__ = navigatorPrototype;
+var get_webdriver = function() {return false;}; safefunction(get_webdriver);
+//伪造构造函数和名字
+Object.defineProperty(navigator.__proto__, "webdriver", {
+    configurable: true,
+    enumerable: true,
+    get: get_webdriver,
+    set: undefined
+});
 //伪造构造函数和名字
 Object.defineProperties(navigatorPrototype, {
     constructor: {
@@ -16,13 +28,8 @@ Object.defineProperties(navigatorPrototype, {
         configurable: true
     }
 });
-navigatorConstructor.prototype = navigatorPrototype;
-var Navigator = function Navigator() {};    safefunction(Navigator);
-var navigator = new Navigator();
-navigator.__proto__ = navigatorPrototype;
 
 ////////////////////////////////////////////////////////////////////////////////
-navigator.__proto__["webdriver"] = undefined;
 navigator.__proto__["vendorSub"] = "";
 navigator.__proto__["productSub"] = "20030107";
 navigator.__proto__["vendor"] = "Google Inc.";
@@ -40,10 +47,10 @@ navigator.__proto__["hardwareConcurrency"] = 8;
 navigator.__proto__["cookieEnabled"] = true;
 navigator.__proto__["appCodeName"] = "Mozilla";
 navigator.__proto__["appName"] = "Netscape";
-navigator.__proto__["appVersion"] = "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36";
+navigator.__proto__["appVersion"] = "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36";
 navigator.__proto__["platform"] = "Win32";
 navigator.__proto__["product"] = "Gecko";
-navigator.__proto__["userAgent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36";
+navigator.__proto__["userAgent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36";
 navigator.__proto__["language"] = "zh-CN";
 navigator.__proto__["languages"] = ['zh-CN'];
 navigator.__proto__["onLine"] = true;
@@ -208,14 +215,13 @@ navigator.__proto__["plugins"]['item'] = {name: 'item'};
 ///navigator 比较特殊 他会把属性继续定义到 静态属性中 所以我们也做一下
 for(let key in navigator.__proto__){
     navigator[key] = navigator.__proto__[key]; //神奇的操作
-    if(typeof(navigator.__proto__[key]) != "function")
-    {
-        navigator.__proto__.__defineGetter__(key, function() {debugger;
-            var e = new Error();
+    if (typeof (navigator.__proto__[key]) != "function" && key != "webdriver") {
+        navigator.__proto__.__defineGetter__(key, function() {
+            debugger ;var e = new Error();
             e.name = "TypeError";
             e.message = "Illegal invocation";
             e.stack = "VM988:1 Uncaught TypeError: Illegal invocation \r\n \
-            at <anonymous>:1:19";
+    at <anonymous>:1:19";
             throw e;
         });
     }

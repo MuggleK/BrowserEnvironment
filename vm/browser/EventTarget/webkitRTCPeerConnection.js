@@ -102,8 +102,3 @@ Object.defineProperty(window, "webkitRTCPeerConnection", {
     writable: true,
     value: webkitrtcPeerConnectionConstructor
 });
-Object.defineProperty(window, "webkitRTCPeerConnection", {
-    configurable: true,
-    writable: true,
-    value: webkitRTCPeerConnection
-});

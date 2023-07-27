@@ -53,8 +53,3 @@ Object.defineProperty(window, "Bluetooth", {
     writable: true,
     value: bluetoothConstructor
 });
-Object.defineProperty(window, "Bluetooth", {
-    configurable: true,
-    writable: true,
-    value: Bluetooth
-});

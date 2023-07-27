@@ -52,7 +52,7 @@ memoryInfo = vmProxy(memoryInfo);
 //每个模块互相不依赖 采用依赖注入模式 减少耦合
 
 //注入到window
-Object.defineProperty(window, "meMemoryInfo", {
+Object.defineProperty(window, "MemoryInfo", {
     configurable: true,
     writable: true,
     value: memoryInfoConstructor

@@ -141,3 +141,4 @@
     this.atob = atob, this.btoa = btoa;
     e.atob = atob, e.btoa = btoa;
 }(window);
+delete __dirname

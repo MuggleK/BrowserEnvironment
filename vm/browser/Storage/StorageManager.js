@@ -59,8 +59,3 @@ Object.defineProperty(window, "StorageManager", {
     writable: true,
     value: storageManagerConstructor
 });
-Object.defineProperty(window, "StorageManager", {
-    configurable: true,
-    writable: true,
-    value: StorageManager
-});

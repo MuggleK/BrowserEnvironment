@@ -59,8 +59,3 @@ Object.defineProperty(window, "PluginArray", {
     writable: true,
     value: pluginArrayConstructor
 });
-Object.defineProperty(window, "PluginArray", {
-    configurable: true,
-    writable: true,
-    value: PluginArray
-});

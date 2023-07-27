@@ -71,8 +71,3 @@ Object.defineProperty(window, "WebSocket", {
     writable: true,
     value: webSocketConstructor
 });
-Object.defineProperty(window, "WebSocket", {
-    configurable: true,
-    writable: true,
-    value: WebSocket
-});

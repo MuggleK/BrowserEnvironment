@@ -234,8 +234,3 @@ Object.defineProperty(window, "Element", {
     writable: true,
     value: elementConstructor
 });
-Object.defineProperty(window, "Element", {
-    configurable: true,
-    writable: true,
-    value: Element
-});

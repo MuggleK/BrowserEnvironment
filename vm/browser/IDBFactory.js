@@ -47,11 +47,6 @@ Object.defineProperty(window, "IDBFactory", {
     writable: true,
     value: idbFactoryConstructor
 });
-Object.defineProperty(window, "IDBFactory", {
-    configurable: true,
-    writable: true,
-    value: IDBFactory
-});
 
 var indexedDB = new IDBFactory();
 //注入到window

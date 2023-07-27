@@ -83,8 +83,3 @@ Object.defineProperty(this, "EventTarget", {
     writable: true,
     value: eventTargetConstructor
 });
-Object.defineProperty(this, "EventTarget", {
-    configurable: true,
-    writable: true,
-    value: EventTarget
-});

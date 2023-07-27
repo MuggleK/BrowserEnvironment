@@ -1,6 +1,6 @@
-;var offlineAudioContextPrototype = function OfflineAudioContext() {};
+;var offlineAudioContextConstructor = function OfflineAudioContext() {};
 //保护构造函数
-safefunction(offlineAudioContextPrototype);
+safefunction(offlineAudioContextConstructor);
 
 var offlineAudioContextPrototype = new (class OfflineAudioContext {});
 //下面函数都需要被保护
@@ -20,7 +20,7 @@ offlineAudioContextPrototype.suspend = function suspend() {debugger;};   safefun
 
 Object.defineProperties(offlineAudioContextPrototype, {
     constructor: {
-        value: offlineAudioContextPrototype,
+        value: offlineAudioContextConstructor,
         writable: true,
         configurable: true
     },
@@ -29,7 +29,7 @@ Object.defineProperties(offlineAudioContextPrototype, {
         configurable: true
     }
 });
-
+offlineAudioContextConstructor.prototype = offlineAudioContextPrototype;
 var OfflineAudioContext = function() {};
 OfflineAudioContext.__proto__ = function BaseAudioContext() {};
 //保护函数
@@ -65,10 +65,5 @@ for (let key in OfflineAudioContext.prototype) {
 Object.defineProperty(window, "OfflineAudioContext", {
     configurable: true,
     writable: true,
-    value: offlineAudioContextPrototype
-});
-Object.defineProperty(window, "OfflineAudioContext", {
-    configurable: true,
-    writable: true,
-    value: OfflineAudioContext
+    value: offlineAudioContextConstructor
 });

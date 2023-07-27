@@ -24,14 +24,14 @@ safefunction(Location);
 var location = new Location();
 ////////////////////////////////////////////////////////////////////////////////
 location["ancestorOrigins"] =class DOMStringList {};
-location["href"] = "https://www.urumqi-air.com/";
-location["origin"] = "https://www.urumqi-air.com";
-location["protocol"] = "https:";
-location["host"] = "www.urumqi-air.com";
-location["hostname"] = "www.urumqi-air.com";
+location["href"] = "http://zxgk.court.gov.cn/xgl/";
+location["origin"] = "http://zxgk.court.gov.cn";
+location["protocol"] = "http:";
+location["host"] = "zxgk.court.gov.cn";
+location["hostname"] = "zxgk.court.gov.cn";
 location["port"] = "";
-location["pathname"] = "/";
-location["search"] = "";
+location["pathname"] = "/xgl/";
+location["search"] = '';
 location["hash"] = "";
 location["assign"] =function assign(){debugger;}; safefunction(location["assign"]); //给每个函数 添加伪造保护  并且每个函数体内自动添加debugger
 location["reload"] =function reload(){debugger;}; safefunction(location["reload"]);

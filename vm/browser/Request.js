@@ -67,8 +67,3 @@ Object.defineProperty(window, "Request", {
     writable: true,
     value: requestConstructor
 });
-Object.defineProperty(window, "Request", {
-    configurable: true,
-    writable: true,
-    value: Request
-});

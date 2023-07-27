@@ -107,8 +107,3 @@ Object.defineProperty(window, "HTMLMediaElement", {
     writable: true,
     value: htmlMediaElementConstructor
 });
-Object.defineProperty(window, "HTMLMediaElement", {
-    configurable: true,
-    writable: true,
-    value: HTMLMediaElement
-});

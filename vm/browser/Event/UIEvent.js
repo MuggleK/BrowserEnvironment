@@ -59,8 +59,3 @@ Object.defineProperty(window, "UIEvent", {
     writable: true,
     value: uiEventConstructor
 });
-Object.defineProperty(window, "UIEvent", {
-    configurable: true,
-    writable: true,
-    value: UIEvent
-});

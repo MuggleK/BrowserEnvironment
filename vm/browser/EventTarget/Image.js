@@ -80,8 +80,3 @@ Object.defineProperty(window, "Image", {
     writable: true,
     value: imageConstructor
 });
-Object.defineProperty(window, "Image", {
-    configurable: true,
-    writable: true,
-    value: Image
-});

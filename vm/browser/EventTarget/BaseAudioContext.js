@@ -82,8 +82,3 @@ Object.defineProperty(window, "BaseAudioContext", {
     writable: true,
     value: baseAudioContextConstructor
 });
-Object.defineProperty(window, "BaseAudioContext", {
-    configurable: true,
-    writable: true,
-    value: BaseAudioContext
-});

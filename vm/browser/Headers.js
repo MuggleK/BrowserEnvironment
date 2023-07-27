@@ -58,8 +58,3 @@ Object.defineProperty(window, "Headers", {
     writable: true,
     value: headersConstructor
 });
-Object.defineProperty(window, "Headers", {
-    configurable: true,
-    writable: true,
-    value: Headers
-});

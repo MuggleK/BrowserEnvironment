@@ -53,8 +53,3 @@ Object.defineProperty(window, "PerformanceEntry", {
     writable: true,
     value: performanceEntryConstructor
 });
-Object.defineProperty(window, "PerformanceEntry", {
-    configurable: true,
-    writable: true,
-    value: PerformanceEntry
-});

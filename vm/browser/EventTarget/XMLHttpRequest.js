@@ -79,8 +79,3 @@ Object.defineProperty(window, "XMLHttpRequest", {
     writable: true,
     value: xmlHttpRequestConstructor
 });
-Object.defineProperty(window, "XMLHttpRequest", {
-    configurable: true,
-    writable: true,
-    value: XMLHttpRequest
-});

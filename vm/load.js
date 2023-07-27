@@ -71,11 +71,11 @@ function load_env(config) {
     code += fs.readFileSync(`../vm/browser/Event/MouseEvent.js`) + '\r\n'
     code += fs.readFileSync(`../vm/browser/Event/PointerEvent.js`) + '\r\n'
 
-    // 开启日志
-    code += 'vm_config.log=true' + '\r\n' + ';'
-
     // 加载兜底js
     code = readFilesInDirectory('../vm/polyfill', code)
+
+    // 开启日志
+    code += 'vm_config.log=true' + '\r\n' + ';'
 
     return code
 }

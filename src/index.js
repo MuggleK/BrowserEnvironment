@@ -10,7 +10,7 @@ let env_code = load_env({
 let code = fs.readFileSync(`../src/code.js`) + '\r\n'
 
 const vm = new VM()
-const script = new VMScript(env_code + code, `vm.js`);
+const script = new VMScript(env_code + code, `调试.js`);
 debugger;
 let result = vm.run(script);
 console.log(result)

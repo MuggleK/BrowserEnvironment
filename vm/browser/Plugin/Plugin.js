@@ -60,8 +60,3 @@ Object.defineProperty(window, "Plugin", {
     writable: true,
     value: pluginConstructor
 });
-Object.defineProperty(window, "Plugin", {
-    configurable: true,
-    writable: true,
-    value: Plugin
-});

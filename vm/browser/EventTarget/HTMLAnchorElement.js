@@ -82,8 +82,3 @@ Object.defineProperty(window, "HTMLAnchorElement", {
     writable: true,
     value: htmlAnchorElementConstructor
 });
-Object.defineProperty(window, "HTMLAnchorElement", {
-    configurable: true,
-    writable: true,
-    value: HTMLAnchorElement
-});

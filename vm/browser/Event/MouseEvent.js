@@ -75,8 +75,3 @@ Object.defineProperty(window, "MouseEvent", {
     writable: true,
     value: mouseEventConstructor
 });
-Object.defineProperty(window, "MouseEvent", {
-    configurable: true,
-    writable: true,
-    value: MouseEvent
-});

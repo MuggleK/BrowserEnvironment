@@ -72,8 +72,3 @@ Object.defineProperty(window, "MediaStreamTrack", {
     writable: true,
     value: mediaStreamTrackConstructor
 });
-Object.defineProperty(window, "MediaStreamTrack", {
-    configurable: true,
-    writable: true,
-    value: MediaStreamTrack
-});

@@ -70,8 +70,3 @@ Object.defineProperty(window, "Event", {
     writable: true,
     value: eventConstructor
 });
-Object.defineProperty(window, "Event", {
-    configurable: true,
-    writable: true,
-    value: Event
-});

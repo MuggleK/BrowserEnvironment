@@ -65,7 +65,7 @@ window["opener"] = null;
 window["parent"] = window;
 window["frameElement"] = null;
 window["navigator"] = new (class Navigator {});
-window["origin"] = 'https://login.taobao.com';
+window["origin"] = 'http://zxgk.court.gov.cn';
 window["external"] = new (class External {});
 window["screen"] = new (class Screen {});
 window["innerWidth"] = 300;
@@ -250,13 +250,11 @@ window["scrollBy"] = function scrollBy(){debugger;};   safefunction(window["scro
 window["scrollTo"] = function scrollTo(){debugger;};   safefunction(window["scrollTo"]);
 window["setInterval"] = function setInterval(x,y){
     debugger;
-    if (y === 0)
-        x();
+    // if (y === 0) x();
 };   safefunction(window["setInterval"]);
 window["setTimeout"] = function setTimeout(x,y){
     debugger;
-    if (y === 0)
-        x();
+    // if (y === 0) x();
 };   safefunction(window["setTimeout"]);
 window["stop"] = function stop(){debugger;};   safefunction(window["stop"]);
 window["webkitCancelAnimationFrame"] = function webkitCancelAnimationFrame(){debugger;};   safefunction(window["webkitCancelAnimationFrame"]);
@@ -327,6 +325,7 @@ window["caches"] = new (class CacheStorage {});
 window["ondevicemotion"] = null;
 window["ondeviceorientation"] = null;
 window["ondeviceorientationabsolute"] = null;
+
 window["showDirectoryPicker"] = function showDirectoryPicker(){debugger;};   safefunction(window["showDirectoryPicker"]);
 window["showOpenFilePicker"] = function showOpenFilePicker(){debugger;};   safefunction(window["showOpenFilePicker"]);
 window["showSaveFilePicker"] = function showSaveFilePicker(){debugger;};   safefunction(window["showSaveFilePicker"]);
@@ -344,7 +343,6 @@ window["openDatabase"] = function openDatabase(a,b,c,d){
 };   safefunction(window["openDatabase"]);
 window["webkitRequestFileSystem"] = function webkitRequestFileSystem(){debugger;};   safefunction(window["webkitRequestFileSystem"]);
 window["webkitResolveLocalFileSystemURL"] = function webkitResolveLocalFileSystemURL(){debugger;};   safefunction(window["webkitResolveLocalFileSystemURL"]);
-window["qihoo"] = new (class Object {});
 window["WebUIListener"] = undefined;
 window["cr"] = new (class Object {});
 window["themeChanged"] = function themeChanged(){debugger;};   safefunction(window["themeChanged"]);
@@ -386,7 +384,9 @@ window['HTMLFormElement'].prototype = {
 };
 window['MutationObserver'] = function MutationObserver(xx){
     return {
-        observe: function observe(xx, yy){},
+        disconnect: function disconnect(xx, yy) {debugger},
+        observe: function disconnect(xx, yy) {debugger},
+        takeRecords: function disconnect(xx, yy) {debugger},
     }
 };
 window['WebKitMutationObserver'] = function WebKitMutationObserver(xx){
@@ -400,9 +400,15 @@ window['PerformanceObserver'] = new (class PerformanceObserver{});
 window['PerformanceObserver']['supportedEntryTypes'] = ['element', 'event', 'first-input', 'largest-contentful-paint', 'layout-shift', 'longtask', 'mark', 'measure', 'navigation', 'paint', 'resource'];
 window['ReadableStreamDefaultController'] = new (class ReadableStreamDefaultController{});
 window['Audio'] = new (class Audio{});
-
-
-// window['referer'] = "https://www.douyin.com/";
+window['styleMedia'] = function styleMedia() {
+    return {
+        type: "screen",
+        matchMedium: function matchMedium(xx, yy) {debugger},
+    }
+};
+window['launchQueue'] = new (class LaunchQueue {});
+window['reportError'] = new (class reportError {});
+window['navigation'] = new (class Navigation {});
 
 
 //修改原型链

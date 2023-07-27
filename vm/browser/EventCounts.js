@@ -62,8 +62,3 @@ Object.defineProperty(window, "EventCounts", {
     writable: true,
     value: eventCountsConstructor
 });
-Object.defineProperty(window, "eventCounts", {
-    configurable: true,
-    writable: true,
-    value: eventCounts
-});

@@ -1,7 +1,4 @@
-;var domParser  = function DOMParser(){
-    //这里容易被检测
-    throw new TypeError("Illegal constructor");
-};safefunction(domParser);
+;var domParser  = function DOMParser(){};safefunction(domParser);
 var domParserPrototype =  new (class DOMParser{});
 
 //伪造构造函数和名字
