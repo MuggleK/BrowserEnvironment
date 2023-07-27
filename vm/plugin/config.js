@@ -1,32 +1,20 @@
-//全局配置项
+;vm_config = {};
 
-global.vm_config = {};
-
-function getConfig() {
-    return global.vm_config;
-}
-
-function getConfigById(key) {
-    if (typeof (global.vm_config) != "undefined" && typeof (global.vm_config[key]) != "undefined") {
-        return global.vm_config[key];
+vm_config.getConfigById = function (key) {
+    if (typeof (vm_config) != "undefined" && typeof (vm_config[key]) != "undefined") {
+        return vm_config[key];
     }
     return undefined;
 };
 
-function setConfig(config, initlog) {
+vm_config.setConfig = function (config, initlog) {
     if (initlog == undefined || initlog == false) {
         for (var key in config) {
             if (key != "log") {
-                global.vm_config[key] = config[key];
+                vm_config[key] = config[key];
             }
         }
     } else {
-        global.vm_config = config;
+        vm_config = config;
     }
 };
-
-module.exports = {
-    getConfig,
-    setConfig,
-    getConfigById
-}

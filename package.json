@@ -4,7 +4,9 @@
   "dependencies": {
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
     "jsdom": "^21.1.0",
+    "vm2": "^3.9.19",
     "webpack": "^5.75.0"
   }
 }

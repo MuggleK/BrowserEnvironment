@@ -1,24 +1,18 @@
-//给对注入代理
-var config = require("./config.js");
-var log = require("./log.js");
-
-function VmProxy(object_){
-    var isproxy = config.getConfigById("proxy");
+// proxy代理
+;function vmProxy(object_){
+    var isproxy = vm_config.getConfigById("proxy");
     if(typeof (isproxy) == "boolean" && isproxy){
         return new Proxy(object_, {
             get (target, property) { 
-                log.info("Get",target.constructor.name,property,target[property]);
+                info("Get",target.constructor.name,property,target[property]);
                 return target[property];
             },
             set (target, property, value) {
-                log.info("set",target.constructor.name,property,value);
+                info("set",target.constructor.name,property,value);
                 target[property] = value;
                 return true;
             }
         });
     };
     return object_;
-}
-
-
-module.exports = VmProxy
+};

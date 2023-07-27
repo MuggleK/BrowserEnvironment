@@ -1,11 +1,9 @@
-var EventTarget = require("./EventTarget/EventTarget.js");
-
-var windowPropertiesConstructor  = function(){
+;var windowPropertiesConstructor  = function(){
 
     throw new TypeError("Illegal constructor");
 };
 
-var windowPropertiesPrototype =  EventTarget.new();
+var windowPropertiesPrototype =  new EventTarget();
 
 
 Object.defineProperties(windowPropertiesPrototype, {
@@ -19,8 +17,3 @@ Object.defineProperties(windowPropertiesPrototype, {
 windowPropertiesConstructor.prototype = windowPropertiesPrototype;
 var WindowProperties = function(){};
 WindowProperties.prototype = windowPropertiesPrototype;
-module.exports = {
-  new: function(){
-    return new WindowProperties();
-  }
-};

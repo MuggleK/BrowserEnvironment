@@ -17,10 +17,8 @@
     delete Function.prototype['toString']; //删除原型链上的toString
     set_native(Function.prototype, "toString", myToString); //自己定义个getter方法
     set_native(Function.prototype.toString, myFunction_toString_symbol, "function toString() { [native code] }"); //套个娃 保护一下我们定义的toString 否则就暴露了
-    this.func_set_natvie = (func) => {
+    this.safefunction = (func) => {
         set_native(func, myFunction_toString_symbol, `function ${myFunction_toString_symbol,func.name || ''}() { [native code] }`);
     }; //导出函数到globalThis
 }).call(this);
-
-module.exports = this.func_set_natvie;
 
